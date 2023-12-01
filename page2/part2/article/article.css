@@ -1,15 +1,54 @@
+.filter-btn {
+  cursor: pointer;
+}
+
 .article-keyvisual {
   width: 100%;
   height: 380px;
-  background: url("../img/key-visual.jpg"); // 假圖
+  /* background: url("../img/key-visual.jpg"); // 假圖 */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-attachment: local;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  animation: changeBackground 20s infinite;
+}
+
+@keyframes changeBackground {
+  0%,
+  33.33%,
+  66.66% {
+    opacity: 1;
+  }
+
+  0% {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-1.jpg?alt=media&token=059f5677-409b-4fc1-a772-baf1dece5063");
+  }
+
+  16.25% {
+    opacity: 0;
+  }
+
+  33.33% {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-2.jpg?alt=media&token=f28dbea4-af0c-4743-a75a-426198fe409e");
+  }
+  50% {
+    opacity: 0;
+  }
+  66.66% {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-3.jpg?alt=media&token=8f7f8f02-5066-452a-863c-a4e715d2657a");
+  }
+  83.33% {
+    opacity: 0;
+  }
+  100% {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fc1f43b40330333.577b708139a18.jpg?alt=media&token=787912b2-453f-41c5-b7a2-8c8c74d47033");
+  }
 }
 
 .article-keyvisual-content {
@@ -213,5 +252,15 @@
   }
   .readmore-word {
     font-size: var(--text-size-h3);
+  }
+  .readmore-arrow {
+    height: 8px;
+    margin-top: 3px;
+  }
+  .readmore-word:hover {
+    transform: translateX(-10px);
+  }
+  .readmore-word:hover + .readmore-arrow {
+    transform: translateX(10px);
   }
 }

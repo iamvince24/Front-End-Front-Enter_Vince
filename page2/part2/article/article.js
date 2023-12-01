@@ -9,10 +9,10 @@ const articleListContainer = document.querySelector(".articlelist");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 const fetchData = async () => {
-  const path = "../front-enter-export.json";
+  const dataPath = "../front-enter-export.json";
 
   try {
-    const response = await fetch(path);
+    const response = await fetch(dataPath);
     if (!response.ok) {
       throw new Error(
         `Network response was not ok, status: ${response.status}`
@@ -24,13 +24,20 @@ const fetchData = async () => {
 
     for (const key in data.article) {
       const articleCardList = data.article[key];
-      handleAppendChild(articleCardList);
+      appendArticleCard(articleCardList, articleCardList);
     }
+
+    var filteredData = [];
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", (event) => {
         if (event.target.classList.contains("filter-btn")) {
-          handleFilterClick(event.target);
+          filteredData = handleFilterClick(event.target);
+
+          filteredData.forEach((filteredKey) => {
+            const articleCardList = data.article[filteredKey];
+            appendArticleCard(articleCardList, filteredData);
+          });
         }
       });
     });
@@ -54,23 +61,11 @@ const fetchData = async () => {
         filterData = articleKeys.filter(
           (key) => data.article[key].classType === filterCondition
         );
-      } else if (
-        filterCondition === "台北" ||
-        filterCondition === "各地" ||
-        filterCondition === "高雄"
-      ) {
-        filterData = articleKeys.filter(
-          (key) => data.article[key].city === filterCondition
-        );
       }
-
-      for (var i = 0; i < filterData.length; i++) {
-        const articleCardList = data.article[filterData[i]];
-        handleAppendChild(articleCardList);
-      }
+      return filterData;
     }
 
-    function handleAppendChild(element) {
+    function appendArticleCard(element, filteredDataList) {
       const { city, rectangleUrl, name, preface } = element;
       const newArticleItem = document.createElement("article");
       newArticleItem.classList.add("articlelist-card");
@@ -112,61 +107,15 @@ const fetchData = async () => {
       const filterBtn = newArticleItem.querySelector(".filter-btn");
       if (filterBtn) {
         filterBtn.addEventListener("click", () => {
+          articleListContainer.innerHTML = "";
           const filterCondition = city;
-          if (
-            filterCondition === "台北" ||
-            filterCondition === "各地" ||
-            filterCondition === "高雄"
-          ) {
-            articleListContainer.innerHTML = "";
-            var filterData = articleKeys.filter(
-              (key) => data.article[key].city === filterCondition
-            );
-
-            for (var i = 0; i < filterData.length; i++) {
-              const articleCardList = data.article[filterData[i]];
-
-              const { city, rectangleUrl, name, preface } = articleCardList;
-              const newArticleItem = document.createElement("article");
-              newArticleItem.classList.add("articlelist-card");
-
-              newArticleItem.innerHTML = `
-              <div class="location">
-                <img
-                  class="location-icon"
-                  src="../img/One-location-icon.png"
-                  alt="location-icon"
-                />
-                <div class="click-effect filter-btn">${city}</div>
-              </div>
-              <div class="articlelist-content">
-                <div class="articlelist-pic-container">
-                  <img
-                    class="articlelist-pic"
-                    src=${rectangleUrl}
-                    alt="articlelist-picture"
-                  />
-                </div>
-                <p class="title">${name}</p>
-                <div class="text">
-                ${preface}
-                </div>
-                <div class="articlelist-readmore">
-                  <div class="readmore-word">read more</div>
-                  <img
-                    class="readmore-arrow"
-                    src="../img/Arrow-right-one.png"
-                    alt="readmore-arrow"
-                  />
-                </div>
-              </div>
-            `;
-
-              articleListContainer.appendChild(newArticleItem);
-            }
-
-            articleListContainer.appendChild(newArticleItem);
-          }
+          filterLocationData = filteredDataList.filter(
+            (key) => data.article[key].city === filterCondition
+          );
+          filterLocationData.forEach((filteredKey) => {
+            const articleCardList = data.article[filteredKey];
+            appendArticleCard(articleCardList, filterLocationData);
+          });
         });
       }
     }

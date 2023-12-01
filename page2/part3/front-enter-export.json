@@ -1,0 +1,465 @@
+{
+  "article": {
+    "-LNiP-cd31m_XrDZJxdl": {
+      "city": "台北",
+      "classType": "一對一",
+      "content": "<br>JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。<br><br>本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。<br><br>JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函數語言程式設計。它提供語法來操控文字、陣列、日期以及正規表示式等，不支援I/O，比如網路、儲存和圖形等，但這些都可以由它的宿主環境提供支援。它已經由ECMA（歐洲電腦製造商協會）通過ECMAScript實現語言的標準化。它被世界上的絕大多數網站所使用，也被世界主流瀏覽器（Chrome、IE、Firefox、Safari、Opera）支援。<br><br>雖然JavaScript與Java這門語言不管是在名字上，或是在語法上都有很多相似性，但這兩門程式語言從設計之初就有很大的不同，JavaScript的語言設計主要受到了Self（一種原型程式設計語言）和Scheme（一門函數語言程式設計語言）的影響。在語法結構上它又與C語言有很多相似（例如if條件語句、while迴圈、switch語句、do-while迴圈等）。<br><br>在用戶端，JavaScript在傳統意義上被實現為一種解釋語言，但在最近，它已經可以被即時編譯（JIT）執行。隨著最新的HTML5和CSS3語言標準的推行它還可用於遊戲、桌面和行動應用程式的開發和在伺服器端網路環境執行，如Node.js。",
+      "creatTime": 1539507849063,
+      "fee": "3000",
+      "foundYear": "10",
+      "mail": "aaa24295234@gmail.com",
+      "name": "彭彭的課程教學",
+      "phone": "0917-218-567",
+      "preface": "彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-1.jpg?alt=media&token=059f5677-409b-4fc1-a772-baf1dece5063",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fpic-1.jpg?alt=media&token=fd6366f0-62b5-48fe-b1d7-6be6f39f7a9a",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "React、Node.js、ES6",
+      "topic": "快速入門前端世界",
+      "totalDay": "30",
+      "uid": "-LNiP-cd31m_XrDZJxdl",
+      "weekHour": "16"
+    },
+    "-LNyOk-FQnejK4pZYqAi": {
+      "city": "台北",
+      "classType": "大班制",
+      "content": "<br>飛肯設計學苑是國內知名前端學校，教導各式前端技術，其中的JavaScript 是目前最熱門的程式語言之一，不管在前端或是後端都有一席之地，因此徹底深入了解這個語言核心是絕對有必要的。<br><br>本課程的教學將分為「語法介紹」、「語言特性」、「寫作風格」、「物件導向」、「物件繼承」及「設計模式」六大教學主題。使用原生方法深入了解，從語法介紹與語言特性的基礎概念重新開始，並且了解 JavaScript 不同於其它程式語言獨特的一面。再談到寫作風格與物件導向，保持良好的開發習慣並且善用物件導向的概念進行開發，在開發的過程中更能夠減少程式發生問題。了解物件繼承的特性與實作方法，讓程式碼在大型架構底下更容易維護。最後透過各種不同的設計模式解決複雜架構會遇到的問題。<br><br>學習 JavaScript OOP 物件導向就像是開手排車一樣，更能充分的了解原理與技巧，就如同享受開手排車的駕馭感與操控樂趣。<br><br>另一門前端必學的語言－CSS，層疊樣式表（英語：Cascading Style Sheets，簡寫CSS），又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表，一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。目前最新版本是CSS2.1，為W3C的推薦標準。CSS3現在已被大部分現代瀏覽器支援，而下一版的CSS4仍在開發中。<br><br>CSS不能單獨使用，必須與HTML或XML一起協同工作，為HTML或XML起裝飾作用。本文主要介紹用於裝飾HTML網頁的CSS技術。其中HTML負責確定網頁中有哪些內容，CSS確定以何種外觀（大小、粗細、顏色、對齊和位置）展現這些元素。CSS可以用於設定頁面布局、設定頁面元素樣式、設定適用於所有網頁的全局樣式。CSS可以零散地直接添加在要應用樣式的網頁元素上，也可以集中化內建於網頁、連結式引入網頁以及匯入式引入網頁。",
+      "creatTime": 1539507926566,
+      "fee": "5000",
+      "foundYear": "10",
+      "mail": "service@flycan.com.tw",
+      "name": "飛肯設計學苑",
+      "phone": "0925-014-000",
+      "preface": "飛肯設計學苑的講師均來自業界，上課時會帶著同學實做練習，並附有教學範例。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-2.jpg?alt=media&token=f28dbea4-af0c-4743-a75a-426198fe409e",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fpic-2.jpg?alt=media&token=52cc8fd3-17df-4d0a-8e52-853b3c11bc91",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "HTML、CSS、JavaScript",
+      "topic": "JavaScript 程式設計再進階",
+      "totalDay": "20",
+      "uid": "-LNyOk-FQnejK4pZYqAi",
+      "weekHour": "16"
+    },
+    "-LNyPzKvn1h2QX_CDwET": {
+      "city": "台北",
+      "classType": "小班制",
+      "content": "<br>台大資訊系統訓練班成立以後，有許多校友畢業後，便開始在職場是發光發熱，其中，JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。<br><br>本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。<br><br>不同於伺服器端指令碼語言，例如PHP與ASP，JavaScript主要被作為用戶端指令碼語言在用戶的瀏覽器上運行，不需要伺服器的支援。所以在早期程式設計師比較青睞於JavaScript以減少對伺服器的負擔，而與此同時也帶來另一個問題：安全性。而隨著伺服器的強壯，雖然現在的程式員更喜歡運行於伺服端的指令碼以保證安全，但JavaScript仍然以其跨平台、容易上手等優勢大行其道。同時，有些特殊功能（如AJAX）必須依賴JavaScript在用戶端進行支援。<br><br>隨著引擎如V8和框架如Node.js的發展，及其事件驅動及異步IO等特性，JavaScript逐漸被用來編寫伺服器端程式。且在近幾年中，Node.js的出世，讓JavaScript也具有了一定的伺服器功能，且在某些方面比PHP的效果更為顯著。",
+      "creatTime": 1539507974337,
+      "fee": "5000",
+      "foundYear": "5",
+      "mail": "train@csie.ntu.edu.tw",
+      "name": "台大資訊系統訓練班",
+      "phone": "02-33664888 轉 259",
+      "preface": "此課程適合學習網頁設計的初學者，及想要學習 JavaScript / AJAX 動態技術的網頁設計師。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-3.jpg?alt=media&token=8f7f8f02-5066-452a-863c-a4e715d2657a",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fpic-3.jpg?alt=media&token=29855e65-c8d1-4bdd-8a4a-04e900d4eca1",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "JavaScript、ES6",
+      "topic": "JavaScript網頁前端工程入門",
+      "totalDay": "45",
+      "uid": "-LNyPzKvn1h2QX_CDwET",
+      "weekHour": "18"
+    },
+    "-LNySD7c2UOilxjkW14U": {
+      "city": "各地",
+      "classType": "小班制",
+      "content": "<br>前端是指我們瀏覽網頁時，所有看得見的部分。例如網站排版、互動效果、下拉選單、按鈕與表單等等，皆屬於前端的範圍。<br><br>響應式網頁設計(Responsive Web Design)簡稱RWD，現已被公認為是網頁設計開發技術的重要趨勢，在不同裝置下改變網頁的佈局排版，包括桌上型電腦、平板電腦或手機，讓各種尺寸的螢幕都可以在同一網站享受最佳的視覺體驗。<br><br>赫綵的專業講師皆具備在業界的實務經驗，網頁的發展日新月異，隨時掌握最新趨勢與資訊是最重要的，讓你技術不落人後。<br><br>在軟體架構和程式設計領域，前端是軟體系統中直接和用戶互動的部分，而後端控制著軟體的輸出。將軟體分為前端和後端是一種將軟體不同功能的部分相互分離的抽象。<br><br>大部分軟體都概念性地分成了前端和後端，但大多數情況下，軟體的後端經常是隱藏著而不被用戶看到。但是，有些軟體僅僅是另一個已經存在的軟體的前端，就像一個圖形化使用者介面（GUI）構建在字元介面之上。這些前端在Unix GUI中非常普遍，很多程式被分成了很多小專案，使它們能夠互不依賴但又能協同在一起工作。（見桌面環境）<br><br>可以將與電腦互動過程分為前端和後端，例如：一個圖形介面的檔案管理器，就像Windows 檔案總管，可以想像成管理檔案系統的前端。 在作業系統中，Unix Shell或Windows的cmd.exe可以認為是和作業系統互動的前端。<br><br>在編譯器中，前端將程式設計語言原始碼轉換成一種中間形式，然後後端再將它轉換成電腦能夠執行的二進位程式碼。後端還經常對程式碼進行最佳化以提升程式的執行效率。前端和後端的區別能夠將處理原程式碼的語法解析器和生成機器碼和對程式碼進行最佳化的後端區分開。一些編譯器，像 GCC，提供不同的前端分別解析不同語言的原始碼 和不同的後端針對不同的目標機器生成機器碼。<br><br>在語音合成中，前端將輸入的文字合成為代表音節的符號，後端將這些符號轉換成真實的聲音。",
+      "creatTime": 1538646139879,
+      "fee": "1800",
+      "foundYear": "7",
+      "mail": "aaa24295234@gmail.com",
+      "name": "赫綵電腦",
+      "phone": "04-3504-0568",
+      "preface": "赫綵的講師具備業界實務經驗，網頁發展日新月異，掌握最新趨勢與資訊最重要，讓你技術不落人後。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fc1f43b40330333.577b708139a18.jpg?alt=media&token=787912b2-453f-41c5-b7a2-8c8c74d47033",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2FCOTY-offices-mexico-city-8-1024x820.jpg?alt=media&token=6213baee-b3c8-44ff-9fa3-c4d3a5a9a8f7",
+      "teachWay": "放養制",
+      "teacherNum": "2",
+      "technology": "JavaScript、jQuery、RWD",
+      "topic": "赫綵讓你完成屬於自己的網站",
+      "totalDay": "30",
+      "uid": "-LNySD7c2UOilxjkW14U",
+      "weekHour": "32"
+    },
+    "-LNyUA-GLYQyCACdkDjg": {
+      "city": "台北",
+      "classType": "小班制",
+      "content": "<br>截至目前，AppWorks School 的 iOS Class #1-5 共計有 59 位校友結業，結業後的就職狀況如下方表格所示：全職投入網路產業的學員共計 49 位， 1 人為 Project Manager，其他 48 位均為軟體工程師。<br><br>而在這 49 位學員中，僅 7 位是電機/資工畢業的「本科系學生」，若將資管/管科/資科等科系一併列入計算，也只有 16 位學員，共計占 33%，其餘 67% 均是非相關科系畢業的學員，其中甚至有教育/心輔或政治/法律/經濟學系等俗稱「文組科系」的學員順利跨過轉職門檻。<br><br>根據以上統計，我們認為學習程式開發並非理工科學生的專利，因為在組織運作的過程中，工程師不只需要技術專業，也需具備溝通能力，如果不能與團隊順暢合作，反而會對組織運作形成障礙，所以溝通能力也是企業主在召募工程師時相當重視的一項要素。相對的，即使過去沒有學習程式的經驗，若善於了解使用者需求，又充分展現出積極學習的動機，以及對程式開發的熱情，非本科系的學員一樣也能順利找到欣賞自己的伯樂。<br><br>iOS Class #3 的學員 Celeste，過去在生醫領域做研究，進入 AppWorks School 前完全沒有程式背景，但她卻因為能夠清楚表達自己的轉職動機，且知道如何解決開發過程中遇到的問題，讓 AppWorks School 的合作企業感到相當驚艷，決定發出 Offer Letter。<br><br>Mobile App 的開發需求自 2007 年 iPhone 上市後大量增加，近 10 年來，隨著智慧型手機的普及，無論是小型新創或是集團企業，均持續探索如何透過行動裝置提供更進階的服務。儘管網路業界不時出現 App 開發需求已達飽和的說法，但觀察與 AppWorks School 合作的企業夥伴，以及學員結訓後的求職過程，我們發現 App 工程師需求仍然非常龐大。<br><br>這個現象主要是因為在人手一機的時代，企業除了需要以 App 為消費者提供服務，針對內部的管理及溝通，也傾向透過開發企業內部專用 App，來提升組織的運作效率。此外，許多大企業在剛開始提供 App 服務時，為求快速、簡便，多半選擇將 Web 服務直接包裝成 App ，「先求有」，但隨著消費者習慣的改變，App 服務已經到了必須「求好」的階段，許多企業都開始打造全新的開發團隊，以求優化 App 服務，提升使用者體驗。",
+      "creatTime": 1538646651342,
+      "fee": "3000",
+      "foundYear": "3",
+      "mail": "aaa24295234@gmail.com",
+      "name": "AppWorks School",
+      "phone": "0917-218-567",
+      "preface": "AppWorks School 均採實作導向方式，培養有能力解決問題、具開發經驗的程式設計師。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2FAppWorksShool-rectangle.jpg?alt=media&token=7deec16f-73c3-4978-b1d7-d92316cf4810",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Faac7024cf1a1cbdd7a1ac00a6a8e35fd.jpg?alt=media&token=a3765d97-ab21-4790-a1e6-7ab0fa42a536",
+      "teachWay": "放養制",
+      "teacherNum": "2",
+      "technology": "HTML、CSS、JavaScript",
+      "topic": "最紮實的前端學習路徑",
+      "totalDay": "60",
+      "uid": "-LNyUA-GLYQyCACdkDjg",
+      "weekHour": "20"
+    },
+    "-LNyYDaCeasm6O-nP8FE": {
+      "city": "高雄",
+      "classType": "一對一",
+      "content": "<br>六角學院是由高雄前端社群創辦人以及相關核心團員所創立，目的是透過線上教育的方式，開設符合使用者需求的課程。透過影音課程學員們可以了解課程的核心概念以及方向，但真正的問題在於上完影音課程以後呢？我們後續還提供了作業檢討、線上問答、線上面對面交流，確保學員們的學習狀況。<br><br>作業是測驗學習效果的良好途徑，除了每個章節後方會有簡單測驗外，在所有的課程結束後會提供一個測驗，讓學員可以自己練習是否瞭解全部課程內容，我們會仔細Review同學的學習狀況，並評量學員的學習狀況及給予修正的建議。<br><br>如果透過不斷的線上文字交流，仍然還有問題，我們還有提供每週一次的線上討論。線上問答不僅瞭解自己的問題，還能瞭解別人在作業、實作及工作上所遇到的任何問題，這是一般實體、影音課程無法獲得經驗。<br><br>六角學院除了可上傳影音課程外，同時也能上傳我們設計出來的範例程式碼、設計單選題目，並能在 IOS、Andorid 上面學習，同時也能追蹤每位學生的學習機制，讓我們放心挑選 Udemy 作為我們的教學平台。<br><br>課程結束後我們會提供給你網頁設計稿，做完後mail給我們，我們會替你進行程式碼檢視，以確保你的觀念吸收正確。除此之外，在 Udemy 的課程中，六角學院也提供相當完善的發問機制，遇到問題在系統上發問，我們立即會收到通知，並盡快回應你的問題！",
+      "creatTime": 1538647714633,
+      "fee": "1800",
+      "foundYear": "6",
+      "mail": "service@hexschool.com",
+      "name": "六角學院",
+      "phone": "0917-111-222",
+      "preface": "六角學院課程種類齊全，加上線上學習達成高效學習，同時也是帶您學到會的線上課程。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fprojekt-referenz-dab-schaulin-gaertnermoebel-09__viewport.jpg?alt=media&token=d95f209b-855b-4d68-b3d3-7a38cb04331e",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2FUhuru-Contract-1-Workplace_Essentials_Enviro_FLAT.jpg?alt=media&token=8d9540ff-8cfc-4d76-8974-68eb4f05e92f",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "JavaScript",
+      "topic": "帶你學到會的線上課程",
+      "totalDay": "20",
+      "uid": "-LNyYDaCeasm6O-nP8FE",
+      "weekHour": "18"
+    },
+    "-LNy_jj1Fj-HF0XbbRtb": {
+      "city": "台北",
+      "classType": "小班制",
+      "content": "<br>五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。<br><br>五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。<br><br>五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。五倍規劃了一系列從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。<br><br>JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。<br><br>本課程將從基礎的 HTML、CSS 語法教起，學習靜態網頁和 RWD 回應式設計的排版技巧，最終使用 JavaScript 開發引領潮流的網站應用程式。JavaScript 程式是開發動態網頁應用最關鍵的核心技術，也是學習 HTML5 的重要基礎。藉由 JavaScript 可以設計出高互動性且獨樹一格的網頁。",
+      "creatTime": 1539674167504,
+      "fee": "5000",
+      "foundYear": "3",
+      "mail": "rubyonrail@gmail.com",
+      "name": "五倍紅寶石",
+      "phone": "0917-888-888",
+      "preface": "五倍規劃從入門到中高階的專業網站開發課程，不管是初學或已有基礎，都可以快速上手。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fruby1.jpg?alt=media&token=1e7cb15a-75e9-42b9-8e5c-2d496d24d569",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fruby0.jpg?alt=media&token=d5d9461c-5648-4cee-a834-24b8d155392c",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "Rail",
+      "topic": "專為網頁開發的程式語言 Rail",
+      "totalDay": "90",
+      "uid": "-LNy_jj1Fj-HF0XbbRtb",
+      "weekHour": "32"
+    },
+    "-LO17F-h-LN77A7uHJcV": {
+      "city": "各地",
+      "classType": "一對一",
+      "content": "<br>Udemy 是來自美國舊金山的線上學習平台，在全球有超過 65,000 門課程、2,000 萬名學生以及 30,000 名講師。 課程包括程式設計、市場行銷、設計、個人成長等等。<br><br>Udemy 和傳統的大學課程 MOOC 課程不同，Udemy 為不同類型的專家、講師提供了一個平台，以免費或收費形式提供課程給大眾。 同時也提供好學的大眾一個方便，容易使用的學習平台。<br><br>Udemy 希望無論你在這個世界的任何角落，都可以用負擔得起的價格，獲得需要的知識或技能！ 加入我們，讓台灣精彩的線上課程讓全世界看見。<br><br>Udemy  也適合上班族，因為上班族往往需要因應公司補充新知，而且需要立刻懂的如何上手，例如，Google Analytice、Google Adwords、SEO、Wordpress 等等，一般補習班課程需要到特定地點進行學習，不如直接透過 Udemy 來上課。而且 Udemy 課程種類眾多，適合幫助學習動機強的人再進修。<br><br>企業內的線上學習是讓員工透過網際網路或企業內部網路的工具來進行遠距教學，由企業人力資源部門承辦教育訓練的單位將訓練課程及測驗題庫安裝於學習平台的資料庫內，員工經由職務需求或前測驗證程式後，選定課程內容，自行或強制指定學習進度，並於課程學習完成後進行測驗，學習平台會將學員的學習時間、成績及學習成果問卷、調查結果等資料都詳細的記錄下來，以作為企業日後調整與改善人力資源與教育訓練策略之參考依據。<br><br>這一名詞來自於類似Web 2.0這樣的概念，它是傳統e-learning基礎上創新方面的思考。從e-Learning 2.0的角度來看，傳統的e-learning系統只是基於網際網路技術來傳遞學習內容給學生，學生通過閱讀和完成作業來進行學習，老師來評估作業完成的品質。相對新的e-learning環境更加強調社交化的學習以及使用社交軟體，例如部落格、維基、Podcast、3D虛擬世界。這種現象和「長尾學習」類似。",
+      "creatTime": 1539674056446,
+      "fee": "5000",
+      "foundYear": "5",
+      "mail": "service@udemy.com",
+      "name": "Udemy",
+      "phone": "0917-218-567",
+      "preface": "Udemy 為不同類型的專家、講師提供平台，以免費或收費形式提供課程給大眾。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fudemy1.jpg?alt=media&token=24876f82-cac4-4755-bdf0-f57d2c98b346",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fudemy0.jpg?alt=media&token=0b2cf5bd-29bf-40a9-8961-9802e8b0f388",
+      "teachWay": "放養制",
+      "teacherNum": "1",
+      "technology": "HTML、CSS、javaScript",
+      "topic": "精彩線上課程啟發學習樂趣",
+      "totalDay": "30",
+      "uid": "-LO17F-h-LN77A7uHJcV",
+      "weekHour": "20"
+    },
+    "-LOvaej1H569KD4eXNZG": {
+      "city": "台北",
+      "classType": "小班制",
+      "content": "<br>UXabc 透過一系列的完整職業課程、工作坊 (Workshop) 與講座，領域涵蓋 UX、UI 與網頁設計開發；讓我們和你一起探索那些學校沒有教到、工作時又沒有機會可以專注研究的知識。而你體驗到的，將不單只是課程，而是一個讓你盡情思考和動手的環境。<br><br>優秀的產品，是由無數個細膩手法、和講究的細節，依附著嚴謹的邏輯架構所構築而成。很多時候，操作上的小誤差、觀念上的遺漏，或許不會立即造成巨大的差異，但當這些細節堆疊起來時，便會讓整體的品質下降。因此在我們的職業課程與工作坊中，講師與助教將在你執行每個操作時，在你身旁給予即時且精確的回饋、建議，透過這些互動，你將能夠取得線上課程完全無法比擬的學習成效。<br><br>UXabc 也深入淺出，帶你完整有組織地掌握 UX / UI 與網頁設計開發的觀念與技能。適合具有設計基礎、繪圖軟體操作能力，並有意往數位產品設計發展的你。<br><br>另外，這裡也有提供各種主題，適合所有程度的學習者。在一或兩小時的講座裡，給你新的觀念與想法，我們也將不定期邀請專業人士前來分享。此外也提供企業內訓，依照貴單位的培訓需求，量身打造適合的課程，也歡迎院校演講之邀請。<br><br>優秀的產品，是由無數個細膩手法、和講究的細節，依附著嚴謹的邏輯架構所構築而成。很多時候，操作上的小誤差、觀念上的遺漏，或許不會立即造成巨大的差異，但當這些細節堆疊起來時，便會讓整體的品質下降。因此在我們的職業課程與工作坊中，講師與助教將在你執行每個操作時，在你身旁給予即時且精確的回饋、建議，透過這些互動，你將能夠取得線上課程完全無法比擬的學習成效。",
+      "creatTime": 1539673796376,
+      "fee": "3000",
+      "foundYear": "3",
+      "mail": "yo@uxabc.tw",
+      "name": "UXabc",
+      "phone": "0917-218-567",
+      "preface": "UXabc 帶您深入淺出地了解網頁前端。課程含專題實作，手刻出自己的第一個網站。",
+      "rectangleUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fuxabc1.jpg?alt=media&token=5e261c2e-09eb-4caf-b99f-a50b65aead7b",
+      "skill": "前端",
+      "squareUrl": "https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fuxabc0.jpg?alt=media&token=785c68b8-93f4-40ec-a9a7-879604f82780",
+      "teachWay": "手把手教制",
+      "teacherNum": "1",
+      "technology": "JavaScript、jQuery、Bootstrap",
+      "topic": "網頁前端開發 基礎與應用",
+      "totalDay": "30",
+      "uid": "-LOvaej1H569KD4eXNZG",
+      "weekHour": "20"
+    }
+  },
+  "feedback": {
+    "-LNxxWPl5r_QCk0RtW4c": {
+      "content": "你好，我是Frank，想成為前端工程師，想問你們是否也有開課?謝謝。",
+      "creatTime": 1538637830271,
+      "mail": "frank@gmail.com",
+      "name": "frank",
+      "title": "你們是否也有開課"
+    },
+    "-LNyME8kftPfoJusRtiC": {
+      "content": "您好，想請問一下，登入會員後能做什麼呢？",
+      "creatTime": 1538644571183,
+      "mail": "ellen0709@gmail.com",
+      "name": "ellen",
+      "title": "會員服務能做什麼"
+    },
+    "-LRKJNueBXWmoeqn9VFK": {
+      "content": "<script>alert('yo')</script>",
+      "creatTime": 1542250925861,
+      "mail": "<script>al",
+      "name": "<script>al",
+      "title": "<script>al",
+      "uid": "-LRKJNueBXWmoeqn9VFK"
+    },
+    "-LRKJSdjjg1YcPuOJCRi": {
+      "content": "<script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script><script>alert('yo')</script>",
+      "creatTime": 1542250945257,
+      "mail": "gfdsg@gfds",
+      "name": "gfdsgfdsgf",
+      "title": "fdsagfds",
+      "uid": "-LRKJSdjjg1YcPuOJCRi"
+    }
+  },
+  "member": {
+    "-LOHwtkbv5DTENn-ytuT": {
+      "creatTime": 1540286653031,
+      "mail": "frontenter2018@gmail.com",
+      "name": "frank",
+      "phone": "0917-218-567",
+      "uid": "-LOHwtkbv5DTENn-ytuT"
+    },
+    "-LOqaBaGmgr7Sk8ZjBrF": {
+      "creatTime": 1539588016613,
+      "mail": "sweet0936@gmail.com",
+      "name": "Enid Tian",
+      "photoUrl": "https://lh3.googleusercontent.com/-jFXFzJb7Qy4/AAAAAAAAAAI/AAAAAAAADWA/Ag1yJpxZT_o/photo.jpg",
+      "uid": "-LOqaBaGmgr7Sk8ZjBrF"
+    },
+    "-LOuO90c55jLgZmQKT8-": {
+      "creatTime": 1539652111955,
+      "mail": "aaa24295234@gmail.com",
+      "name": "奕緯",
+      "phone": "0917-218-567",
+      "photoUrl": "https://lh3.googleusercontent.com/-xv1tzzdoTD0/AAAAAAAAAAI/AAAAAAAAA50/x7FLGnORgLg/photo.jpg",
+      "uid": "-LOuO90c55jLgZmQKT8-"
+    },
+    "-LOvVk10q763cg3YamnH": {
+      "creatTime": 1539670474283,
+      "mail": "padalab@gmail.com",
+      "name": "CW Peng",
+      "photoUrl": "https://lh5.googleusercontent.com/-huaKkS88gJ8/AAAAAAAAAAI/AAAAAAAAA4U/Caui6u27KFM/photo.jpg",
+      "uid": "-LOvVk10q763cg3YamnH"
+    },
+    "-LP6oappW81v7V5iUO2p": {
+      "creatTime": 1539877006764,
+      "mail": "elleen1994@gmail.com",
+      "name": "張湘華",
+      "photoUrl": "https://lh3.googleusercontent.com/-pe0nKnDBfl0/AAAAAAAAAAI/AAAAAAAABnQ/zIT4exacfTo/photo.jpg",
+      "uid": "-LP6oappW81v7V5iUO2p"
+    },
+    "-LRP82ncpcLlbtPIvbsJ": {
+      "creatTime": 1542502592117,
+      "mail": "aaa24295234@gmail.com",
+      "name": "奕緯",
+      "phone": "0917-218-567",
+      "photoUrl": "https://lh3.googleusercontent.com/-xv1tzzdoTD0/AAAAAAAAAAI/AAAAAAAAA50/x7FLGnORgLg/photo.jpg",
+      "uid": "-LRP82ncpcLlbtPIvbsJ"
+    },
+    "-LUU6PnWUyKzP3v81GVm": {
+      "creatTime": 1563364928826,
+      "mail": "aaa24295234@gmail.com",
+      "name": "奕緯葉",
+      "phone": "ewr34",
+      "photoUrl": "https://lh3.googleusercontent.com/-xv1tzzdoTD0/AAAAAAAAAAI/AAAAAAAAA50/x7FLGnORgLg/photo.jpg",
+      "uid": "-LUU6PnWUyKzP3v81GVm"
+    },
+    "-LYxKCCf26qvv1V0QwO2": {
+      "creatTime": 1550438464711,
+      "mail": "zaqwsx821203@gmail.com",
+      "name": "陳柏",
+      "phone": "",
+      "photoUrl": "https://lh6.googleusercontent.com/-4rapYvz4c0U/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQOCSRF1hMVZvt90gAoPA3bJkM_pdA/mo/photo.jpg",
+      "uid": "-LYxKCCf26qvv1V0QwO2"
+    },
+    "-LYxLzAuZBt04AyVtSsP": {
+      "creatTime": 1550438895660,
+      "mail": "indifferencedead@yahoo.com.tw",
+      "name": "陳柏融",
+      "phone": "",
+      "uid": "-LYxLzAuZBt04AyVtSsP"
+    },
+    "-LZWUzuSYLipy_4R3wTH": {
+      "creatTime": 1551987283326,
+      "mail": "frontenter2018@gmail.com",
+      "name": "undefined",
+      "phone": "１２444",
+      "uid": "-LZWUzuSYLipy_4R3wTH"
+    },
+    "-L_I6gfH5kGCPBK5_CDY": {
+      "creatTime": 1551877720787,
+      "mail": "zaqwsx821203@gmail.com",
+      "name": "陳柏融",
+      "photoUrl": "https://lh6.googleusercontent.com/-4rapYvz4c0U/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQOCSRF1hMVZvt90gAoPA3bJkM_pdA/mo/photo.jpg",
+      "uid": "-L_I6gfH5kGCPBK5_CDY"
+    },
+    "-L_JOOeQh0zuEdONoUcO": {
+      "creatTime": 1551899138715,
+      "mail": "zaqwsx821203@gmail.com",
+      "name": "陳柏融",
+      "photoUrl": "https://lh6.googleusercontent.com/-4rapYvz4c0U/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQOCSRF1hMVZvt90gAoPA3bJkM_pdA/mo/photo.jpg",
+      "uid": "-L_JOOeQh0zuEdONoUcO"
+    },
+    "-L_POuNbJPkv0EqRXf2A": {
+      "creatTime": 1552010035620,
+      "mail": "zaqwsx821203@gmail.com",
+      "name": "陳柏融",
+      "phone": "",
+      "photoUrl": "https://lh6.googleusercontent.com/-4rapYvz4c0U/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQOCSRF1hMVZvt90gAoPA3bJkM_pdA/mo/photo.jpg",
+      "uid": "-L_POuNbJPkv0EqRXf2A"
+    },
+    "-L_S_L2V6EI7Js5u9Dev": {
+      "creatTime": 1552053264609,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-L_S_L2V6EI7Js5u9Dev"
+    },
+    "-LcGRbom5FQeqVf6fLOB": {
+      "creatTime": 1555070876991,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LcGRbom5FQeqVf6fLOB"
+    },
+    "-LdGcrTRFkM6TEeotxuj": {
+      "creatTime": 1556147828636,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LdGcrTRFkM6TEeotxuj"
+    },
+    "-LdZpqmVMh8hl9jqdErH": {
+      "creatTime": 1556469999203,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LdZpqmVMh8hl9jqdErH"
+    },
+    "-Lf3c7uMarm3IL2OP2NI": {
+      "creatTime": 1558077017752,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-Lf3c7uMarm3IL2OP2NI"
+    },
+    "-LfNyhw9bZdCQIgEorrG": {
+      "creatTime": 1558418480907,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LfNyhw9bZdCQIgEorrG"
+    },
+    "-LfZamKYuiM45a6765aK": {
+      "creatTime": 1558787185805,
+      "mail": "frontenter2018@gmail.com",
+      "name": "undefined",
+      "phone": "undefined123333",
+      "uid": "-LfZamKYuiM45a6765aK"
+    },
+    "-LfwMnNSctkn2Di3Y8ge": {
+      "creatTime": 1560688324171,
+      "mail": "chiangyuchi@gmail.com",
+      "name": "",
+      "phone": "",
+      "uid": "-LfwMnNSctkn2Di3Y8ge"
+    },
+    "-LgQ4xuVuY5h1cW5wCo_": {
+      "creatTime": 1559527677601,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LgQ4xuVuY5h1cW5wCo_"
+    },
+    "-LgvbcaAvWpdEJugwhpZ": {
+      "creatTime": 1560073374092,
+      "mail": "frontenter2018@gmail.com",
+      "uid": "-LgvbcaAvWpdEJugwhpZ"
+    },
+    "-Ljvr1T-ige3GAacU8Lv": {
+      "creatTime": 1563298650706,
+      "mail": "grd741@gmail.com",
+      "name": "123",
+      "phone": "99999",
+      "uid": "-Ljvr1T-ige3GAacU8Lv"
+    },
+    "-Ll-NlJEFhJu6tvTNo5N": {
+      "creatTime": 1573548847609,
+      "mail": "arcticmeteors@gmail.com",
+      "name": "陳達莊",
+      "phone": "0926386707",
+      "uid": "-Ll-NlJEFhJu6tvTNo5N"
+    },
+    "-Lldl1gJKn5880YmVmPE": {
+      "creatTime": 1565142559157,
+      "mail": "aaa24295234@gmail.com",
+      "name": "奕緯葉",
+      "photoUrl": "https://lh3.googleusercontent.com/-xv1tzzdoTD0/AAAAAAAAAAI/AAAAAAAAA50/x7FLGnORgLg/photo.jpg",
+      "uid": "-Lldl1gJKn5880YmVmPE"
+    },
+    "-LrMk-VdZAdnCslrD5HZ": {
+      "creatTime": 1571282751320,
+      "mail": "saiboy211@gmail.com",
+      "name": "chun-hsiang huang",
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AAuE7mBC4oefER_EtKZCK-Mb0wZFp58JB_g1N_GOTeGIaQ",
+      "uid": "-LrMk-VdZAdnCslrD5HZ"
+    },
+    "-M1PaPUoUIm2Fp2nZRXo": {
+      "creatTime": 1583141726207,
+      "mail": "want2813@gmail.com",
+      "uid": "-M1PaPUoUIm2Fp2nZRXo"
+    },
+    "-M22JIv5Ys0XUk1hijH2": {
+      "creatTime": 1583824846641,
+      "mail": "tonsanhr3@gmail.com",
+      "name": "陳達莊",
+      "photoUrl": "https://lh6.googleusercontent.com/-eGSkQwgUdYg/AAAAAAAAAAI/AAAAAAAAAAA/AKF05nDnIVjVvdjVLzW7o84AfQJRkjcP7w/photo.jpg",
+      "uid": "-M22JIv5Ys0XUk1hijH2"
+    },
+    "-M7wH4qUx-fhw2Ov0N-b": {
+      "creatTime": 1590149274887,
+      "mail": "azio3000@gmail.com",
+      "name": "DEA KATANA",
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GhDAQJovhf-l54uDw65aLFl-3YhmTIVQomiw11xwQ",
+      "uid": "-M7wH4qUx-fhw2Ov0N-b"
+    },
+    "-MPKJc9N2kAIDIGGUmcx": {
+      "creatTime": 1608822981364,
+      "mail": "juns3700@gmail.com",
+      "name": "Justin Wu",
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GgW-Wp2XQkYLBgHsUS0Hb5oe3G1eWGax5NRCz6tmg=s96-c",
+      "uid": "-MPKJc9N2kAIDIGGUmcx"
+    },
+    "-M_zfhjBTy4MFYQ2wVrt": {
+      "creatTime": 1640071551178,
+      "mail": "hongwei0522@gmail.com",
+      "name": "wu hong",
+      "phone": "999",
+      "photoUrl": "https://lh3.googleusercontent.com/a/AATXAJz3bFp0jrPd1VO0XusUryTs0LP-95j5R2aqGZOa=s96-c",
+      "uid": "-M_zfhjBTy4MFYQ2wVrt"
+    },
+    "-MaER5tpATodf1fobVJ6": {
+      "creatTime": 1621609181649,
+      "mail": "glen90803@gmail.com",
+      "uid": "-MaER5tpATodf1fobVJ6"
+    },
+    "-Mr5WG31cLh_ofKqZIH6": {
+      "creatTime": 1639713148460,
+      "mail": "a9876543210941@yahoo.com.tw",
+      "uid": "-Mr5WG31cLh_ofKqZIH6"
+    },
+    "-MrV8NLUUdBPQyxYFhQj": {
+      "creatTime": 1640143095199,
+      "mail": "hongwei0522@gmail.com",
+      "name": "wu hong wei",
+      "photoUrl": "https://lh3.googleusercontent.com/a/AATXAJz3bFp0jrPd1VO0XusUryTs0LP-95j5R2aqGZOa=s96-c",
+      "uid": "-MrV8NLUUdBPQyxYFhQj"
+    }
+  }
+}

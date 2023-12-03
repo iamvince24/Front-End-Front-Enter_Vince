@@ -1,3 +1,5 @@
+import { fetchJsonData } from "../utils.js";
+
 window.onload = function () {
   setInterval(function () {
     document.querySelector(".article-keyvisual").style.animationPlayState =
@@ -8,39 +10,65 @@ window.onload = function () {
 const articleListContainer = document.querySelector(".articlelist");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-const fetchJsonData = async (path) => {
-  const response = await fetch(path);
-  if (!response.ok) {
-    throw new Error(`Network response was not ok, status: ${response.status}`);
-  }
-  return response.json();
-};
-
 const fetchData = async () => {
-  try {
-    const data = await fetchJsonData("../front-enter-export.json");
-    const articleKeys = Object.keys(data.article);
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const searchResultParam = urlSearchParams.get("searchResult");
+  const searchResult = searchResultParam ? JSON.parse(searchResultParam) : null;
 
-    articleKeys.forEach((key) => {
-      const articleCardList = data.article[key];
-      appendArticleCard(articleCardList);
-    });
+  if (!searchResult) {
+    try {
+      const data = await fetchJsonData("../front-enter-export.json");
+      const articleKeys = Object.keys(data.article);
 
-    var filteredData = [];
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        if (event.target.classList.contains("filter-btn")) {
-          filteredData = handleFilterClick(event.target, articleKeys, data);
-          filteredData.forEach((filteredKey) => {
-            const articleCardList = data.article[filteredKey];
-            appendArticleCard(articleCardList, filteredData, data);
-          });
-        }
+      articleKeys.forEach((key) => {
+        const articleCardList = data.article[key];
+        appendArticleCard(articleCardList);
       });
-    });
-  } catch (error) {
-    console.error("錯誤:", error);
+
+      var filteredData = [];
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (event.target.classList.contains("filter-btn")) {
+            filteredData = handleFilterClick(event.target, articleKeys, data);
+            filteredData.forEach((filteredKey) => {
+              const articleCardList = data.article[filteredKey];
+              appendArticleCard(articleCardList, filteredData, data);
+            });
+          }
+        });
+      });
+    } catch (error) {
+      console.error("載入資料時發生錯誤:", error);
+    }
+  } else {
+    try {
+      const data = await fetchJsonData("../front-enter-export.json");
+      const articleKeys = Object.keys(data.article);
+
+      articleKeys.forEach((key) => {
+        const articleCardList = data.article[key];
+        appendArticleCard(articleCardList);
+      });
+
+      var filteredData = [];
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (event.target.classList.contains("filter-btn")) {
+            filteredData = handleFilterClick(event.target, articleKeys, data);
+            filteredData.forEach((filteredKey) => {
+              const articleCardList = data.article[filteredKey];
+              appendArticleCard(articleCardList, filteredData, data);
+            });
+          }
+        });
+      });
+    } catch (error) {
+      console.error("載入資料時發生錯誤:", error);
+    }
+    articleListContainer.innerHTML = "";
+    performSearch(searchResult);
   }
 };
 
@@ -73,36 +101,36 @@ function appendArticleCard(element, filteredDataList, allData) {
   newArticleItem.classList.add("articlelist-card");
 
   newArticleItem.innerHTML = `
-    <div class="location">
-      <img
-        class="location-icon"
-        src="../img/One-location-icon.png"
-        alt="location-icon"
-      />
-      <div class="click-effect filter-btn">${city}</div>
-    </div>
-    <div class="articlelist-content">
-      <div class="articlelist-pic-container">
+      <div class="location">
         <img
-          class="articlelist-pic"
-          src=${rectangleUrl}
-          alt="articlelist-picture"
+          class="location-icon"
+          src="../img/One-location-icon.png"
+          alt="location-icon"
         />
+        <div class="click-effect filter-btn">${city}</div>
       </div>
-      <p class="title">${name}</p>
-      <div class="text">
-      ${preface}
+      <div class="articlelist-content">
+        <div class="articlelist-pic-container">
+          <img
+            class="articlelist-pic"
+            src=${rectangleUrl}
+            alt="articlelist-picture"
+          />
+        </div>
+        <p class="title">${name}</p>
+        <div class="text">
+        ${preface}
+        </div>
+        <div class="articlelist-readmore">
+          <div class="readmore-word">read more</div>
+          <img
+            class="readmore-arrow"
+            src="../img/Arrow-right-one.png"
+            alt="readmore-arrow"
+          />
+        </div>
       </div>
-      <div class="articlelist-readmore">
-        <div class="readmore-word">read more</div>
-        <img
-          class="readmore-arrow"
-          src="../img/Arrow-right-one.png"
-          alt="readmore-arrow"
-        />
-      </div>
-    </div>
-  `;
+    `;
 
   articleListContainer.appendChild(newArticleItem);
 
@@ -125,11 +153,22 @@ function appendArticleCard(element, filteredDataList, allData) {
 fetchData();
 
 // Search Function
-
 const searchInput = document.querySelector("#search-input");
 const searchIconInner = document.querySelector("#search-icon-inner");
 
-const performSearch = async () => {
+searchIconInner.addEventListener("click", () => {
+  articleListContainer.innerHTML = "";
+  performSearch(searchInput.value);
+});
+searchInput.addEventListener("keydown", (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    articleListContainer.innerHTML = "";
+    performSearch(searchInput.value);
+  }
+});
+
+async function performSearch(searchValue) {
   try {
     const fetchSearchData = async () => {
       const data = await fetchJsonData("../front-enter-export.json");
@@ -137,18 +176,27 @@ const performSearch = async () => {
     };
     const searchDataAll = await fetchSearchData();
     const searchData = searchDataAll.article;
-    const [searchResult, searchResultKeys] = searchArticle(
-      searchInput.value,
-      searchData
-    );
-    articleListContainer.innerHTML = "";
-    searchResult.forEach((searchResultData) => {
-      appendArticleCard(searchResultData, searchResultKeys, searchDataAll);
-    });
+
+    if (searchValue) {
+      const [searchResult, searchResultKeys] = searchArticle(
+        searchValue,
+        searchData
+      );
+
+      if (searchResult.length !== 0) {
+        searchResult.forEach((searchResultData) => {
+          appendArticleCard(searchResultData, searchResultKeys, searchDataAll);
+        });
+      } else if (searchResult.length === 0) {
+        alert("沒有相關資料");
+      }
+    } else {
+      alert("沒有相關資料");
+    }
   } catch (error) {
-    console.error("Error during search:", error);
+    console.error("執行搜尋時錯誤:", error);
   }
-};
+}
 
 function searchArticle(query, articleData) {
   const matchingArticles = [];
@@ -181,11 +229,3 @@ function searchArticle(query, articleData) {
 
   return [matchingArticles, matchingArticlesKeys];
 }
-
-searchIconInner.addEventListener("click", performSearch);
-searchInput.addEventListener("keydown", (event) => {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    performSearch();
-  }
-});

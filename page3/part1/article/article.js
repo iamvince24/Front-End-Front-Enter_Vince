@@ -100,6 +100,10 @@ function appendArticleCard(element, filteredDataList, allData) {
   const newArticleItem = document.createElement("article");
   newArticleItem.classList.add("articlelist-card");
 
+  function redirectToContent() {
+    window.location.href = "content.html";
+  }
+
   newArticleItem.innerHTML = `
       <div class="location">
         <img
@@ -130,24 +134,36 @@ function appendArticleCard(element, filteredDataList, allData) {
           />
         </div>
       </div>
-    `;
+  `;
 
-  articleListContainer.appendChild(newArticleItem);
+  const currentUrl = window.location.href;
+  const targetUrl =
+    window.location.protocol + "//" + window.location.host + "/article.html";
 
-  const filterBtn = newArticleItem.querySelector(".filter-btn");
-  if (filterBtn) {
-    filterBtn.addEventListener("click", () => {
-      articleListContainer.innerHTML = "";
-      const filterCondition = city;
-      const filterLocationData = filteredDataList.filter(
-        (key) => allData.article[key].city === filterCondition
-      );
-      filterLocationData.forEach((filteredKey) => {
-        const articleCardList = allData.article[filteredKey];
-        appendArticleCard(articleCardList, filterLocationData);
+  if (currentUrl === targetUrl) {
+    articleListContainer.appendChild(newArticleItem);
+    const filterBtn = newArticleItem.querySelector(".filter-btn");
+    if (filterBtn) {
+      filterBtn.addEventListener("click", () => {
+        articleListContainer.innerHTML = "";
+        const filterCondition = city;
+        const filterLocationData = filteredDataList.filter(
+          (key) => allData.article[key].city === filterCondition
+        );
+        filterLocationData.forEach((filteredKey) => {
+          const articleCardList = allData.article[filteredKey];
+          appendArticleCard(articleCardList, filterLocationData);
+        });
       });
-    });
+    }
   }
+
+  const articleListContent = newArticleItem.querySelector(
+    ".articlelist-content"
+  );
+  articleListContent.addEventListener("click", () => {
+    window.location.href = "../content.html";
+  });
 }
 
 fetchData();

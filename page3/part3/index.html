@@ -48,17 +48,21 @@
         </div>
       </section>
 
-      <aside>
+      <aside id="test-go">
         <img class="aside-img click-effect" src="./img/FE_test_go.png" />
       </aside>
 
       <section class="home-test">
         <p>想知道自己適合什麼學習環境嗎？</p>
         <p>可以點擊按鈕測測看哦！</p>
-        <button class="home-test-button btn btn-effect click-effect">
+        <button
+          class="home-test-button btn btn-effect click-effect"
+          id="test-go"
+        >
           測試 GO
         </button>
       </section>
+
       <section class="home-article">
         <p>教室精選</p>
         <button class="home-article-button btn-effect click-effect">
@@ -167,6 +171,32 @@
       <div class="search-container-black"></div>
     </div>
 
-    <script src="app.js"></script>
+    <div class="testSection">
+      <div class="testCard-green"></div>
+      <div class="testCard-gray"></div>
+
+      <div class="testCard-start">
+        <div class="start-title">測驗說明</div>
+        <div class="start-text">
+          點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+        </div>
+        <button class="start-btn btn-effect click-effect">開始測驗</button>
+      </div>
+
+      <div class="testCard-list">
+        <!-- <div class="list-question">選擇在哪座城市學習？</div>
+        <div class="list-stage">1/5</div>
+        <div class="list-optionContainer">
+          <button class="list-option click-effect">台北</button>
+        </div> -->
+      </div>
+      <div class="testCard-result">
+        <div class="result-title">你有多適合下列學校呢？</div>
+        <div class="resultScore-Chart"><div class="ChartScore"></div></div>
+        <button class="resultBtn click-effect">彭彭的課程教學</button>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
   </body>
 </html>

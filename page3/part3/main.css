@@ -31,6 +31,7 @@ body {
   --primary-color: #19d8d3;
   --secondary-color: #32ebe7;
   --third-color: #3f3a3a;
+  --dark-color: #44aaa7;
   --background-color: #f2f2f2;
   --section-background-color: #ececec;
   --text-size-h1: 2.3rem;
@@ -59,6 +60,7 @@ li:hover {
 }
 
 button {
+  font-family: "Noto Sans TC", "華康黑體", "微軟正黑體", arial, sans-serif;
   font-size: var(--text-size-h3);
   cursor: pointer;
   border: 1px solid var(--primary-color);
@@ -586,7 +588,7 @@ footer nav img:hover {
 .list-stage {
   color: white;
   font-size: var(--text-size-h3-1);
-  opacity: 0.6;
+  opacity: 0.8;
   margin: 10px;
 }
 
@@ -630,37 +632,134 @@ footer nav img:hover {
 }
 
 .resultScore-Chart {
-  width: 140px;
-  height: 140px;
-
-  color: white;
-  font-size: var(--text-size-h3-1);
-  margin: 30px 0px 30px;
-  border: 3px solid var(--primary-color);
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  border: 3px solid white;
+  top: 117.5px;
+  z-index: 4;
 
-  display: flex;
+  background: conic-gradient(
+    var(--dark-color) 0deg 10deg,
+    var(--primary-color) 10deg 360deg
+  );
+
+  animation: rotatePieChart 2s linear forwards;
+}
+
+@keyframes rotatePieChart {
+  0% {
+    transform: rotate(10deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 10deg,
+      var(--primary-color) 10deg 360deg
+    );
+  }
+  10% {
+    transform: rotate(90deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 20deg,
+      var(--primary-color) 20deg 360deg
+    );
+  }
+  20% {
+    transform: rotate(180deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 30deg,
+      var(--primary-color) 30deg 360deg
+    );
+  }
+  30% {
+    transform: rotate(270deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 40deg,
+      var(--primary-color) 40deg 360deg
+    );
+  }
+  40% {
+    transform: rotate(360deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 50deg,
+      var(--primary-color) 50deg 360deg
+    );
+  }
+  50% {
+    transform: rotate(450deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 60deg,
+      var(--primary-color) 60deg 360deg
+    );
+  }
+  60% {
+    transform: rotate(540deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 70deg,
+      var(--primary-color) 70deg 360deg
+    );
+  }
+  70% {
+    transform: rotate(630deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 80deg,
+      var(--primary-color) 80deg 360deg
+    );
+  }
+  80% {
+    transform: rotate(720deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 90deg,
+      var(--primary-color) 90deg 360deg
+    );
+  }
+  90% {
+    transform: rotate(810deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 100deg,
+      var(--primary-color) 100deg 360deg
+    );
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: rotate(900deg);
+    background: conic-gradient(
+      var(--dark-color) 0deg 110deg,
+      var(--primary-color) 110deg 360deg
+    );
+  }
 }
 
 .ChartScore {
-  height: 30px;
-  width: 340px;
-  margin: auto;
+  z-index: 4;
+  background-color: white;
+
+  top: 125px;
+  position: absolute;
+  overflow: hidden;
+  width: 135px;
+  height: 135px;
+  border-radius: 70px;
   text-align: center;
+  line-height: 140px;
+  color: var(--primary-color);
+  font-size: var(--text-size-h2);
 }
 
 .resultBtn {
   width: 180px;
-  /* height: 40px; */
-  height: auto;
+  min-height: 40px;
   color: var(--primary-color);
   font-weight: normal;
   background-color: white;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   margin-top: 30px;
 
   border-radius: 5px;
   cursor: pointer;
+
+  position: relative;
+  top: 200px;
 }
 
 @media (max-width: 767px) {

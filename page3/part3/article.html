@@ -40,8 +40,8 @@
       </nav>
     </header>
     <main>
-      <aside>
-        <img class="aside-img click-effect" src="../img/FE_test_go.png" />
+      <aside id="test-go">
+        <img class="aside-img click-effect" src="./img/FE_test_go.png" />
       </aside>
 
       <section class="article-keyvisual">
@@ -119,7 +119,34 @@
       <div class="search-container-black"></div>
     </div>
 
-    <script src="app.js"></script>
+    <div class="testSection">
+      <div class="testCard-green"></div>
+      <div class="testCard-gray"></div>
+
+      <div class="testCard-start">
+        <div class="start-title">測驗說明</div>
+        <div class="start-text">
+          點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+        </div>
+        <button class="start-btn btn-effect click-effect">開始測驗</button>
+      </div>
+
+      <div class="testCard-list">
+        <!-- <div class="list-question">選擇在哪座城市學習？</div>
+        <div class="list-stage">1/5</div>
+        <div class="list-optionContainer">
+          <button class="list-option click-effect">台北</button>
+        </div> -->
+      </div>
+      <div class="testCard-result">
+        <div class="result-title">你有多適合下列學校呢？</div>
+        <div class="resultScore-Chart"></div>
+        <div class="ChartScore"></div>
+        <button class="resultBtn click-effect"></button>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
     <script type="module" src="./js/article.js"></script>
   </body>
 </html>

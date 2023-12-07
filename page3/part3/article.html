@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link <link rel="stylesheet" type="text/css" href="../main.css" />
-    <link <link rel="stylesheet" type="text/css" href="./css/article.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/article.css" />
     <link
       rel="Shortcut Icon"
       type="image/x-icon"
@@ -20,10 +20,10 @@
   <body id="main-content">
     <header>
       <figure>
-        <a href="../index.html"
+        <a href="./index.html"
           ><img
             class="logo click-effect"
-            src="../img/FE_logo-4.png"
+            src="./img/FE_logo-4.png"
             alt="FE_logo"
         /></a>
       </figure>
@@ -32,18 +32,15 @@
         <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
         <li class="click-effect">登入</li>
         <img
-          class="search-icon click-effect"
-          id="search-icon"
-          src="../img/FE_search_green.png"
+          class="header-search-icon click-effect"
+          id="header-search-icon"
+          src="./img/FE_search_green.png"
           alt="FE_search_green"
         />
       </nav>
     </header>
-    <main>
-      <aside id="test-go">
-        <img class="aside-img click-effect" src="./img/FE_test_go.png" />
-      </aside>
 
+    <main>
       <section class="article-keyvisual">
         <div class="article-keyvisual-content">蒐羅前端學校</div>
       </section>
@@ -58,17 +55,17 @@
       </section>
 
       <section class="articlelist"></section>
+    </main>
 
+    <footer>
       <section class="top-icon-section">
         <img
           class="top-icon click-effect"
           id="top-icon"
-          src="../img/FE_TOP.png"
+          src="./img/FE_TOP.png"
           alt="pen"
         />
       </section>
-    </main>
-    <footer>
       <nav>
         <div>聯絡方式</div>
         <div><span>M</span> 0975-282-356</div>
@@ -83,14 +80,18 @@
             href="https://www.facebook.com/profile.php?id=100079762316652"
             target="_blank"
           >
-            <img src="../img/new-facebook-blue.svg" alt="pen" />
+            <img src="./img/new-facebook-blue.svg" alt="pen" />
           </a>
           <a href="https://line.me/ti/p/v9ETm_J1dk" target="_blank">
-            <img src="../img/FE_line.png" alt="pen" />
+            <img src="./img/FE_line.png" alt="pen" />
           </a>
         </div>
       </nav>
     </footer>
+
+    <aside id="aside-test-go">
+      <img class="aside-img click-effect" src="./img/FE_test_go.png" />
+    </aside>
 
     <div id="search-container" style="display: none">
       <div class="search-container-white">
@@ -116,37 +117,37 @@
           />
         </form>
       </div>
-      <div class="search-container-black"></div>
+      <div class="search-container-overlay"></div>
     </div>
 
-    <div class="testSection">
-      <div class="testCard-green"></div>
-      <div class="testCard-gray"></div>
+    <div class="test-section">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
 
-      <div class="testCard-start">
+      <div class="test-card-instruction">
         <div class="start-title">測驗說明</div>
         <div class="start-text">
           點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
         </div>
-        <button class="start-btn btn-effect click-effect">開始測驗</button>
+        <button class="test-start-btn btn-effect click-effect">開始測驗</button>
       </div>
 
-      <div class="testCard-list">
+      <div class="test-card-list">
         <!-- <div class="list-question">選擇在哪座城市學習？</div>
         <div class="list-stage">1/5</div>
         <div class="list-optionContainer">
           <button class="list-option click-effect">台北</button>
         </div> -->
       </div>
-      <div class="testCard-result">
+      <div class="test-card-result">
         <div class="result-title">你有多適合下列學校呢？</div>
         <div class="resultScore-Chart"></div>
-        <div class="ChartScore"></div>
+        <div class="chartScore"></div>
         <button class="resultBtn click-effect"></button>
       </div>
     </div>
 
-    <script type="module" src="app.js"></script>
-    <script type="module" src="./js/article.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/article.js"></script>
   </body>
 </html>

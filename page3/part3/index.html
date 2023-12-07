@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link <link rel="stylesheet" type="text/css" href="main.css" />
-    <link <link rel="stylesheet" type="text/css" href="index.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/index.css" />
     <link
       rel="Shortcut Icon"
       type="image/x-icon"
@@ -17,7 +17,7 @@
       <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
     </div> -->
   </head>
-  <body id="main-content">
+  <body id="body-main-content">
     <header>
       <figure>
         <a href="./index.html"
@@ -32,18 +32,15 @@
         <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
         <li class="click-effect">登入</li>
         <img
-          class="search-icon click-effect"
-          id="search-icon"
+          class="header-search-icon click-effect"
+          id="header-search-icon"
           src="./img/FE_search_green.png"
           alt="FE_search_green"
         />
       </nav>
     </header>
-    <main>
-      <aside id="test-go">
-        <img class="aside-img click-effect" src="./img/FE_test_go.png" />
-      </aside>
 
+    <main>
       <section class="keyvisual">
         <div class="keyvisual-content">
           <h1 class="keyvisual-titile">FRONT-ENTER</h1>
@@ -57,7 +54,7 @@
         <p>可以點擊按鈕測測看哦！</p>
         <button
           class="home-test-button btn btn-effect click-effect"
-          id="test-go"
+          id="aside-test-go"
         >
           測試 GO
         </button>
@@ -111,6 +108,9 @@
           期待讓有志成為前端工程師的人，找到最適合自己的學習環境。
         </p>
       </section>
+    </main>
+
+    <footer>
       <section class="top-icon-section">
         <img
           class="top-icon click-effect"
@@ -119,8 +119,6 @@
           alt="pen"
         />
       </section>
-    </main>
-    <footer>
       <nav>
         <div>聯絡方式</div>
         <div><span>M</span> 0975-282-356</div>
@@ -143,6 +141,10 @@
         </div>
       </nav>
     </footer>
+
+    <aside id="aside-test-go">
+      <img class="aside-img click-effect" src="./img/FE_test_go.png" />
+    </aside>
 
     <div id="search-container" style="display: none">
       <div class="search-container-white">
@@ -168,36 +170,36 @@
           />
         </form>
       </div>
-      <div class="search-container-black"></div>
+      <div class="search-container-overlay"></div>
     </div>
 
-    <div class="testSection">
-      <div class="testCard-green"></div>
-      <div class="testCard-gray"></div>
+    <div class="test-section">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
 
-      <div class="testCard-start">
+      <div class="test-card-instruction">
         <div class="start-title">測驗說明</div>
         <div class="start-text">
           點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
         </div>
-        <button class="start-btn btn-effect click-effect">開始測驗</button>
+        <button class="test-start-btn btn-effect click-effect">開始測驗</button>
       </div>
 
-      <div class="testCard-list">
+      <div class="test-card-list">
         <!-- <div class="list-question">選擇在哪座城市學習？</div>
         <div class="list-stage">1/5</div>
         <div class="list-optionContainer">
           <button class="list-option click-effect">台北</button>
         </div> -->
       </div>
-      <div class="testCard-result">
+      <div class="test-card-result">
         <div class="result-title">你有多適合下列學校呢？</div>
         <div class="resultScore-Chart"></div>
-        <div class="ChartScore"></div>
+        <div class="chartScore"></div>
         <button class="resultBtn click-effect"></button>
       </div>
     </div>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="scripts/app.js"></script>
   </body>
 </html>

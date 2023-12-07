@@ -133,13 +133,13 @@ header nav li:hover {
   color: var(--primary-color);
 }
 
-header nav .search-icon {
+header nav .header-search-icon {
   height: 22px;
   cursor: pointer;
   transition: transform 0.3s ease-in;
 }
 
-header nav .search-icon:hover {
+header nav .header-search-icon:hover {
   transform: scale(2);
 }
 
@@ -155,10 +155,10 @@ header nav .search-icon:hover {
   header nav {
     width: 50vw;
   }
-  header nav .search-icon {
+  header nav .header-search-icon {
     height: 20px;
   }
-  header nav .search-icon:hover {
+  header nav .header-search-icon:hover {
     transform: scale(1.5);
   }
 }
@@ -201,6 +201,12 @@ aside img:hover {
   }
 }
 
+footer {
+  height: 100px;
+
+  font-size: var(--text-size-h4);
+}
+
 .top-icon-section {
   width: 100%;
   height: 160px;
@@ -228,13 +234,8 @@ aside img:hover {
   }
 }
 
-footer {
-  height: 100px;
-  background: var(--section-background-color);
-  font-size: var(--text-size-h4);
-}
-
 footer nav {
+  background: var(--section-background-color);
   height: 100%;
   font-weight: light;
   letter-spacing: 3px;
@@ -394,7 +395,7 @@ footer nav img:hover {
   align-items: center;
 }
 
-.search-container-black {
+.search-container-overlay {
   height: 60%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
@@ -463,7 +464,7 @@ footer nav img:hover {
   .search-container-white {
     height: 20%;
   }
-  .search-container-black {
+  .search-container-overlay {
     height: 80%;
   }
   .search-container-white label {
@@ -481,7 +482,7 @@ footer nav img:hover {
   }
 }
 
-.testSection {
+.test-section {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -495,7 +496,7 @@ footer nav img:hover {
   align-items: center;
 }
 
-.testCard-green {
+.test-card-green {
   width: 350px;
   height: 450px;
   position: fixed;
@@ -504,14 +505,14 @@ footer nav img:hover {
   border-radius: 5px;
 }
 
-.testCard-gray {
+.test-card-gray {
   width: 350px;
   height: 450px;
   position: fixed;
   z-index: 3;
   border-radius: 5px;
 
-  background-image: url("./img/Staff-Selection.jpg");
+  background-image: url("../img/Staff-Selection.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
@@ -521,14 +522,14 @@ footer nav img:hover {
   opacity: 0.15;
 }
 
-/* .testCard-content {
+/* .test-card-content {
   width: 350px;
   height: 450px;
   position: fixed;
   z-index: 4;
 } */
 
-.testCard-start {
+.test-card-instruction {
   width: 350px;
   height: 450px;
   position: fixed;
@@ -554,7 +555,7 @@ footer nav img:hover {
   line-height: 30px;
 }
 
-.start-btn {
+.test-start-btn {
   width: 180px;
   height: 40px;
   color: var(--primary-color);
@@ -567,7 +568,7 @@ footer nav img:hover {
   cursor: pointer;
 }
 
-.testCard-list {
+.test-card-list {
   width: 350px;
   height: 450px;
   position: fixed;
@@ -613,7 +614,7 @@ footer nav img:hover {
   background: var(--secondary-color);
 }
 
-.testCard-result {
+.test-card-result {
   width: 350px;
   height: 450px;
   position: fixed;
@@ -730,7 +731,7 @@ footer nav img:hover {
   }
 }
 
-.ChartScore {
+.chartScore {
   z-index: 4;
   background-color: white;
 
@@ -763,11 +764,11 @@ footer nav img:hover {
 }
 
 @media (max-width: 767px) {
-  .testCard-green,
-  .testCard-gray,
-  .testCard-start,
-  .testCard-list,
-  .testCard-result {
+  .test-card-green,
+  .test-card-gray,
+  .test-card-instruction,
+  .test-card-list,
+  .test-card-result {
     width: 250px;
     height: 330px;
   }
@@ -779,7 +780,7 @@ footer nav img:hover {
     padding: 40px 30px 0px;
     line-height: 25px;
   }
-  .start-btn {
+  .test-start-btn {
     width: 150px;
     height: 30px;
   }

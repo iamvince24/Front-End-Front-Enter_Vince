@@ -1,4 +1,8 @@
-import { fetchJsonData } from "../utils.js";
+import {
+  fetchJsonData,
+  setRedirectLink,
+  stopPropagationHandler,
+} from "./utils.js";
 
 // loading handle
 // document.addEventListener("DOMContentLoaded", function () {
@@ -14,60 +18,47 @@ import { fetchJsonData } from "../utils.js";
 //   }, 2000);
 // });
 
-// Click search-icon
-const searchButton = document.querySelector("#search-icon");
-const searchContainerBlack = document.querySelector(".search-container-black");
-
-function handleSearchContainer() {
-  var searchContainer = document.querySelector("#search-container");
-
-  if (searchContainer.style.display === "none") {
-    searchContainer.style.display = "block";
-  } else {
-    searchContainer.style.display = "none";
-  }
-}
-
-searchButton.addEventListener("click", handleSearchContainer);
-searchContainerBlack.addEventListener("click", handleSearchContainer);
-
+// Top Icon
 const topIcon = document.querySelector("#top-icon");
-topIcon.addEventListener("click", function () {
+topIcon.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 });
 
+// Click search-icon
+const searchButton = document.querySelector("#header-search-icon");
+const searchContainer = document.querySelector("#search-container");
+const searchContainerOverlay = document.querySelector(
+  ".search-container-overlay"
+);
+
+const setTestCardContentDisplay = () => {
+  searchContainer.style.display =
+    searchContainer.style.display === "none" ? "block" : "none";
+};
+
+searchButton.addEventListener("click", setTestCardContentDisplay);
+searchContainerOverlay.addEventListener("click", setTestCardContentDisplay);
+
 // search function
 const searchInput = document.querySelector("#search-input");
 const searchIconInner = document.querySelector("#search-icon-inner");
 
-const searchFunction = async () => {
-  try {
-    const currentUrl = window.location.href;
-    const targetUrl =
-      window.location.protocol + "//" + window.location.host + "/article.html";
-
-    if (currentUrl !== targetUrl) {
-      const searchResult = searchInput.value;
-      const searchParams = new URLSearchParams({
-        searchResult: JSON.stringify(searchResult),
-      });
-      const newTargetUrl = `${targetUrl}?${searchParams.toString()}`;
-
-      window.location.href = newTargetUrl;
-    }
-  } catch (error) {
-    console.error("搜尋時發生錯誤:", error);
+const performSearchRedirect = async () => {
+  const currentUrl = window.location.href;
+  const targetUrl = `${window.location.origin}/article.html`;
+  if (currentUrl !== targetUrl) {
+    window.location.href = setRedirectLink("article", searchInput.value);
   }
 };
 
-searchIconInner.addEventListener("click", searchFunction);
+searchIconInner.addEventListener("click", performSearchRedirect);
 searchInput.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
     event.preventDefault();
-    searchFunction();
+    performSearchRedirect();
   }
 });
 
@@ -102,13 +93,13 @@ if ("webkitSpeechRecognition" in window) {
 }
 
 // Test go
-const testGo = document.querySelectorAll("#test-go");
-const testSection = document.querySelector(".testSection");
+const testGo = document.querySelectorAll("#aside-test-go");
+const testSection = document.querySelector(".test-section");
 
 testGo.forEach((button) => {
   button.addEventListener("click", () => {
     if (testCardList.style.display === "none") {
-      testCardStart.style.display = "flex";
+      testInstruction.style.display = "flex";
     }
     testSection.style.display = "flex";
   });
@@ -120,13 +111,17 @@ testSection.addEventListener("click", () => {
   testSection.style.display = "none";
 });
 
-const testCardStart = document.querySelector(".testCard-start");
-const startBtn = document.querySelector(".start-btn");
-const testCardList = document.querySelector(".testCard-list");
-const testCardResult = document.querySelector(".testCard-result");
-const ChartScore = document.querySelector(".ChartScore");
+const testInstruction = document.querySelector(".test-card-instruction");
+const testStartBtn = document.querySelector(".test-start-btn");
+const testCardList = document.querySelector(".test-card-list");
+const testCardResult = document.querySelector(".test-card-result");
+const chartScore = document.querySelector(".chartScore");
 
-const testQuestions = [
+testInstruction.addEventListener("click", stopPropagationHandler);
+testCardList.addEventListener("click", stopPropagationHandler);
+testCardResult.addEventListener("click", stopPropagationHandler);
+
+const testQuestionsArray = [
   {
     question: "選擇在哪座城市學習？",
     stage: "1 / 5",
@@ -160,53 +155,75 @@ const testQuestions = [
   },
 ];
 
-testCardStart.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-testCardList.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-startBtn.addEventListener("click", async () => {
-  testCardStart.style.display = "none";
+testStartBtn.addEventListener("click", async () => {
+  testInstruction.style.display = "none";
   testCardList.style.display = "flex";
 
-  var testCardIndex = 0;
+  const [resultPercentage, resultScoreDeg, data, testResultKey] =
+    await getTestResult();
+
+  // Circle animation
+  setCircleChart(resultScoreDeg);
+
+  // Number animation
+  numberAnimation(resultPercentage);
+
+  // Btn text animation
+  const resultBtn = document.querySelector(".resultBtn");
+  BtnTextAnimation(data, resultBtn, testResultKey);
+
+  // Set RedirectLink
+  resultBtn.addEventListener("click", () => {
+    const contentUrl = `${window.location.origin}/content.html`;
+    const contentId = data.article[testResultKey].creatTime;
+    const contentParams = new URLSearchParams({
+      id: JSON.stringify(contentId),
+    });
+    const newTargetUrl = `${contentUrl}?${contentParams.toString()}`;
+
+    window.location.href = newTargetUrl;
+  });
+});
+
+async function getTestResult() {
   const answersArray = [];
-  await setTestCard(testCardIndex, answersArray);
+  await setTestCardContent(0, answersArray);
   const testFilterCondition = answersArray;
-  const testResultKey = await getTestResult(testFilterCondition);
+  const testResultKey = await getTestResultKeyValue(testFilterCondition);
 
   const data = await fetchJsonData("../front-enter-export.json");
   const { city, fee, weekHour, classType, teachWay } =
     data.article[testResultKey];
   const testArray = [city, fee, weekHour, classType, teachWay];
 
-  let commonElement = testFilterCondition.filter((value) =>
+  const commonElement = testFilterCondition.filter((value) =>
     testArray.includes(value)
   );
-  const commonScore = commonElement.length / testArray.length;
-  const comPercentage = (commonScore * 100).toFixed(0) + "%";
-  const commonScoreDeg = commonScore * 360;
 
-  // 圓餅圖
+  const resultPercentage =
+    ((commonElement.length / testArray.length) * 100).toFixed(0) + "%";
+  const resultScoreDeg = (commonElement.length / testArray.length) * 360;
+
+  return [resultPercentage, resultScoreDeg, data, testResultKey];
+}
+
+function setCircleChart(resultScoreDeg) {
   const resultScoreChart = document.querySelector(".resultScore-Chart");
-
   resultScoreChart.addEventListener("animationend", () => {
     resultScoreChart.style.background =
       "conic-gradient(" +
-      `var(--dark-color) 0deg ${commonScoreDeg}deg,` +
-      `var(--primary-color) ${commonScoreDeg}deg 360deg` +
+      `var(--dark-color) 0deg ${resultScoreDeg}deg,` +
+      `var(--primary-color) ${resultScoreDeg}deg 360deg` +
       ")";
   });
+}
 
-  // number
+function numberAnimation(resultPercentage) {
   let currentPercentage = 10;
   let cyclesCompleted = 0;
 
   const intervalIdChart = setInterval(() => {
-    ChartScore.innerHTML = `${currentPercentage}%`;
+    chartScore.innerHTML = `${currentPercentage}%`;
     currentPercentage += 10;
     if (currentPercentage > 100) {
       currentPercentage = 10;
@@ -214,13 +231,13 @@ startBtn.addEventListener("click", async () => {
       if (cyclesCompleted === 2) {
         clearInterval(intervalIdChart);
 
-        ChartScore.innerHTML = comPercentage;
+        chartScore.innerHTML = resultPercentage;
       }
     }
   }, 2000 / 20);
+}
 
-  //Btn text
-  const resultBtn = document.querySelector(".resultBtn");
+function BtnTextAnimation(data, resultBtn, testResultKey) {
   function displayText(index) {
     resultBtn.textContent = classList[index];
   }
@@ -249,30 +266,17 @@ startBtn.addEventListener("click", async () => {
     clearInterval(intervalId);
     resultBtn.innerHTML = data.article[testResultKey].name;
   }, 2000);
+}
 
-  // set Url
-  resultBtn.addEventListener("click", () => {
-    const contentUrl =
-      window.location.protocol + "//" + window.location.host + "/content.html";
-    const contentId = data.article[testResultKey].creatTime;
-    const contentParams = new URLSearchParams({
-      id: JSON.stringify(contentId),
-    });
-    const newTargetUrl = `${contentUrl}?${contentParams.toString()}`;
-
-    window.location.href = newTargetUrl;
-  });
-});
-
-async function getTestResult(answersArray) {
+async function getTestResultKeyValue(answersArray) {
   const data = await fetchJsonData("../front-enter-export.json");
   const articleKeys = Object.keys(data.article);
 
-  let answersList = articleKeys;
+  let answersKeysArray = articleKeys;
   let tempList = [];
 
   if (answersArray[1] === "3000元以下") {
-    answersList = [
+    answersKeysArray = [
       "-LNiP-cd31m_XrDZJxdl",
       "-LNySD7c2UOilxjkW14U",
       "-LNyUA-GLYQyCACdkDjg",
@@ -280,7 +284,7 @@ async function getTestResult(answersArray) {
       "-LOvaej1H569KD4eXNZG",
     ];
   } else if (answersArray[1] === "6000元內") {
-    answersList = [
+    answersKeysArray = [
       "-LNiP-cd31m_XrDZJxdl",
       "-LNySD7c2UOilxjkW14U",
       "-LNyUA-GLYQyCACdkDjg",
@@ -292,25 +296,23 @@ async function getTestResult(answersArray) {
       "-LO17F-h-LN77A7uHJcV",
     ];
   }
-  tempList = answersList;
-  if (answersList.length === 0) answersList = tempList;
-  // console.log(answersList);
+  tempList = answersKeysArray;
+  if (answersKeysArray.length === 0) answersKeysArray = tempList;
 
-  answersList = answersList.filter(
+  answersKeysArray = answersKeysArray.filter(
     (key) =>
       answersArray[0] === "不重要" || answersArray[0] === data.article[key].city
   );
-  if (answersList.length === 0) {
-    answersList = tempList;
+  if (answersKeysArray.length === 0) {
+    answersKeysArray = tempList;
   } else {
-    tempList = answersList;
+    tempList = answersKeysArray;
   }
-  // console.log(answersList);
 
   if (answersArray[2] === "16小時以下") {
-    answersList = ["-LNiP-cd31m_XrDZJxdl", "-LNyOk-FQnejK4pZYqAi"];
+    answersKeysArray = ["-LNiP-cd31m_XrDZJxdl", "-LNyOk-FQnejK4pZYqAi"];
   } else if (answersArray[2] === "30小時內") {
-    answersList = [
+    answersKeysArray = [
       "-LNiP-cd31m_XrDZJxdl",
       "-LNyOk-FQnejK4pZYqAi",
       "-LNyPzKvn1h2QX_CDwET",
@@ -320,50 +322,47 @@ async function getTestResult(answersArray) {
       "-LOvaej1H569KD4eXNZG",
     ];
   }
-  if (answersList.length === 0) {
-    answersList = tempList;
+  if (answersKeysArray.length === 0) {
+    answersKeysArray = tempList;
   } else {
-    tempList = answersList;
+    tempList = answersKeysArray;
   }
-  // console.log(answersList);
 
-  answersList = answersList.filter(
+  answersKeysArray = answersKeysArray.filter(
     (key) =>
       answersArray[3] === "不重要" ||
       answersArray[3] === data.article[key].classType
   );
-  if (answersList.length === 0) {
-    answersList = tempList;
+  if (answersKeysArray.length === 0) {
+    answersKeysArray = tempList;
   } else {
-    tempList = answersList;
+    tempList = answersKeysArray;
   }
-  // console.log(answersList);
 
-  answersList = answersList.filter(
+  answersKeysArray = answersKeysArray.filter(
     (key) =>
       answersArray[4] === "不重要" ||
       answersArray[4] === data.article[key].teachWay
   );
-  if (answersList.length === 0) {
-    answersList = tempList;
+  if (answersKeysArray.length === 0) {
+    answersKeysArray = tempList;
   } else {
-    tempList = answersList;
+    tempList = answersKeysArray;
   }
-  // console.log(answersList);
 
-  return answersList[0];
+  return answersKeysArray[0];
 }
 
-function setTestCard(i, answersArray) {
+function setTestCardContent(testCardIndex = 0, answersArray) {
   return new Promise((resolve) => {
     testCardList.innerHTML = `
-      <div class="list-question">${testQuestions[i].question}</div>
-      <div class="list-stage">${testQuestions[i].stage}</div>
+      <div class="list-question">${testQuestionsArray[testCardIndex].question}</div>
+      <div class="list-stage">${testQuestionsArray[testCardIndex].stage}</div>
       <div class="list-optionContainer"></div>
     `;
 
     const listOptionContainer = document.querySelector(".list-optionContainer");
-    testQuestions[i].listOption.forEach((option) => {
+    testQuestionsArray[testCardIndex].listOption.forEach((option) => {
       listOptionContainer.insertAdjacentHTML(
         "beforeend",
         `<button class="list-option click-effect">${option}</button>`
@@ -374,10 +373,10 @@ function setTestCard(i, answersArray) {
     listOption.forEach((button) => {
       button.addEventListener("click", () => {
         answersArray.push(button.innerHTML);
-        i += 1;
+        testCardIndex += 1;
 
-        if (i <= 4) {
-          setTestCard(i, answersArray).then(() => {
+        if (testCardIndex <= 4) {
+          setTestCardContent(testCardIndex, answersArray).then(() => {
             resolve();
           });
         } else {

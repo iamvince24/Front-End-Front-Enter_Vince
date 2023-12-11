@@ -30,7 +30,8 @@
       <nav>
         <li><a class="click-effect" href="./article.html">探索</a></li>
         <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
-        <li><a class="click-effect" href="./profile.html">登入</a></li>
+        <li><a class="click-effect" id="login-btn">登入</a></li>
+        <!-- <li><a class="click-effect" href="./profile.html">登入</a></li> -->
         <img
           class="header-search-icon click-effect"
           id="header-search-icon"
@@ -39,7 +40,6 @@
         />
       </nav>
     </header>
-
     <main>
       <section class="keyvisual">
         <div class="keyvisual-content">
@@ -176,7 +176,6 @@
     <div class="test-section">
       <div class="test-card-green"></div>
       <div class="test-card-gray"></div>
-
       <div class="test-card-instruction">
         <div class="start-title">測驗說明</div>
         <div class="start-text">
@@ -184,7 +183,6 @@
         </div>
         <button class="test-start-btn btn-effect click-effect">開始測驗</button>
       </div>
-
       <div class="test-card-list">
         <!-- <div class="list-question">選擇在哪座城市學習？</div>
         <div class="list-stage">1/5</div>
@@ -197,6 +195,20 @@
         <div class="resultScore-Chart"></div>
         <div class="chartScore"></div>
         <button class="resultBtn click-effect"></button>
+      </div>
+    </div>
+
+    <div class="login-container" id="login-container" style="display: none;">
+      <div class="login-card" id="login-card">
+        <img class="login-logo" src="./img/FE_logo-4.png" alt="FE_logo" />
+        <input class="login-input" id="login-input-mail" placeholder="Email"></input>
+        <input class="login-input" id="login-input-password" placeholder="Password"></input>
+        <a class="login-forgetpassword">忘記密碼？</a>
+        <div class="register-login-btns">
+          <button class="register-login-btn click-effect" id="register-btn">註冊</button>
+          <button class="register-login-btn click-effect" id="login-btn-inner">登入</button>
+        </div>
+        <button class="login-google-btn click-effect" id="login-google-btn">Log In With Gmail</button>
       </div>
     </div>
 

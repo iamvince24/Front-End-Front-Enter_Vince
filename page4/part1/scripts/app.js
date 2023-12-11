@@ -391,3 +391,20 @@ function setTestCardContent(testCardIndex = 0, answersArray) {
     });
   });
 }
+
+// login
+const loginBtn = document.querySelector("#login-btn");
+const loginContainer = document.querySelector("#login-container");
+const loginCard = document.querySelector("#login-card");
+loginContainer.style.display === "none";
+
+loginBtn.addEventListener("click", () => {
+  loginContainer.style.display =
+    loginContainer.style.display === "none" ? "flex" : "none";
+});
+
+loginContainer.addEventListener("click", () => {
+  loginContainer.style.display = "none";
+});
+
+loginCard.addEventListener("click", stopPropagationHandler);

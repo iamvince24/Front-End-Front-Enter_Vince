@@ -153,6 +153,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+
+  transition: transform 0.3s ease-in;
+}
+
+.collect-pic:hover {
+  transform: scale(1.08);
 }
 
 .collect-article-name {
@@ -192,13 +198,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 40px;
   }
   .profile-information-tag button {
     min-width: 60px;
     height: 30px;
-
     margin: 0px 5vw;
   }
   .profile-information-content {

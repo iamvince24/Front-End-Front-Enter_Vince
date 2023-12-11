@@ -34,6 +34,7 @@ body {
   --dark-color: #44aaa7;
   --background-color: #f2f2f2;
   --section-background-color: #ececec;
+  --complementary-color: #d8191e;
   --text-size-h1: 2.3rem;
   --text-size-h1-2: 1.5rem;
   --text-size-h2: 1.3rem;
@@ -524,13 +525,6 @@ footer nav img:hover {
   opacity: 0.15;
 }
 
-/* .test-card-content {
-  width: 350px;
-  height: 450px;
-  position: fixed;
-  z-index: 4;
-} */
-
 .test-card-instruction {
   width: 350px;
   height: 450px;
@@ -791,6 +785,119 @@ footer nav img:hover {
   }
   .list-option {
     width: 140px;
+    height: 30px;
+  }
+}
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* display: none; */
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 350px;
+  height: 420px;
+  background: red;
+  position: fixed;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-logo {
+  height: 100px;
+  width: auto;
+  margin: 20px 0px;
+}
+
+.login-input {
+  width: 70%;
+  height: 40px;
+  font-size: var(--text-size-h4);
+  color: var(--text-color);
+  border-radius: 5px;
+  padding-left: 8px;
+  letter-spacing: 1px;
+  border: 1.5px solid var(--primary-color);
+
+  margin-bottom: 15px;
+}
+
+.login-forgetpassword {
+  font-size: var(--text-size-h4);
+  margin-bottom: 15px;
+}
+
+.register-login-btns {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.register-login-btn {
+  width: 110px;
+  height: 40px;
+  font-size: var(--text-size-h3);
+  color: white;
+  background: var(--primary-color);
+  margin-top: 20px;
+}
+
+.register-login-btn:hover {
+  background: var(--secondary-color);
+}
+
+.login-google-btn {
+  width: 70%;
+  height: 40px;
+  font-size: var(--text-size-h3);
+  color: white;
+  background: var(--complementary-color);
+  border: none;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+.login-google-btn:hover {
+  filter: brightness(120%);
+}
+
+.login-google-btn:active {
+  filter: brightness(110%);
+}
+
+@media (max-width: 767px) {
+  .login-card {
+    width: 280px;
+    height: 330px;
+  }
+  .login-logo {
+    height: 70px;
+    margin: 20px 0px 10px;
+  }
+  .login-input {
+    width: 70%;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+  .register-login-btn {
+    width: 80px;
+    height: 30px;
+    margin-top: 15px;
+  }
+  .login-google-btn {
     height: 30px;
   }
 }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/index.css" />
+    <link
+      rel="Shortcut Icon"
+      type="image/x-icon"
+      href="../part2/img/favicon.ico"
+    />
+    <title>Front-Enter - 前端轉職資訊</title>
+    <div id="loading-container">
+      <div class="color-block color-block-primary"></div>
+      <div class="color-block color-block-secondary"></div>
+      <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
+    </div>
+  </head>
+  <body id="body-main-content">
+    <header>
+      <figure>
+        <a href="./index.html"
+          ><img
+            class="logo click-effect"
+            src="./img/FE_logo-4.png"
+            alt="FE_logo"
+        /></a>
+      </figure>
+      <nav>
+        <li><a class="click-effect" href="./article.html">探索</a></li>
+        <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
+        <li class="click-effect">登入</li>
+        <img
+          class="header-search-icon click-effect"
+          id="header-search-icon"
+          src="./img/FE_search_green.png"
+          alt="FE_search_green"
+        />
+      </nav>
+    </header>
+
+    <main>
+      <section class="keyvisual">
+        <div class="keyvisual-content">
+          <h1 class="keyvisual-titile">FRONT-ENTER</h1>
+          <p>前端轉職資訊</p>
+          <img src="./img/next.svg" alt="next" />
+        </div>
+      </section>
+
+      <section class="home-test">
+        <p>想知道自己適合什麼學習環境嗎？</p>
+        <p>可以點擊按鈕測測看哦！</p>
+        <button
+          class="home-test-button btn btn-effect click-effect"
+          id="aside-test-go"
+        >
+          測試 GO
+        </button>
+      </section>
+
+      <section class="home-article">
+        <p>教室精選</p>
+        <button class="home-article-button btn-effect click-effect">
+          AppWorks School
+        </button>
+        <button class="home-article-button btn-effect click-effect">
+          彭彭的課程教學
+        </button>
+        <button class="home-article-button btn-effect click-effect">
+          五倍紅寶石
+        </button>
+      </section>
+      <section class="home-information">
+        <div class="home-information-card">
+          <img src="./img/FE_pen.png" alt="pen" />
+          <p class="title">探索</p>
+          <hr />
+          <p class="content">
+            我們提供公正的資訊， 幫您順利轉職， 並追蹤最新的業界動態。
+          </p>
+          <button class="home-information-card-button click-effect">
+            找學校
+          </button>
+        </div>
+        <div class="home-information-card">
+          <img src="./img/FE_pen.png" alt="pen" />
+          <p class="title">技能樹</p>
+          <hr />
+          <p class="content">
+            前端包含哪些技術？ 你又學會了哪些？ 趕緊點進來試試看。
+          </p>
+          <button class="home-information-card-button click-effect">
+            技能樹
+          </button>
+        </div>
+      </section>
+      <section class="home-about">
+        <p class="home-about-title">關於</p>
+        <hr />
+        <p class="home-about-content">
+          近年來，社會對於軟體工程師的需求急速增加，全台各地的補習也如雨後春筍般開業，
+          然而人的時間有限，要如何找到適合自己的學習環境？
+          <br />
+          <br />
+          「Front-Enter」特別針對前端工程的學習資源，進行蒐集、分類，
+          期待讓有志成為前端工程師的人，找到最適合自己的學習環境。
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <section class="top-icon-section">
+        <img
+          class="top-icon click-effect"
+          id="top-icon"
+          src="./img/FE_TOP.png"
+          alt="pen"
+        />
+      </section>
+      <nav>
+        <div>聯絡方式</div>
+        <div><span>M</span> 0975-282-356</div>
+        <div>
+          <span>E </span
+          ><a href="mailto:mynameisvince24@gmail.com"
+            >mynameisvince24@gmail.com</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://www.facebook.com/profile.php?id=100079762316652"
+            target="_blank"
+          >
+            <img src="./img/new-facebook-blue.svg" alt="pen" />
+          </a>
+          <a href="https://line.me/ti/p/v9ETm_J1dk" target="_blank">
+            <img src="./img/FE_line.png" alt="pen" />
+          </a>
+        </div>
+      </nav>
+    </footer>
+
+    <aside id="aside-test-go">
+      <img class="aside-img click-effect" src="./img/FE_test_go.png" />
+    </aside>
+
+    <div id="search-container" style="display: none">
+      <div class="search-container-white">
+        <label>Search</label>
+        <form class="input-container">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="請填入搜尋文字"
+            required
+          />
+          <img
+            class="voice-icon click-effect"
+            id="voice-icon"
+            src="../img/Microphone.svg"
+            alt="FE_search_green"
+          />
+          <img
+            class="search-icon-inner click-effect"
+            id="search-icon-inner"
+            src="../img/FE_search_green.png"
+            alt="FE_search_green"
+          />
+        </form>
+      </div>
+      <div class="search-container-overlay"></div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
+
+      <div class="test-card-instruction">
+        <div class="start-title">測驗說明</div>
+        <div class="start-text">
+          點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+        </div>
+        <button class="test-start-btn btn-effect click-effect">開始測驗</button>
+      </div>
+
+      <div class="test-card-list">
+        <!-- <div class="list-question">選擇在哪座城市學習？</div>
+        <div class="list-stage">1/5</div>
+        <div class="list-optionContainer">
+          <button class="list-option click-effect">台北</button>
+        </div> -->
+      </div>
+      <div class="test-card-result">
+        <div class="result-title">你有多適合下列學校呢？</div>
+        <div class="resultScore-Chart"></div>
+        <div class="chartScore"></div>
+        <button class="resultBtn click-effect"></button>
+      </div>
+    </div>
+
+    <script type="module" src="scripts/app.js"></script>
+  </body>
+</html>

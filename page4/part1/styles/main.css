@@ -59,6 +59,13 @@ li:hover {
   color: var(--primary-color);
 }
 
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
 button {
   font-family: "Noto Sans TC", "華康黑體", "微軟正黑體", arial, sans-serif;
   font-size: var(--text-size-h3);

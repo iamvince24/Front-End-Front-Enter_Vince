@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link <link rel="stylesheet" type="text/css" href="./styles/main.css" />
-    <link <link rel="stylesheet" type="text/css" href="./styles/content.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/profile.css" />
     <link
       rel="Shortcut Icon"
       type="image/x-icon"
@@ -31,7 +31,7 @@
       <nav>
         <li><a class="click-effect" href="./article.html">探索</a></li>
         <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
-        <li><a class="click-effect" href="./profile.html">登入</a></li>
+        <li><a class="click-effect" href="./profile.html">會員</a></li>
         <img
           class="header-search-icon click-effect"
           id="header-search-icon"
@@ -42,69 +42,81 @@
     </header>
 
     <main>
-      <section class="article-keyvisual">
-        <div class="article-keyvisual-content"></div>
+      <section class="profile-keyvisual">
+        <div class="profile-keyvisual-content">會員中心</div>
       </section>
-
-      <section class="image-display">
-        <div class="left-arrow">
-          <img src="img/Left-arrow.png" alt="Left-arrow" />
+      <section class="profile-information">
+        <div class="profile-information-tag">
+          <button class="tag-personal click-effect">個人資料</button>
+          <button class="tag-collect click-effect">收藏</button>
+          <button class="tag-logout click-effect">登出</button>
         </div>
-        <div class="image-display-container">
-          <img class="image-display-image" alt="key-visual" />
-        </div>
-        <div class="right-arrow">
-          <img src="img/Right-arrow.png" alt="Right-arrow" />
-        </div>
-      </section>
-
-      <section class="content-container">
-        <div class="content-image-container">
-          <div class="content-img">
-            <img
-              class="content-image-element"
-              src="img/key-visual.jpg"
-              alt="key-visual"
-            />
+        <div class="profile-information-content">
+          <div class="content-personal">
+            <div class="content-personal-info">
+              <img
+              class="content-personal-pic"
+              id="header-search-icon"
+              src="./img/front-enter-profile-logo.svg"
+              alt="profile-logo"
+              />
+              <div class="info-form">
+                <label>姓名</label>
+                <input class="info-form-unedited" id="info-input" placeholder="請輸入姓名"></input>
+              </div>
+              <div class="info-form">
+                <label>手機</label>
+                <input class="info-form-unedited" id="info-input"  placeholder="請輸入號碼"></input>
+              </div>
+              <div class="info-form">
+                <label>信箱</label>
+                <input class="info-form-unedited" placeholder="mynameisvince24@gmail.com"></input>
+              </div>
+            </div>
+            <button class="info-btn click-effect">修改資料</button>
           </div>
-          <div class="content-img hidden-img">
-            <img
-              class="content-image-element"
-              src="img/second-img.jpg"
-              alt="key-visual"
-            />
+          <div class="content-collect">
+            <div class="collect-articlecard">
+              <div class="collect-pic"></div>
+              <div class="collect-article-name">文章名稱</div>
+              <img
+                class="collect-icon"
+                id="header-search-icon"
+                src="./img/rubbish-bin.svg"
+                alt="profile-logo"
+              />
+            </div>
+            <div class="collect-articlecard">
+              <div class="collect-pic"></div>
+              <div class="collect-article-name">文章名稱</div>
+              <img
+                class="collect-icon"
+                id="header-search-icon"
+                src="./img/rubbish-bin.svg"
+                alt="profile-logo"
+              />
+            </div>
+            <div class="collect-articlecard">
+              <div class="collect-pic"></div>
+              <div class="collect-article-name">文章名稱</div>
+              <img
+                class="collect-icon"
+                id="header-search-icon"
+                src="./img/rubbish-bin.svg"
+                alt="profile-logo"
+              />
+            </div>
+            <div class="collect-articlecard">
+              <div class="collect-pic"></div>
+              <div class="collect-article-name">文章名稱</div>
+              <img
+                class="collect-icon"
+                id="header-search-icon"
+                src="./img/rubbish-bin.svg"
+                alt="profile-logo"
+              />
+            </div>
           </div>
-          <div class="content-img hidden-img">
-            <img
-              class="content-image-element"
-              src="img/third-img.jpg"
-              alt="key-visual"
-            />
-          </div>
-          <div class="content-img hidden-img">
-            <img
-              class="content-image-element"
-              src="img/four-img.jpg"
-              alt="key-visual"
-            />
-          </div>
-          <div class="content-img hidden-img">
-            <img
-              class="content-image-element"
-              src="img/five-img.jpg"
-              alt="key-visual"
-            />
-          </div>
-        </div>
-
-        <div class="content-article">
-          <div class="content-main">
-            <div class="content-title"></div>
-            <div class="content-text"></div>
-          </div>
-          <div class="content-table-title">整理</div>
-          <hr />
-          <div class="content-table-container"></div>
         </div>
       </section>
     </main>
@@ -184,13 +196,7 @@
         <button class="test-start-btn btn-effect click-effect">開始測驗</button>
       </div>
 
-      <div class="test-card-list">
-        <!-- <div class="list-question">選擇在哪座城市學習？</div>
-        <div class="list-stage">1/5</div>
-        <div class="list-optionContainer">
-          <button class="list-option click-effect">台北</button>
-        </div> -->
-      </div>
+      <div class="test-card-list"></div>
       <div class="test-card-result">
         <div class="result-title">你有多適合下列學校呢？</div>
         <div class="resultScore-Chart"></div>
@@ -200,7 +206,6 @@
     </div>
 
     <script type="module" src="./scripts/app.js"></script>
-    <!-- <script type="module" src="./scripts/article.js"></script> -->
-    <script type="module" src="./scripts/content.js"></script>
+    <script type="module" src="./scripts/profile.js"></script>
   </body>
 </html>

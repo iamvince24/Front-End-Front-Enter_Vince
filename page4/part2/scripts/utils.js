@@ -7,13 +7,18 @@ async function fetchJsonData(path) {
 }
 
 function setRedirectLink(address, id) {
-  const contentUrl = `${window.location.origin}/${address}.html`;
-  const contentId = id;
-  const contentParams = new URLSearchParams({
-    id: JSON.stringify(contentId),
-  });
+  if (id !== null) {
+    const contentUrl = `${window.location.origin}/${address}.html`;
+    const contentId = id;
+    const contentParams = new URLSearchParams({
+      id: JSON.stringify(contentId),
+    });
 
-  return `${contentUrl}?${contentParams.toString()}`;
+    return `${contentUrl}?${contentParams.toString()}`;
+  } else {
+    const contentUrl = `${window.location.origin}/${address}.html`;
+    return `${contentUrl}`;
+  }
 }
 
 const stopPropagationHandler = (event) => {

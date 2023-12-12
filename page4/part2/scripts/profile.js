@@ -1,9 +1,13 @@
+import { logout } from "./firebase.js";
+
 const tagPersonal = document.querySelector(".tag-personal");
 const tagCollect = document.querySelector(".tag-collect");
 const contentPersonal = document.querySelector(".content-personal");
 const contentCollect = document.querySelector(".content-collect");
 const infoBtn = document.querySelector(".info-btn");
-const infoInputs = document.querySelectorAll("#info-input");
+const infoInputs = document.querySelectorAll(".info-input");
+const tagLogout = document.querySelector(".tag-logout");
+const memberBtn = document.querySelector("#member-btn");
 
 tagPersonal.addEventListener("click", () => {
   contentCollect.style.display = "none";
@@ -25,3 +29,10 @@ infoBtn.addEventListener("click", () => {
     infoInput.classList.toggle("info-form-edited");
   });
 });
+
+tagLogout.addEventListener("click", () => {
+  logout();
+  window.location.href = `${window.location.origin}/index.html`;
+});
+
+memberBtn.href = `${window.location.origin}/profile.html${window.location.search}`;

@@ -4,6 +4,13 @@ import {
   stopPropagationHandler,
 } from "./utils.js";
 
+import {
+  auth,
+  registerWithEmailAndPassword,
+  logInWithEmailAndPassword,
+  signInWithGoogle,
+} from "./firebase.js";
+
 // loading handle
 // document.addEventListener("DOMContentLoaded", function () {
 //   document.querySelector(".color-block-primary").style.transform = "scaleY(3)";
@@ -392,19 +399,49 @@ function setTestCardContent(testCardIndex = 0, answersArray) {
   });
 }
 
-// login
-const loginBtn = document.querySelector("#login-btn");
-const loginContainer = document.querySelector("#login-container");
-const loginCard = document.querySelector("#login-card");
-loginContainer.style.display === "none";
+// Determine whether to give profile paga
+if (
+  window.location.href !==
+  `${window.location.origin}/profile.html${window.location.search}`
+) {
+  // login page
+  const loginBtn = document.querySelector("#login-btn");
+  const loginContainer = document.querySelector("#login-form");
+  const loginCard = document.querySelector("#login-card");
+  loginContainer.style.display === "none";
 
-loginBtn.addEventListener("click", () => {
-  loginContainer.style.display =
-    loginContainer.style.display === "none" ? "flex" : "none";
-});
+  loginBtn.addEventListener("click", () => {
+    loginContainer.style.display =
+      loginContainer.style.display === "none" ? "flex" : "none";
+  });
 
-loginContainer.addEventListener("click", () => {
-  loginContainer.style.display = "none";
-});
+  loginContainer.addEventListener("click", () => {
+    loginContainer.style.display = "none";
+  });
 
-loginCard.addEventListener("click", stopPropagationHandler);
+  loginCard.addEventListener("click", stopPropagationHandler);
+
+  // register
+  const formMail = document.querySelector("#form-input-mail");
+  const formPassword = document.querySelector("#form-input-password");
+  const registerBtn = document.querySelector("#register-btn");
+
+  registerBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    registerWithEmailAndPassword(formMail.value, formPassword.value);
+  });
+
+  // login
+  const loginBtnInner = document.querySelector("#login-btn-inner");
+  loginBtnInner.addEventListener("click", (event) => {
+    event.preventDefault();
+    logInWithEmailAndPassword(auth, formMail.value, formPassword.value);
+  });
+
+  // login with google
+  const loginGoogleBtn = document.querySelector("#login-google-btn");
+  loginGoogleBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    signInWithGoogle();
+  });
+}

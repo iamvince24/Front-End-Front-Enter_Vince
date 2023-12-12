@@ -31,7 +31,7 @@
       <nav>
         <li><a class="click-effect" href="./article.html">探索</a></li>
         <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
-        <li><a class="click-effect" href="./profile.html">會員</a></li>
+        <li><a class="click-effect" id="member-btn" href="">會員</a></li>
         <img
           class="header-search-icon click-effect"
           id="header-search-icon"
@@ -62,11 +62,11 @@
               />
               <div class="info-form">
                 <label>姓名</label>
-                <input class="info-form-unedited" id="info-input" placeholder="請輸入姓名"></input>
+                <input class="info-form-unedited info-input"  placeholder="請輸入姓名"></input>
               </div>
               <div class="info-form">
                 <label>手機</label>
-                <input class="info-form-unedited" id="info-input"  placeholder="請輸入號碼"></input>
+                <input class="info-form-unedited info-input"   placeholder="請輸入號碼"></input>
               </div>
               <div class="info-form">
                 <label>信箱</label>
@@ -206,6 +206,7 @@
     </div>
 
     <script type="module" src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/utils.js"></script>
     <script type="module" src="./scripts/profile.js"></script>
   </body>
 </html>

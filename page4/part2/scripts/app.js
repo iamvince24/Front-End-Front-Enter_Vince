@@ -9,6 +9,7 @@ import {
   registerWithEmailAndPassword,
   logInWithEmailAndPassword,
   signInWithGoogle,
+  sendPasswordReset,
 } from "./firebase.js";
 
 // loading handle
@@ -443,5 +444,16 @@ if (
   loginGoogleBtn.addEventListener("click", (event) => {
     event.preventDefault();
     signInWithGoogle();
+  });
+
+  // forget password
+  const loginForgetPassword = document.querySelector(".login-forgetpassword");
+
+  loginForgetPassword.addEventListener("click", async () => {
+    if (formMail.value) {
+      await sendPasswordReset(auth, formMail.value);
+    } else {
+      alert("請輸入 Email");
+    }
   });
 }

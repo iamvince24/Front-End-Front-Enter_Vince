@@ -106,6 +106,7 @@
 .info-form-unedited {
   border: none !important;
   background: none !important;
+  pointer-events: none;
 }
 
 .info-form label {

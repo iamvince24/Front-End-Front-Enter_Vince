@@ -21,7 +21,7 @@
   <body id="main-content">
     <header>
       <figure>
-        <a href="./index.html"
+        <a href="./index.html" id="member-home"
           ><img
             class="logo click-effect"
             src="./img/FE_logo-4.png"
@@ -29,8 +29,16 @@
         /></a>
       </figure>
       <nav>
-        <li><a class="click-effect" href="./article.html">探索</a></li>
-        <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
+        <li>
+          <a class="click-effect" id="member-article" href="./article.html"
+            >探索</a
+          >
+        </li>
+        <li>
+          <a class="click-effect" id="member-skilltree" href="./skilltree.html"
+            >技能樹</a
+          >
+        </li>
         <li><a class="click-effect" id="login-btn">登入</a></li>
         <!-- <li><a class="click-effect" href="./profile.html">登入</a></li> -->
         <img
@@ -200,22 +208,47 @@
       </div>
     </div>
 
-    <form class="login-container" id="login-form" style="display: none;">
+    <form class="login-container" id="login-form" style="display: none">
       <div class="login-card" id="login-card">
         <img class="login-logo" src="./img/FE_logo-4.png" alt="FE_logo" />
-        <input type="email" class="login-input" id="form-input-mail" placeholder="Email"></input>
-        <input type="password" class="login-input" id="form-input-password" placeholder="Password"></input>
+        <input
+          type="email"
+          class="login-input"
+          id="form-input-mail"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          class="login-input"
+          id="form-input-password"
+          placeholder="Password"
+        />
         <a class="login-forgetpassword">忘記密碼？</a>
         <div class="register-login-btns">
-          <button type="submit" class="register-login-btn click-effect" id="register-btn">註冊</button>
-          <button type="submit" class="register-login-btn click-effect" id="login-btn-inner">登入</button>
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="register-btn"
+          >
+            註冊
+          </button>
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="login-btn-inner"
+          >
+            登入
+          </button>
         </div>
-        <button class="login-google-btn click-effect" id="login-google-btn">Log In With Gmail</button>
+        <button class="login-google-btn click-effect" id="login-google-btn">
+          Log In With Gmail
+        </button>
       </div>
     </form>
 
     <script type="module" src="./scripts/app.js"></script>
     <!-- <script type="module" src="./scripts/article.js"></script> -->
     <script type="module" src="./scripts/content.js"></script>
+    <!-- <script type="module" src="./scripts/profile.js"></script> -->
   </body>
 </html>

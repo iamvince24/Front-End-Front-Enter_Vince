@@ -21,7 +21,7 @@
   <body id="main-content">
     <header>
       <figure>
-        <a href="./index.html"
+        <a href="./index.html" id="member-home"
           ><img
             class="logo click-effect"
             src="./img/FE_logo-4.png"
@@ -29,8 +29,16 @@
         /></a>
       </figure>
       <nav>
-        <li><a class="click-effect" href="./article.html">探索</a></li>
-        <li><a class="click-effect" href="./skilltree.html">技能樹</a></li>
+        <li>
+          <a class="click-effect" id="member-article" href="./article.html"
+            >探索</a
+          >
+        </li>
+        <li>
+          <a class="click-effect" id="member-skilltree" href="./skilltree.html"
+            >技能樹</a
+          >
+        </li>
         <li><a class="click-effect" id="member-btn" href="">會員</a></li>
         <img
           class="header-search-icon click-effect"
@@ -55,32 +63,42 @@
           <div class="content-personal">
             <div class="content-personal-info">
               <img
-              class="content-personal-pic"
-              id="header-search-icon"
-              src="./img/front-enter-profile-logo.svg"
-              alt="profile-logo"
+                class="content-personal-pic"
+                id="header-search-icon"
+                src="./img/front-enter-profile-logo.svg"
+                alt="profile-logo"
               />
               <div class="info-form">
                 <label>姓名</label>
-                <input class="info-form-unedited info-input" id="info-username" placeholder="請輸入姓名"></input>
+                <input
+                  class="info-form-unedited info-input"
+                  id="info-username"
+                  placeholder="請輸入姓名"
+                />
               </div>
               <div class="info-form">
                 <label>手機</label>
-                <input class="info-form-unedited info-input" id="info-phone"  placeholder="請輸入號碼"></input>
+                <input
+                  class="info-form-unedited info-input"
+                  id="info-phone"
+                  placeholder="請輸入號碼"
+                />
               </div>
               <div class="info-form">
                 <label>信箱</label>
-                <input class="info-form-unedited" id="info-email"></input>
+                <input class="info-form-unedited" id="info-email" />
               </div>
             </div>
-            <button class="info-btn click-effect" id="info-modify-btn">修改資料</button>
+            <button class="info-btn click-effect" id="info-modify-btn">
+              修改資料
+            </button>
           </div>
           <div class="content-collect">
-            <div class="collect-articlecard">
+            <!-- <div class="collect-articlecard">
               <div class="collect-pic"></div>
               <div class="collect-article-name">文章名稱</div>
               <img
-                class="collect-icon"
+                class="collect-delete-icon"
                 id="header-search-icon"
                 src="./img/rubbish-bin.svg"
                 alt="profile-logo"
@@ -90,7 +108,7 @@
               <div class="collect-pic"></div>
               <div class="collect-article-name">文章名稱</div>
               <img
-                class="collect-icon"
+                class="collect-delete-icon"
                 id="header-search-icon"
                 src="./img/rubbish-bin.svg"
                 alt="profile-logo"
@@ -100,7 +118,7 @@
               <div class="collect-pic"></div>
               <div class="collect-article-name">文章名稱</div>
               <img
-                class="collect-icon"
+                class="collect-delete-icon"
                 id="header-search-icon"
                 src="./img/rubbish-bin.svg"
                 alt="profile-logo"
@@ -110,12 +128,12 @@
               <div class="collect-pic"></div>
               <div class="collect-article-name">文章名稱</div>
               <img
-                class="collect-icon"
+                class="collect-delete-icon"
                 id="header-search-icon"
                 src="./img/rubbish-bin.svg"
                 alt="profile-logo"
               />
-            </div>
+            </div> -->
           </div>
         </div>
       </section>

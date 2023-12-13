@@ -1,4 +1,5 @@
 import { fetchJsonData, setRedirectLink } from "./utils.js";
+import { writeUserData, readUserData } from "./firebase.js";
 
 window.onload = function () {
   setInterval(function () {
@@ -7,13 +8,17 @@ window.onload = function () {
   }, 5000);
 };
 
+const urlSearchParams = new URLSearchParams(window.location.search);
+const idParam = urlSearchParams.get("id");
+
 const articleListContainer = document.querySelector(".articlelist");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 const setArticles = async () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
-  const idParam = urlSearchParams.get("id");
-  const searchKeyword = idParam ? JSON.parse(idParam) : null;
+  // const idParam = urlSearchParams.get("id");
+  const searchParam = urlSearchParams.get("search");
+  const searchKeyword = searchParam ? JSON.parse(searchParam) : null;
 
   const data = await fetchJsonData("../front-enter-export.json");
   const articleKeys = Object.keys(data.article);
@@ -68,43 +73,96 @@ function handleFilterClick(element, articleKeys, allData) {
 }
 
 function appendArticleCard(element, filteredDataList, allData) {
-  const { city, rectangleUrl, name, preface, creatTime } = element;
+  const { city, rectangleUrl, name, preface, creatTime, uid } = element;
   const newArticleItem = document.createElement("article");
   newArticleItem.classList.add("articlelist-card");
 
   newArticleItem.innerHTML = `
-      <div class="location">
+  ${
+    idParam
+      ? `<img class="star-icon click-effect" id="star-btn-${creatTime}" src="../img/star-border.svg" alt="star-icon" />`
+      : ""
+  }
+    <div class="location">
+      <img
+        class="location-icon"
+        src="../img/One-location-icon.png"
+        alt="location-icon"
+      />
+      <div class="click-effect filter-btn">${city}</div>
+    </div>
+    <div class="articlelist-content">
+      <div class="articlelist-pic-container">
         <img
-          class="location-icon"
-          src="../img/One-location-icon.png"
-          alt="location-icon"
+          class="articlelist-pic"
+          src="${rectangleUrl}"
+          alt="articlelist-picture"
         />
-        <div class="click-effect filter-btn">${city}</div>
       </div>
-      <div class="articlelist-content">
-        <div class="articlelist-pic-container">
-          <img
-            class="articlelist-pic"
-            src=${rectangleUrl}
-            alt="articlelist-picture"
-          />
-        </div>
-        <p class="title">${name}</p>
-        <div class="text">
+      <p class="title">${name}</p>
+      <div class="text">
         ${preface}
-        </div>
-        <div class="articlelist-readmore">
-          <div class="readmore-word">read more</div>
-          <img
-            class="readmore-arrow"
-            src="../img/Arrow-right-one.png"
-            alt="readmore-arrow"
-          />
-        </div>
       </div>
+      <div class="articlelist-readmore">
+        <div class="readmore-word">read more</div>
+        <img
+          class="readmore-arrow"
+          src="../img/Arrow-right-one.png"
+          alt="readmore-arrow"
+        />
+      </div>
+    </div>
   `;
 
   articleListContainer.appendChild(newArticleItem);
+
+  if (idParam) {
+    const isArticleStarred = JSON.parse(
+      window.localStorage.getItem("articleCollect")
+    )[uid].isStarred;
+
+    if (isArticleStarred) {
+      newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+        "../img/star-background.svg";
+    } else {
+      newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+        "../img/star-border.svg";
+    }
+
+    newArticleItem
+      .querySelector(`#star-btn-${creatTime}`)
+      .addEventListener("click", async () => {
+        const articleCollectLocal =
+          window.localStorage.getItem("articleCollect");
+        let articleCollectArray = JSON.parse(articleCollectLocal);
+
+        if (articleCollectArray[uid].isStarred) {
+          articleCollectArray[uid].isStarred = false;
+          window.localStorage.setItem(
+            "articleCollect",
+            JSON.stringify(articleCollectArray)
+          );
+          newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+            "../img/star-border.svg";
+        } else {
+          articleCollectArray[uid].isStarred = true;
+          window.localStorage.setItem(
+            "articleCollect",
+            JSON.stringify(articleCollectArray)
+          );
+          newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+            "../img/star-background.svg";
+        }
+
+        await writeUserData(
+          window.localStorage.getItem("UID", uid),
+          null,
+          null,
+          null,
+          articleCollectArray
+        );
+      });
+  }
 
   // Set filter button function
   const filterBtn = newArticleItem.querySelector(".filter-btn");
@@ -127,7 +185,7 @@ function appendArticleCard(element, filteredDataList, allData) {
     ".articlelist-content"
   );
   articleListContent.addEventListener("click", () => {
-    window.location.href = setRedirectLink("content", creatTime);
+    window.location.href = setRedirectLink("content", creatTime, "content");
   });
 }
 

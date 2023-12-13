@@ -150,7 +150,7 @@
   margin-bottom: 10px;
   border-radius: 5px;
 
-  background-image: url("../img/front-enter-profile-keyvisual.jpg");
+  /* background-image: url("../img/front-enter-profile-keyvisual.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -167,8 +167,13 @@
   color: var(--primary-color);
 }
 
-.collect-icon {
+.collect-delete-icon {
   width: 20px;
+  cursor: pointer;
+}
+
+.collect-delete-icon:active {
+  filter: brightness(120%);
 }
 
 @media (max-width: 1023px) {

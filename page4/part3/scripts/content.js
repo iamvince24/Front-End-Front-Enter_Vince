@@ -15,16 +15,16 @@ const contentText = document.querySelector(".content-text");
 const fetchData = async () => {
   // Get Url Id
   const urlParams = new URLSearchParams(window.location.search);
-  const idParam = JSON.parse(urlParams.get("id"));
+  const contentParam = JSON.parse(urlParams.get("content"));
 
-  if (idParam) {
+  if (contentParam) {
     // Setting Data
     const data = await fetchJsonData("../front-enter-export.json");
     const articleKeys = Object.keys(data.article);
     let targetKey = "";
 
     articleKeys.forEach((key) => {
-      if (idParam === data.article[key].creatTime) {
+      if (contentParam === data.article[key].creatTime) {
         targetKey = key;
       }
     });

@@ -58,12 +58,31 @@ const searchInput = document.querySelector("#search-input");
 const searchIconInner = document.querySelector("#search-icon-inner");
 
 const performSearchRedirect = async () => {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const idParam = urlSearchParams.get("id");
   const currentUrl = window.location.href;
-  const targetUrl = `${window.location.origin}/article.html`;
-  if (currentUrl !== targetUrl) {
-    window.location.href = setRedirectLink("article", searchInput.value);
+  if (idParam) {
+    window.location.href = addSearchParameterToUrl(
+      currentUrl,
+      JSON.stringify(searchInput.value)
+    );
+  } else {
+    const targetUrl = `${window.location.origin}/article.html`;
+    if (currentUrl !== targetUrl) {
+      window.location.href = setRedirectLink(
+        "article",
+        searchInput.value,
+        "search"
+      );
+    }
   }
 };
+
+function addSearchParameterToUrl(url, searchValue) {
+  const urlObject = new URL(url);
+  urlObject.searchParams.set("search", searchValue);
+  return urlObject.toString();
+}
 
 searchIconInner.addEventListener("click", performSearchRedirect);
 searchInput.addEventListener("keydown", (event) => {
@@ -456,4 +475,36 @@ if (
       alert("請輸入 Email");
     }
   });
+}
+
+const memberHome = document.querySelector("#member-home");
+const memberArticle = document.querySelector("#member-article");
+const memberSkilltree = document.querySelector("#member-skilltree");
+const loginBtn = document.querySelector("#login-btn");
+const memberBtn = document.querySelector("#member-btn");
+if (memberBtn) {
+  memberBtn.href = `${window.location.origin}/profile.html${window.location.search}`;
+  if (loginBtn) {
+    loginBtn.removeEventListener("click", () => {
+      loginContainer.style.display =
+        loginContainer.style.display === "none" ? "flex" : "none";
+    });
+  }
+}
+
+const urlSearchParams = new URLSearchParams(window.location.search);
+const idParam = urlSearchParams.get("id");
+if (idParam) {
+  memberHome.href = `${window.location.origin}/index.html${window.location.search}`;
+  memberArticle.href = `${window.location.origin}/article.html${window.location.search}`;
+  memberSkilltree.href = `${window.location.origin}/skilltree.html${window.location.search}`;
+
+  if (loginBtn) {
+    loginBtn.removeEventListener("click", () => {
+      loginContainer.style.display =
+        loginContainer.style.display === "none" ? "flex" : "none";
+    });
+    loginBtn.href = `${window.location.origin}/profile.html${window.location.search}`;
+    loginBtn.innerHTML = "會員";
+  }
 }

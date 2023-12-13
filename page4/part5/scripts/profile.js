@@ -1,5 +1,4 @@
-import { logout, readUserData, writeUserData } from "./firebase.js";
-import { fetchJsonData } from "./utils.js";
+import { logout, readUserData, writeUserData, fetchData } from "./firebase.js";
 
 const tagPersonal = document.querySelector(".tag-personal");
 const tagCollect = document.querySelector(".tag-collect");
@@ -68,7 +67,7 @@ if (infoUsername) {
 }
 
 // article collect
-const data = await fetchJsonData("../front-enter-export.json");
+const data = await fetchData();
 const articleCollectLocal = window.localStorage.getItem("articleCollect");
 let articleCollectObject = JSON.parse(articleCollectLocal);
 const articleKeys = Object.keys(articleCollectObject);

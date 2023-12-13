@@ -156,6 +156,14 @@ const readUserData = async (userId) => {
   ];
 };
 
+async function fetchData() {
+  const dbRef = ref(getDatabase());
+  const snapshot = await get(dbRef);
+  return snapshot.val();
+}
+
+await fetchData();
+
 export {
   auth,
   registerWithEmailAndPassword,
@@ -166,4 +174,5 @@ export {
   writeUserData,
   readUserData,
   sendPasswordReset,
+  fetchData,
 };

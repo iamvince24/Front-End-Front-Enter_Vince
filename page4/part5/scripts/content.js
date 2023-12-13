@@ -1,4 +1,5 @@
-import { fetchJsonData, stopPropagationHandler } from "./utils.js";
+import { stopPropagationHandler } from "./utils.js";
+import { fetchData } from "./firebase.js";
 
 // KeyVisual DOM
 const articleKeyvisual = document.querySelector(".article-keyvisual");
@@ -11,15 +12,15 @@ const tableContainer = document.querySelector(".content-table-container");
 const contentTitle = document.querySelector(".content-title");
 const contentText = document.querySelector(".content-text");
 
-// FetchData
-const fetchData = async () => {
+// setContent
+const setContent = async () => {
   // Get Url Id
   const urlParams = new URLSearchParams(window.location.search);
   const contentParam = JSON.parse(urlParams.get("content"));
 
   if (contentParam) {
     // Setting Data
-    const data = await fetchJsonData("../front-enter-export.json");
+    const data = await fetchData();
     const articleKeys = Object.keys(data.article);
     let targetKey = "";
 
@@ -88,7 +89,7 @@ const fetchData = async () => {
   }
 };
 
-fetchData();
+setContent();
 
 // Picture slide
 const contentImg = document.querySelectorAll(".content-img");

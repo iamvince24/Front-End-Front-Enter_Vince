@@ -1,5 +1,5 @@
-import { fetchJsonData, setRedirectLink } from "./utils.js";
-import { writeUserData, readUserData } from "./firebase.js";
+import { setRedirectLink } from "./utils.js";
+import { writeUserData, readUserData, fetchData } from "./firebase.js";
 
 window.onload = function () {
   setInterval(function () {
@@ -20,7 +20,7 @@ const setArticles = async () => {
   const searchParam = urlSearchParams.get("search");
   const searchKeyword = searchParam ? JSON.parse(searchParam) : null;
 
-  const data = await fetchJsonData("../front-enter-export.json");
+  const data = await fetchData();
   const articleKeys = Object.keys(data.article);
 
   articleKeys.forEach((key) => {
@@ -207,7 +207,7 @@ async function performSearch(searchValue) {
   articleListContainer.innerHTML = "";
   try {
     const fetchSearchData = async () => {
-      const data = await fetchJsonData("../front-enter-export.json");
+      const data = await fetchData();
       return data;
     };
     const searchDataAll = await fetchSearchData();

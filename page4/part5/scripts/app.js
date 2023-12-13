@@ -1,8 +1,4 @@
-import {
-  fetchJsonData,
-  setRedirectLink,
-  stopPropagationHandler,
-} from "./utils.js";
+import { setRedirectLink, stopPropagationHandler } from "./utils.js";
 
 import {
   auth,
@@ -10,6 +6,7 @@ import {
   logInWithEmailAndPassword,
   signInWithGoogle,
   sendPasswordReset,
+  fetchData,
 } from "./firebase.js";
 
 // loading handle
@@ -221,7 +218,7 @@ async function getTestResult() {
   const testFilterCondition = answersArray;
   const testResultKey = await getTestResultKeyValue(testFilterCondition);
 
-  const data = await fetchJsonData("../front-enter-export.json");
+  const data = await fetchData();
   const { city, fee, weekHour, classType, teachWay } =
     data.article[testResultKey];
   const testArray = [city, fee, weekHour, classType, teachWay];
@@ -299,7 +296,7 @@ function BtnTextAnimation(data, resultBtn, testResultKey) {
 }
 
 async function getTestResultKeyValue(answersArray) {
-  const data = await fetchJsonData("../front-enter-export.json");
+  const data = await fetchData();
   const articleKeys = Object.keys(data.article);
 
   let answersKeysArray = articleKeys;

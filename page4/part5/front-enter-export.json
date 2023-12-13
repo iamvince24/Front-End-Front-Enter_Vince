@@ -461,5 +461,23 @@
       "photoUrl": "https://lh3.googleusercontent.com/a/AATXAJz3bFp0jrPd1VO0XusUryTs0LP-95j5R2aqGZOa=s96-c",
       "uid": "-MrV8NLUUdBPQyxYFhQj"
     }
+  },
+  "users": {
+    "CZTeKFVpPbUqi2otsnYtuyA5OpK2": {
+      "username": "name",
+      "phone": "0911222333",
+      "email": "123123123@gmail.com",
+      "article": {
+        "-LNiP-cd31m_XrDZJxdl": { "isStarred": false },
+        "-LNyOk-FQnejK4pZYqAi": { "isStarred": false },
+        "-LNyPzKvn1h2QX_CDwET": { "isStarred": false },
+        "-LNySD7c2UOilxjkW14U": { "isStarred": false },
+        "-LNyUA-GLYQyCACdkDjg": { "isStarred": false },
+        "-LNyYDaCeasm6O-nP8FE": { "isStarred": false },
+        "-LNy_jj1Fj-HF0XbbRtb": { "isStarred": false },
+        "-LO17F-h-LN77A7uHJcV": { "isStarred": false },
+        "-LOvaej1H569KD4eXNZG": { "isStarred": false }
+      }
+    }
   }
 }

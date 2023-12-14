@@ -416,11 +416,12 @@ function setTestCardContent(testCardIndex = 0, answersArray) {
   });
 }
 
-// Determine whether to give profile paga
-if (
-  window.location.href !==
-  `${window.location.origin}/profile.html${window.location.search}`
-) {
+// Determine whether to give profile page
+
+const urlSearchParams = new URLSearchParams(window.location.search);
+const idParam = urlSearchParams.get("id");
+
+if (!idParam) {
   // login page
   const loginBtn = document.querySelector("#login-btn");
   const loginContainer = document.querySelector("#login-form");
@@ -489,18 +490,13 @@ if (memberBtn) {
   }
 }
 
-const urlSearchParams = new URLSearchParams(window.location.search);
-const idParam = urlSearchParams.get("id");
+// set Url
 if (idParam) {
   memberHome.href = `${window.location.origin}/index.html${window.location.search}`;
   memberArticle.href = `${window.location.origin}/article.html${window.location.search}`;
   memberSkilltree.href = `${window.location.origin}/skilltree.html${window.location.search}`;
 
   if (loginBtn) {
-    loginBtn.removeEventListener("click", () => {
-      loginContainer.style.display =
-        loginContainer.style.display === "none" ? "flex" : "none";
-    });
     loginBtn.href = `${window.location.origin}/profile.html${window.location.search}`;
     loginBtn.innerHTML = "會員";
   }

@@ -113,6 +113,11 @@
   font-size: var(--text-size-h3);
 }
 
+.info-btn-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .info-btn {
   width: 110px;
   height: 40px;
@@ -120,7 +125,7 @@
   color: white;
   background: var(--primary-color);
 
-  margin-top: 20px;
+  margin: 20px 10px 0px;
 }
 
 .info-btn:hover {
@@ -165,6 +170,11 @@
 .collect-article-name {
   margin-bottom: 10px;
   color: var(--primary-color);
+  cursor: pointer;
+}
+
+.collect-article-name:active {
+  filter: brightness(120%);
 }
 
 .collect-delete-icon {

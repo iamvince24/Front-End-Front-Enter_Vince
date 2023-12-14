@@ -10,6 +10,7 @@ window.onload = function () {
 
 const urlSearchParams = new URLSearchParams(window.location.search);
 const idParam = urlSearchParams.get("id");
+const userId = idParam ? JSON.parse(idParam) : null;
 
 const articleListContainer = document.querySelector(".articlelist");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -184,8 +185,13 @@ function appendArticleCard(element, filteredDataList, allData) {
   const articleListContent = newArticleItem.querySelector(
     ".articlelist-content"
   );
+
   articleListContent.addEventListener("click", () => {
-    window.location.href = setRedirectLink("content", creatTime, "content");
+    if (idParam) {
+      window.location.href = `${window.location.origin}/content.html?id=${userId}&content=${creatTime}`;
+    } else {
+      window.location.href = setRedirectLink("content", creatTime, "content");
+    }
   });
 }
 

@@ -87,8 +87,18 @@ const signInWithGoogle = async () => {
     const res = await signInWithPopup(auth, provider);
     const uid = res.user.uid;
     window.localStorage.setItem("UID", uid);
+
+    await writeUserData(
+      uid,
+      "請輸入姓名",
+      "請輸入號碼",
+      res.user.email,
+      articleCollectInit
+    );
+
     const [, , , article] = await readUserData(uid);
     window.localStorage.setItem("articleCollect", JSON.stringify(article));
+
     const urlId = res.user.email.split("@")[0];
     window.location.href = setRedirectLink("profile", urlId, "id");
   } catch (err) {
@@ -132,7 +142,6 @@ const writeUserData = async (
     const dbRef = ref(db);
     const snapshot = await get(child(dbRef, `users/${userId}`));
     const userData = snapshot.val();
-    console.log(userData);
 
     const updatedData = {
       username: name !== null ? name : userData.username,
@@ -148,6 +157,7 @@ const writeUserData = async (
 const readUserData = async (userId) => {
   const dbRef = ref(getDatabase());
   const snapshot = await get(child(dbRef, `users/${userId}`));
+  console.log(snapshot.val());
   return [
     snapshot.val().username,
     snapshot.val().email,

@@ -9,7 +9,6 @@ function setRedirectLink(address, id, idname) {
     if (idname !== null) {
       contentParams.append(idname, JSON.stringify(contentId));
     }
-
     return `${contentUrl}?${contentParams.toString()}`;
   } else {
     const contentUrl = `${window.location.origin}/${address}.html`;

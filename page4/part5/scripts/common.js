@@ -1,15 +1,18 @@
 import { setRedirectLink, stopPropagationHandler } from "./utils.js";
 
 import {
-  auth,
-  registerWithEmailAndPassword,
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-  sendPasswordReset,
+  // auth,
+  // registerWithEmailAndPassword,
+  // logInWithEmailAndPassword,
+  // signInWithGoogle,
+  // sendPasswordReset,
   fetchData,
 } from "./firebase.js";
 
-// loading handle
+const data = await fetchData();
+const articleKeys = Object.keys(data.article);
+
+// Loading handle
 // document.addEventListener("DOMContentLoaded", function () {
 //   document.querySelector(".color-block-primary").style.transform = "scaleY(3)";
 //   document.querySelector(".color-block-secondary").style.transform =
@@ -35,7 +38,7 @@ topIcon.addEventListener("click", () => {
   });
 });
 
-// Click search-icon
+// Search
 const searchButton = document.querySelector("#header-search-icon");
 const searchContainer = document.querySelector("#search-container");
 const searchContainerOverlay = document.querySelector(
@@ -50,7 +53,7 @@ const setTestCardContentDisplay = () => {
 searchButton.addEventListener("click", setTestCardContentDisplay);
 searchContainerOverlay.addEventListener("click", setTestCardContentDisplay);
 
-// search function
+// Search function
 const searchInput = document.querySelector("#search-input");
 const searchIconInner = document.querySelector("#search-icon-inner");
 
@@ -59,6 +62,7 @@ const performSearchRedirect = async () => {
   const idParam = urlSearchParams.get("id");
   const currentUrl = window.location.href;
   if (idParam) {
+    // TODO
     window.location.href = addSearchParameterToUrl(
       currentUrl,
       JSON.stringify(searchInput.value)
@@ -89,7 +93,7 @@ searchInput.addEventListener("keydown", (event) => {
   }
 });
 
-// Voice
+// Voice input
 const voiceIcon = document.getElementById("voice-icon");
 if ("webkitSpeechRecognition" in window) {
   const recognition = new webkitSpeechRecognition();
@@ -203,8 +207,11 @@ testStartBtn.addEventListener("click", async () => {
   resultBtn.addEventListener("click", () => {
     const contentUrl = `${window.location.origin}/content.html`;
     const contentId = data.article[testResultKey].creatTime;
+    // const contentParams = new URLSearchParams({
+    //   id: JSON.stringify(contentId),
+    // });
     const contentParams = new URLSearchParams({
-      id: JSON.stringify(contentId),
+      content: JSON.stringify(contentId),
     });
     const newTargetUrl = `${contentUrl}?${contentParams.toString()}`;
 
@@ -218,7 +225,7 @@ async function getTestResult() {
   const testFilterCondition = answersArray;
   const testResultKey = await getTestResultKeyValue(testFilterCondition);
 
-  const data = await fetchData();
+  // const data = await fetchData();
   const { city, fee, weekHour, classType, teachWay } =
     data.article[testResultKey];
   const testArray = [city, fee, weekHour, classType, teachWay];
@@ -296,8 +303,8 @@ function BtnTextAnimation(data, resultBtn, testResultKey) {
 }
 
 async function getTestResultKeyValue(answersArray) {
-  const data = await fetchData();
-  const articleKeys = Object.keys(data.article);
+  // const data = await fetchData();
+  // const articleKeys = Object.keys(data.article);
 
   let answersKeysArray = articleKeys;
   let tempList = [];
@@ -414,90 +421,4 @@ function setTestCardContent(testCardIndex = 0, answersArray) {
       });
     });
   });
-}
-
-// Determine whether to give profile page
-
-const urlSearchParams = new URLSearchParams(window.location.search);
-const idParam = urlSearchParams.get("id");
-
-if (!idParam) {
-  // login page
-  const loginBtn = document.querySelector("#login-btn");
-  const loginContainer = document.querySelector("#login-form");
-  const loginCard = document.querySelector("#login-card");
-  loginContainer.style.display === "none";
-
-  loginBtn.addEventListener("click", () => {
-    loginContainer.style.display =
-      loginContainer.style.display === "none" ? "flex" : "none";
-  });
-
-  loginContainer.addEventListener("click", () => {
-    loginContainer.style.display = "none";
-  });
-
-  loginCard.addEventListener("click", stopPropagationHandler);
-
-  // register
-  const formMail = document.querySelector("#form-input-mail");
-  const formPassword = document.querySelector("#form-input-password");
-  const registerBtn = document.querySelector("#register-btn");
-
-  registerBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    registerWithEmailAndPassword(formMail.value, formPassword.value);
-  });
-
-  // login
-  const loginBtnInner = document.querySelector("#login-btn-inner");
-  loginBtnInner.addEventListener("click", (event) => {
-    event.preventDefault();
-    logInWithEmailAndPassword(auth, formMail.value, formPassword.value);
-  });
-
-  // login with google
-  const loginGoogleBtn = document.querySelector("#login-google-btn");
-  loginGoogleBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    signInWithGoogle();
-  });
-
-  // forget password
-  const loginForgetPassword = document.querySelector(".login-forgetpassword");
-
-  loginForgetPassword.addEventListener("click", async () => {
-    if (formMail.value) {
-      await sendPasswordReset(auth, formMail.value);
-    } else {
-      alert("請輸入 Email");
-    }
-  });
-}
-
-const memberHome = document.querySelector("#member-home");
-const memberArticle = document.querySelector("#member-article");
-const memberSkilltree = document.querySelector("#member-skilltree");
-const loginBtn = document.querySelector("#login-btn");
-const memberBtn = document.querySelector("#member-btn");
-if (memberBtn) {
-  memberBtn.href = `${window.location.origin}/profile.html${window.location.search}`;
-  if (loginBtn) {
-    loginBtn.removeEventListener("click", () => {
-      loginContainer.style.display =
-        loginContainer.style.display === "none" ? "flex" : "none";
-    });
-  }
-}
-
-// set Url
-if (idParam) {
-  memberHome.href = `${window.location.origin}/index.html${window.location.search}`;
-  memberArticle.href = `${window.location.origin}/article.html${window.location.search}`;
-  memberSkilltree.href = `${window.location.origin}/skilltree.html${window.location.search}`;
-
-  if (loginBtn) {
-    loginBtn.href = `${window.location.origin}/profile.html${window.location.search}`;
-    loginBtn.innerHTML = "會員";
-  }
 }

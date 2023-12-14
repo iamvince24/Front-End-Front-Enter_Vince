@@ -1,6 +1,7 @@
 import { setRedirectLink } from "./utils.js";
 import { writeUserData, readUserData, fetchData } from "./firebase.js";
 
+// Picture running
 window.onload = function () {
   setInterval(function () {
     document.querySelector(".article-keyvisual").style.animationPlayState =
@@ -8,66 +9,68 @@ window.onload = function () {
   }, 5000);
 };
 
-const urlSearchParams = new URLSearchParams(window.location.search);
-const idParam = urlSearchParams.get("id");
-const userId = idParam ? JSON.parse(idParam) : null;
-
-const articleListContainer = document.querySelector(".articlelist");
+// Set DOM
+const articleContainer = document.querySelector(".articlelist");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-const setArticles = async () => {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  // const idParam = urlSearchParams.get("id");
-  const searchParam = urlSearchParams.get("search");
-  const searchKeyword = searchParam ? JSON.parse(searchParam) : null;
+const data = await fetchData();
+const articleKeys = Object.keys(data.article);
 
-  const data = await fetchData();
-  const articleKeys = Object.keys(data.article);
+const urlSearchParams = new URLSearchParams(window.location.search);
+const userId = urlSearchParams.has("id")
+  ? JSON.parse(urlSearchParams.get("id"))
+  : null;
+
+// Set ArticlesList
+const setArticlesList = async () => {
+  const searchKeyword = urlSearchParams.has("search")
+    ? JSON.parse(urlSearchParams.get("search"))
+    : null;
 
   articleKeys.forEach((key) => {
     const articleCardList = data.article[key];
     appendArticleCard(articleCardList, articleKeys, data);
   });
 
-  let filteredData = [];
+  let filteredArticleKeys = [];
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       if (event.target.classList.contains("filter-btn")) {
-        filteredData = handleFilterClick(event.target, articleKeys, data);
-        filteredData.forEach((filteredKey) => {
+        filteredArticleKeys = filterArticlesByCondition(
+          event.target,
+          articleKeys,
+          data
+        );
+        filteredArticleKeys.forEach((filteredKey) => {
           const articleCardList = data.article[filteredKey];
-          appendArticleCard(articleCardList, filteredData, data);
+          appendArticleCard(articleCardList, filteredArticleKeys, data);
         });
       }
     });
   });
 
   if (searchKeyword) {
-    performSearch(searchKeyword);
+    searchHandler(searchKeyword);
   }
 };
 
-setArticles();
+setArticlesList();
 
-function handleFilterClick(element, articleKeys, allData) {
-  articleListContainer.innerHTML = "";
+function filterArticlesByCondition(element, articleKeys, allData) {
+  articleContainer.innerHTML = "";
   const filterCondition = element.innerHTML;
   let filterData = [];
 
   if (filterCondition === "全部") {
     filterData = articleKeys;
-  } else if (filterCondition === "小班制") {
+  } else if (filterCondition === "小班制" || filterCondition === "一對一") {
     filterData = articleKeys.filter(
       (key) => allData.article[key].classType === filterCondition
     );
   } else if (filterCondition === "放養制") {
     filterData = articleKeys.filter(
       (key) => allData.article[key].teachWay === filterCondition
-    );
-  } else if (filterCondition === "一對一") {
-    filterData = articleKeys.filter(
-      (key) => allData.article[key].classType === filterCondition
     );
   }
   return filterData;
@@ -79,11 +82,11 @@ function appendArticleCard(element, filteredDataList, allData) {
   newArticleItem.classList.add("articlelist-card");
 
   newArticleItem.innerHTML = `
-  ${
-    idParam
-      ? `<img class="star-icon click-effect" id="star-btn-${creatTime}" src="../img/star-border.svg" alt="star-icon" />`
-      : ""
-  }
+    ${
+      userId
+        ? `<img class="star-icon click-effect" id="star-btn-${creatTime}" src="../img/star-border.svg" alt="star-icon" />`
+        : ""
+    }
     <div class="location">
       <img
         class="location-icon"
@@ -115,9 +118,9 @@ function appendArticleCard(element, filteredDataList, allData) {
     </div>
   `;
 
-  articleListContainer.appendChild(newArticleItem);
+  articleContainer.appendChild(newArticleItem);
 
-  if (idParam) {
+  if (userId) {
     const isArticleStarred = JSON.parse(
       window.localStorage.getItem("articleCollect")
     )[uid].isStarred;
@@ -169,7 +172,7 @@ function appendArticleCard(element, filteredDataList, allData) {
   const filterBtn = newArticleItem.querySelector(".filter-btn");
   if (filterBtn) {
     filterBtn.addEventListener("click", () => {
-      articleListContainer.innerHTML = "";
+      articleContainer.innerHTML = "";
       const filterCondition = city;
       const filterLocationData = filteredDataList.filter(
         (key) => allData.article[key].city === filterCondition
@@ -181,13 +184,13 @@ function appendArticleCard(element, filteredDataList, allData) {
     });
   }
 
-  // Set article RedirectLink
+  // Set Article RedirectLink
   const articleListContent = newArticleItem.querySelector(
     ".articlelist-content"
   );
 
   articleListContent.addEventListener("click", () => {
-    if (idParam) {
+    if (userId) {
       window.location.href = `${window.location.origin}/content.html?id=${userId}&content=${creatTime}`;
     } else {
       window.location.href = setRedirectLink("content", creatTime, "content");
@@ -200,40 +203,30 @@ const searchInput = document.querySelector("#search-input");
 const searchIconInner = document.querySelector("#search-icon-inner");
 
 searchIconInner.addEventListener("click", () => {
-  performSearch(searchInput.value);
+  searchHandler(searchInput.value);
 });
+
 searchInput.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
     event.preventDefault();
-    performSearch(searchInput.value);
+    searchHandler(searchInput.value);
   }
 });
 
-async function performSearch(searchValue) {
-  articleListContainer.innerHTML = "";
+async function searchHandler(searchKeyword) {
+  articleContainer.innerHTML = "";
   try {
-    const fetchSearchData = async () => {
-      const data = await fetchData();
-      return data;
-    };
-    const searchDataAll = await fetchSearchData();
-    const searchData = searchDataAll.article;
-
-    if (searchValue) {
-      const [searchResultClass, searchResultClassKeys] = searchAllArticle(
-        searchValue,
-        searchData
+    if (searchKeyword) {
+      const [matchingArticles, matchingArticlesKeys] = searchAllArticle(
+        searchKeyword,
+        data.article
       );
 
-      if (searchResultClass.length !== 0) {
-        searchResultClass.forEach((searchResultClass) => {
-          appendArticleCard(
-            searchResultClass,
-            searchResultClassKeys,
-            searchDataAll
-          );
+      if (matchingArticles.length !== 0) {
+        matchingArticles.forEach((article) => {
+          appendArticleCard(article, matchingArticlesKeys, data);
         });
-      } else if (searchResultClass.length === 0) {
+      } else if (matchingArticles.length === 0) {
         alert("沒有相關資料");
       }
     } else {
@@ -244,6 +237,7 @@ async function performSearch(searchValue) {
   }
 }
 
+// Search All Articles
 function searchAllArticle(query, articleData) {
   const matchingArticlesResult = [];
   const matchingArticlesResultKeys = [];

@@ -1,6 +1,9 @@
 import { stopPropagationHandler } from "./utils.js";
 import { fetchData } from "./firebase.js";
 
+const data = await fetchData();
+const articleKeys = Object.keys(data.article);
+
 // KeyVisual DOM
 const articleKeyvisual = document.querySelector(".article-keyvisual");
 const articleKeyvisualContent = document.querySelector(
@@ -17,11 +20,12 @@ const setContent = async () => {
   // Get Url Id
   const urlParams = new URLSearchParams(window.location.search);
   const contentParam = JSON.parse(urlParams.get("content"));
+  console.log(contentParam);
 
   if (contentParam) {
     // Setting Data
-    const data = await fetchData();
-    const articleKeys = Object.keys(data.article);
+    // const data = await fetchData();
+    // const articleKeys = Object.keys(data.article);
     let targetKey = "";
 
     articleKeys.forEach((key) => {

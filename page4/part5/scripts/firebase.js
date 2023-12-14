@@ -172,8 +172,6 @@ async function fetchData() {
   return snapshot.val();
 }
 
-await fetchData();
-
 export {
   auth,
   registerWithEmailAndPassword,

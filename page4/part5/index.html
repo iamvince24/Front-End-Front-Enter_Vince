@@ -3,19 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link <link rel="stylesheet" type="text/css" href="./styles/main.css" />
-    <link <link rel="stylesheet" type="text/css" href="./styles/index.css" />
     <link
       rel="Shortcut Icon"
       type="image/x-icon"
       href="../part2/img/favicon.ico"
     />
+    <link <link rel="stylesheet" type="text/css" href="./styles/common.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/index.css" />
     <title>Front-Enter - 前端轉職資訊</title>
-    <!-- <div id="loading-container">
-      <div class="color-block color-block-primary"></div>
-      <div class="color-block color-block-secondary"></div>
-      <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
-    </div> -->
   </head>
   <body id="body-main-content">
     <header>
@@ -39,7 +34,6 @@
           >
         </li>
         <li><a class="click-effect" id="login-btn">登入</a></li>
-        <!-- <li><a class="click-effect" href="./profile.html">登入</a></li> -->
         <img
           class="header-search-icon click-effect"
           id="header-search-icon"
@@ -48,6 +42,7 @@
         />
       </nav>
     </header>
+
     <main>
       <section class="keyvisual">
         <div class="keyvisual-content">
@@ -150,6 +145,12 @@
       </nav>
     </footer>
 
+    <!-- <div id="loading-container">
+      <div class="color-block color-block-primary"></div>
+      <div class="color-block color-block-secondary"></div>
+      <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
+    </div> -->
+
     <aside id="aside-test-go">
       <img class="aside-img click-effect" src="./img/FE_test_go.png" />
     </aside>
@@ -244,10 +245,11 @@
       </div>
     </form>
 
-    <script type="module" src="scripts/app.js"></script>
-    <script type="module" src="./scripts/utils.js"></script>
-    <script type="module" src="./scripts/firebaseConfig.js"></script>
-    <script type="module" src="./scripts/firebase.js"></script>
+    <script type="module" src="scripts/common.js"></script>
+    <script type="module" src="scripts/login.js"></script>
+    <!-- <script type="module" src="./scripts/utils.js"></script> -->
+    <!-- <script type="module" src="./scripts/firebaseConfig.js"></script> -->
+    <!-- <script type="module" src="./scripts/firebase.js"></script> -->
     <!-- <script type="module" src="./scripts/profile.js"></script> -->
   </body>
 </html>

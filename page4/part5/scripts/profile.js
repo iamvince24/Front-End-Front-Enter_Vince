@@ -1,6 +1,8 @@
 import { logout, readUserData, writeUserData, fetchData } from "./firebase.js";
 import { setRedirectLink } from "./utils.js";
 
+const data = await fetchData();
+
 const tagPersonal = document.querySelector(".tag-personal");
 const tagCollect = document.querySelector(".tag-collect");
 const contentPersonal = document.querySelector(".content-personal");
@@ -104,7 +106,7 @@ if (infoUsername) {
 }
 
 // article collect
-const data = await fetchData();
+// const data = await fetchData();
 const articleCollectLocal = window.localStorage.getItem("articleCollect");
 let articleCollectObject = JSON.parse(articleCollectLocal);
 const articleKeys = Object.keys(articleCollectObject);

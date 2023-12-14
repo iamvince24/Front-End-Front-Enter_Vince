@@ -1,13 +1,6 @@
 import { setRedirectLink, stopPropagationHandler } from "./utils.js";
 
-import {
-  // auth,
-  // registerWithEmailAndPassword,
-  // logInWithEmailAndPassword,
-  // signInWithGoogle,
-  // sendPasswordReset,
-  fetchData,
-} from "./firebase.js";
+import { fetchData } from "./firebase.js";
 
 const data = await fetchData();
 const articleKeys = Object.keys(data.article);
@@ -207,9 +200,6 @@ testStartBtn.addEventListener("click", async () => {
   resultBtn.addEventListener("click", () => {
     const contentUrl = `${window.location.origin}/content.html`;
     const contentId = data.article[testResultKey].creatTime;
-    // const contentParams = new URLSearchParams({
-    //   id: JSON.stringify(contentId),
-    // });
     const contentParams = new URLSearchParams({
       content: JSON.stringify(contentId),
     });
@@ -303,9 +293,6 @@ function BtnTextAnimation(data, resultBtn, testResultKey) {
 }
 
 async function getTestResultKeyValue(answersArray) {
-  // const data = await fetchData();
-  // const articleKeys = Object.keys(data.article);
-
   let answersKeysArray = articleKeys;
   let tempList = [];
 

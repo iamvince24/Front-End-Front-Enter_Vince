@@ -15,24 +15,15 @@ const tableContainer = document.querySelector(".content-table-container");
 const contentTitle = document.querySelector(".content-title");
 const contentText = document.querySelector(".content-text");
 
-// setContent
-const setContent = async () => {
-  // Get Url Id
+// Set Aritcle Content
+const loadArticleContent = async () => {
+  // Get UrlId
   const urlParams = new URLSearchParams(window.location.search);
-  const contentParam = JSON.parse(urlParams.get("content"));
-  console.log(contentParam);
+  const contentId = JSON.parse(urlParams.get("content"));
 
-  if (contentParam) {
+  if (contentId) {
     // Setting Data
-    // const data = await fetchData();
-    // const articleKeys = Object.keys(data.article);
-    let targetKey = "";
-
-    articleKeys.forEach((key) => {
-      if (contentParam === data.article[key].creatTime) {
-        targetKey = key;
-      }
-    });
+    let targetArticleKey = findArticleKeyById(data, articleKeys, contentId);
 
     const {
       rectangleUrl,
@@ -47,7 +38,7 @@ const setContent = async () => {
       technology,
       mail,
       phone,
-    } = data.article[targetKey];
+    } = data.article[targetArticleKey];
 
     articleKeyvisual.style.backgroundImage = `url(${rectangleUrl})`;
     articleKeyvisualContent.innerHTML = name;
@@ -93,9 +84,21 @@ const setContent = async () => {
   }
 };
 
-setContent();
+const findArticleKeyById = (data, articleKeys, contentId) => {
+  let targetArticleKey = "";
 
-// Picture slide
+  articleKeys.forEach((key) => {
+    if (contentId === data.article[key].creatTime) {
+      targetArticleKey = key;
+    }
+  });
+
+  return targetArticleKey;
+};
+
+loadArticleContent();
+
+// Picture Slide
 const contentImg = document.querySelectorAll(".content-img");
 const contentImgElement = document.querySelectorAll(".content-image-element");
 const imageDisplayContainer = document.querySelector(
@@ -124,7 +127,7 @@ imageDisplay.addEventListener("click", () => {
 
 imageDisplayContainer.addEventListener("click", stopPropagationHandler);
 
-const imgList = [
+const imageSources = [
   "../img/key-visual.jpg",
   "../img/second-img.jpg",
   "../img/third-img.jpg",
@@ -132,12 +135,13 @@ const imgList = [
   "../img/five-img.jpg",
 ];
 
-let displayIndex = 0;
+let currentImageIndex = 0;
 
 function updateDisplayIndex(offset) {
-  displayIndex += offset;
-  displayIndex = (displayIndex + imgList.length) % imgList.length;
-  imageDisplayImage.src = imgList[displayIndex];
+  currentImageIndex += offset;
+  currentImageIndex =
+    (currentImageIndex + imageSources.length) % imageSources.length;
+  imageDisplayImage.src = imageSources[currentImageIndex];
 }
 
 leftArrow.addEventListener("click", (event) => {

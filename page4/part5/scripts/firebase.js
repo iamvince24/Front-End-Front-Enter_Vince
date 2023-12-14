@@ -157,7 +157,6 @@ const writeUserData = async (
 const readUserData = async (userId) => {
   const dbRef = ref(getDatabase());
   const snapshot = await get(child(dbRef, `users/${userId}`));
-  console.log(snapshot.val());
   return [
     snapshot.val().username,
     snapshot.val().email,

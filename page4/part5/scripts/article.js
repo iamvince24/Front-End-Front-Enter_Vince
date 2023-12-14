@@ -1,7 +1,7 @@
 import { setRedirectLink } from "./utils.js";
 import { writeUserData, readUserData, fetchData } from "./firebase.js";
 
-// Picture running
+// Picture Running
 window.onload = function () {
   setInterval(function () {
     document.querySelector(".article-keyvisual").style.animationPlayState =
@@ -77,7 +77,29 @@ function filterArticlesByCondition(element, articleKeys, allData) {
 }
 
 function appendArticleCard(element, filteredDataList, allData) {
-  const { city, rectangleUrl, name, preface, creatTime, uid } = element;
+  const newArticleItem = createArticleElement(element);
+  articleContainer.appendChild(newArticleItem);
+
+  if (userId) {
+    handleStarClick(newArticleItem, element.creatTime, element.uid);
+  }
+
+  setFilterBtnClickListener(
+    newArticleItem,
+    element.city,
+    filteredDataList,
+    allData
+  );
+  setRedirectLinkClickListener(newArticleItem, userId, element.creatTime);
+}
+
+function createArticleElement({
+  city,
+  rectangleUrl,
+  name,
+  preface,
+  creatTime,
+}) {
   const newArticleItem = document.createElement("article");
   newArticleItem.classList.add("articlelist-card");
 
@@ -118,57 +140,62 @@ function appendArticleCard(element, filteredDataList, allData) {
     </div>
   `;
 
-  articleContainer.appendChild(newArticleItem);
+  return newArticleItem;
+}
 
-  if (userId) {
-    const isArticleStarred = JSON.parse(
-      window.localStorage.getItem("articleCollect")
-    )[uid].isStarred;
+function handleStarClick(newArticleItem, creatTime, uid) {
+  const isArticleStarred = JSON.parse(
+    window.localStorage.getItem("articleCollect")
+  )[uid].isStarred;
 
-    if (isArticleStarred) {
-      newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
-        "../img/star-background.svg";
-    } else {
-      newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
-        "../img/star-border.svg";
-    }
-
-    newArticleItem
-      .querySelector(`#star-btn-${creatTime}`)
-      .addEventListener("click", async () => {
-        const articleCollectLocal =
-          window.localStorage.getItem("articleCollect");
-        let articleCollectArray = JSON.parse(articleCollectLocal);
-
-        if (articleCollectArray[uid].isStarred) {
-          articleCollectArray[uid].isStarred = false;
-          window.localStorage.setItem(
-            "articleCollect",
-            JSON.stringify(articleCollectArray)
-          );
-          newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
-            "../img/star-border.svg";
-        } else {
-          articleCollectArray[uid].isStarred = true;
-          window.localStorage.setItem(
-            "articleCollect",
-            JSON.stringify(articleCollectArray)
-          );
-          newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
-            "../img/star-background.svg";
-        }
-
-        await writeUserData(
-          window.localStorage.getItem("UID", uid),
-          null,
-          null,
-          null,
-          articleCollectArray
-        );
-      });
+  if (isArticleStarred) {
+    newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+      "../img/star-background.svg";
+  } else {
+    newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+      "../img/star-border.svg";
   }
 
-  // Set filter button function
+  newArticleItem
+    .querySelector(`#star-btn-${creatTime}`)
+    .addEventListener("click", async () => {
+      const articleCollectLocal = window.localStorage.getItem("articleCollect");
+      let articleCollectArray = JSON.parse(articleCollectLocal);
+
+      if (articleCollectArray[uid].isStarred) {
+        articleCollectArray[uid].isStarred = false;
+        window.localStorage.setItem(
+          "articleCollect",
+          JSON.stringify(articleCollectArray)
+        );
+        newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+          "../img/star-border.svg";
+      } else {
+        articleCollectArray[uid].isStarred = true;
+        window.localStorage.setItem(
+          "articleCollect",
+          JSON.stringify(articleCollectArray)
+        );
+        newArticleItem.querySelector(`#star-btn-${creatTime}`).src =
+          "../img/star-background.svg";
+      }
+
+      await writeUserData(
+        window.localStorage.getItem("UID", uid),
+        null,
+        null,
+        null,
+        articleCollectArray
+      );
+    });
+}
+
+function setFilterBtnClickListener(
+  newArticleItem,
+  city,
+  filteredDataList,
+  allData
+) {
   const filterBtn = newArticleItem.querySelector(".filter-btn");
   if (filterBtn) {
     filterBtn.addEventListener("click", () => {
@@ -183,12 +210,12 @@ function appendArticleCard(element, filteredDataList, allData) {
       });
     });
   }
+}
 
-  // Set Article RedirectLink
+function setRedirectLinkClickListener(newArticleItem, userId, creatTime) {
   const articleListContent = newArticleItem.querySelector(
     ".articlelist-content"
   );
-
   articleListContent.addEventListener("click", () => {
     if (userId) {
       window.location.href = `${window.location.origin}/content.html?id=${userId}&content=${creatTime}`;

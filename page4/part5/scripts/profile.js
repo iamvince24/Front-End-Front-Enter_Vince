@@ -1,5 +1,4 @@
 import { logout, readUserData, writeUserData, fetchData } from "./firebase.js";
-import { setRedirectLink } from "./utils.js";
 
 const data = await fetchData();
 
@@ -7,43 +6,42 @@ const tagPersonal = document.querySelector(".tag-personal");
 const tagCollect = document.querySelector(".tag-collect");
 const contentPersonal = document.querySelector(".content-personal");
 const contentCollect = document.querySelector(".content-collect");
-const infoBtns = document.querySelectorAll(".info-btn");
 const infoInputs = document.querySelectorAll(".info-input");
 const tagLogout = document.querySelector(".tag-logout");
 
 if (tagPersonal) {
-  tagPersonal.addEventListener("click", () => {
-    contentCollect.style.display = "none";
-    contentPersonal.style.display = "flex";
-    infoInputs.forEach((infoInput) => {
-      infoInput.classList.remove("info-form-edited");
-      infoInput.classList.add("info-form-unedited");
-    });
+  tagPersonal.addEventListener("click", handleTagPersonalClick);
+  tagCollect.addEventListener("click", handleTagCollectClick);
+  tagLogout.addEventListener("click", handleLogoutClick);
+}
+
+function handleTagPersonalClick() {
+  contentCollect.style.display = "none";
+  contentPersonal.style.display = "flex";
+  resetInfoFormStyles();
+}
+
+function resetInfoFormStyles() {
+  infoInputs.forEach((infoInput) => {
+    infoInput.classList.remove("info-form-edited");
+    infoInput.classList.add("info-form-unedited");
   });
+}
 
-  tagCollect.addEventListener("click", () => {
-    contentPersonal.style.display = "none";
-    contentCollect.style.display = "flex";
-  });
+function handleTagCollectClick() {
+  contentPersonal.style.display = "none";
+  contentCollect.style.display = "flex";
+}
 
-  // infoBtn.addEventListener("click", () => {
-  //   infoInputs.forEach((infoInput) => {
-  //     infoInput.classList.toggle("info-form-unedited");
-  //     infoInput.classList.toggle("info-form-edited");
-  //   });
-  // });
-
-  tagLogout.addEventListener("click", () => {
-    window.location.href = `${window.location.origin}/index.html`;
-    const articleCollectLocal = JSON.parse(
-      window.localStorage.getItem("articleCollect")
-    );
-
-    writeUserData(null, null, null, null, articleCollectLocal);
-    localStorage.removeItem("id");
-    localStorage.removeItem("articleCollect");
-    logout();
-  });
+function handleLogoutClick() {
+  window.location.href = `${window.location.origin}/index.html`;
+  const articleCollectLocal = JSON.parse(
+    window.localStorage.getItem("articleCollect")
+  );
+  writeUserData(null, null, null, null, articleCollectLocal);
+  localStorage.removeItem("id");
+  localStorage.removeItem("articleCollect");
+  logout();
 }
 
 // fetch user data
@@ -56,41 +54,38 @@ const infoModifyBtn = document.querySelector("#info-modify-btn");
 const infoCheckModifyBtn = document.querySelector("#info-check-modify-btn");
 const infoCancelBtn = document.querySelector("#info-cancel-btn");
 
-if (infoUsername) {
-  infoUsername.value = username;
-  infoPhone.value = phone;
-  infoEmail.value = email;
+// Initialize info form
+initInfoForm();
 
-  const articleCollectLocal = JSON.parse(
-    window.localStorage.getItem("articleCollect")
-  );
+const articleCollectObject = getArticleCollectObject();
+// const articleKeys = Object.keys(articleCollectObject);
+if (articleCollectObject) {
+  displayStarredArticles(articleCollectObject);
+}
+
+if (infoUsername) {
   // modify user data
   infoModifyBtn.addEventListener("click", async () => {
     infoModifyBtn.style.display = "none";
     infoCheckModifyBtn.style.display = "block";
     infoCancelBtn.style.display = "block";
 
-    infoInputs.forEach((infoInput) => {
-      infoInput.classList.toggle("info-form-unedited");
-      infoInput.classList.toggle("info-form-edited");
-    });
+    toggleInfoFormStyles();
   });
+
   infoCheckModifyBtn.addEventListener("click", async () => {
     infoCheckModifyBtn.style.display = "none";
     infoCancelBtn.style.display = "none";
     infoModifyBtn.style.display = "block";
 
-    infoInputs.forEach((infoInput) => {
-      infoInput.classList.toggle("info-form-unedited");
-      infoInput.classList.toggle("info-form-edited");
-    });
+    toggleInfoFormStyles();
 
     writeUserData(
       userUid,
       infoUsername.value,
       infoPhone.value,
       email,
-      articleCollectLocal
+      articleCollectObject
     );
   });
   infoCancelBtn.addEventListener("click", async () => {
@@ -98,25 +93,38 @@ if (infoUsername) {
     infoCancelBtn.style.display = "none";
     infoModifyBtn.style.display = "block";
 
-    infoInputs.forEach((infoInput) => {
-      infoInput.classList.toggle("info-form-unedited");
-      infoInput.classList.toggle("info-form-edited");
-    });
+    toggleInfoFormStyles();
   });
 }
 
-// article collect
-// const data = await fetchData();
-const articleCollectLocal = window.localStorage.getItem("articleCollect");
-let articleCollectObject = JSON.parse(articleCollectLocal);
-const articleKeys = Object.keys(articleCollectObject);
+function initInfoForm() {
+  if (infoUsername) {
+    infoUsername.value = username;
+    infoPhone.value = phone;
+    infoEmail.value = email;
+  }
+}
 
-if (articleCollectObject) {
+function getArticleCollectObject() {
+  const articleCollectLocal = window.localStorage.getItem("articleCollect");
+  return JSON.parse(articleCollectLocal);
+}
+
+function displayStarredArticles(articleCollectObject) {
+  contentCollect.innerHTML = "";
+  const articleKeys = Object.keys(articleCollectObject);
   articleKeys.forEach((key) => {
     if (articleCollectObject[key].isStarred) {
       const articleElement = data.article[key];
       appendCollectArticle(articleElement);
     }
+  });
+}
+
+function toggleInfoFormStyles() {
+  infoInputs.forEach((infoInput) => {
+    infoInput.classList.toggle("info-form-unedited");
+    infoInput.classList.toggle("info-form-edited");
   });
 }
 
@@ -168,14 +176,6 @@ function appendCollectArticle(articleInfo) {
         null,
         articleCollectObject
       );
-
-      const articleKeys = Object.keys(articleCollectObject);
-      contentCollect.innerHTML = "";
-      articleKeys.forEach((key) => {
-        if (articleCollectObject[key].isStarred) {
-          const articleElement = data.article[key];
-          appendCollectArticle(articleElement);
-        }
-      });
+      displayStarredArticles(articleCollectObject);
     });
 }

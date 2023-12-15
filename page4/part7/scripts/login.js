@@ -82,10 +82,6 @@ if (userId) {
   // forget password
   const loginForgetPassword = document.querySelector(".login-forgetpassword");
   loginForgetPassword.addEventListener("click", async () => {
-    if (formMail.value) {
-      await sendPasswordReset(auth, formMail.value);
-    } else {
-      alert("請輸入 Email");
-    }
+    await sendPasswordReset(auth, formMail.value);
   });
 }

@@ -1,5 +1,6 @@
 import { firebaseConfig } from "./firebaseConfig.js";
 import { setRedirectLink } from "./utils.js";
+import { alertMessage } from "./common.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
@@ -62,8 +63,11 @@ const registerWithEmailAndPassword = async (email, password) => {
     const urlId = res.user.email.split("@")[0];
     window.location.href = setRedirectLink("profile", urlId, "id");
   } catch (err) {
-    console.error(err);
-    alert(err.message);
+    if (email === "" || password === "") {
+      alertMessage("Error!", "請填寫信箱或密碼");
+    } else {
+      alertMessage(err.code, "");
+    }
   }
 };
 
@@ -77,8 +81,11 @@ const logInWithEmailAndPassword = async (auth, email, password) => {
     const urlId = res.user.email.split("@")[0];
     window.location.href = setRedirectLink("profile", urlId, "id");
   } catch (err) {
-    console.error(err);
-    alert(err.message);
+    if (email === "" || password === "") {
+      alertMessage("Error!", "請填寫信箱或密碼");
+    } else {
+      alertMessage(err.code, "");
+    }
   }
 };
 
@@ -102,8 +109,11 @@ const signInWithGoogle = async () => {
     const urlId = res.user.email.split("@")[0];
     window.location.href = setRedirectLink("profile", urlId, "id");
   } catch (err) {
-    console.error(err);
-    alert(err.message);
+    if (email === "" || password === "") {
+      alertMessage("Error!", "請填寫信箱或密碼");
+    } else {
+      alertMessage(err.code, "");
+    }
   }
 };
 
@@ -112,8 +122,11 @@ const sendPasswordReset = async (auth, email) => {
     await sendPasswordResetEmail(auth, email);
     alert("Password reset link sent!");
   } catch (err) {
-    console.error(err);
-    alert(err.message);
+    if (email === "") {
+      alertMessage(err.code, "請填寫信箱");
+    } else {
+      alertMessage(err.code, err.message);
+    }
   }
 };
 

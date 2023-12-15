@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -8,6 +10,7 @@ html {
 
 body {
   font-family: "Noto Sans TC", "華康黑體", "微軟正黑體", arial, sans-serif;
+  font-weight: 300;
   color: var(--text-color);
   background: var(--background-color);
   margin: 0px;
@@ -34,6 +37,7 @@ body {
   --dark-color: #44aaa7;
   --background-color: #f2f2f2;
   --section-background-color: #ececec;
+  --alert-background-color: #e1fffe;
   --complementary-color: #d8191e;
   --text-size-h1: 2.3rem;
   --text-size-h1-2: 1.5rem;
@@ -70,6 +74,7 @@ input {
 button {
   font-family: "Noto Sans TC", "華康黑體", "微軟正黑體", arial, sans-serif;
   font-size: var(--text-size-h3);
+  font-weight: 400;
   cursor: pointer;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
@@ -850,6 +855,7 @@ footer nav img:hover {
   width: 110px;
   height: 40px;
   font-size: var(--text-size-h3);
+  font-weight: 400;
   color: white;
   background: var(--primary-color);
   margin-top: 20px;
@@ -863,6 +869,7 @@ footer nav img:hover {
   width: 70%;
   height: 40px;
   font-size: var(--text-size-h3);
+  font-weight: 400;
   color: white;
   background: var(--complementary-color);
   border: none;
@@ -900,4 +907,45 @@ footer nav img:hover {
   .login-google-btn {
     height: 30px;
   }
+}
+
+.alert {
+  width: 512px;
+  padding: 16px;
+  max-width: 90%;
+  background: var(--alert-background-color);
+
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 5px;
+
+  animation: slideInUp 0.4s ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 5%;
+    opacity: 1;
+  }
+}
+
+.alert-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: var(--text-size-h3);
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.alert-content {
+  margin: 0;
+  font-size: var(--text-size-h4);
+  color: var(--text-color);
 }

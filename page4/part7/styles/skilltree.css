@@ -1,0 +1,265 @@
+.keyvisual {
+  width: 100%;
+  height: 380px;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Fc1f43b40330333.577b708139a18.jpg?alt=media&token=787912b2-453f-41c5-b7a2-8c8c74d47033");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: local;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.keyvisual-content {
+  font-size: var(--text-size-h2);
+  color: white;
+  letter-spacing: 10px;
+  padding: 15px 30px;
+  background: rgb(128, 128, 128, 0.7);
+  border-radius: 5px;
+}
+
+.skilltree-explain {
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../img/second-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  background-position-x: center;
+  background-attachment: local;
+
+  font-size: var(--text-size-h3);
+  color: white;
+  line-height: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.explain-title {
+  font-size: var(--text-size-h2);
+  font-weight: 400;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.skilltree-explain hr {
+  width: 30px;
+  border: 1px solid white;
+}
+
+.explain-content {
+  width: 60%;
+  max-width: 500px;
+  font-size: var(--text-size-h3-1);
+  color: white;
+  line-height: 30px;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 767px) {
+  .skilltree-explain hr {
+    width: 20px;
+    border: 0.6px solid white;
+  }
+  .explain-content {
+    width: 60%;
+    line-height: 20px;
+  }
+}
+
+.skilltree {
+  /* width: 300px; */
+  /* position: relative; */
+  margin: 50px auto 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skilltree-icon {
+  width: 40px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+#icon-window {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.icon-select {
+  transition: transform 1s ease-in-out;
+}
+
+.icon-select:hover {
+  transform: rotate(360deg);
+}
+
+.skilltree-icon:active {
+  transform: scale(0.95);
+}
+
+.icon-box {
+  width: 300px;
+  height: 160px;
+  background-color: rgb(25, 216, 211, 0.8);
+  border-radius: 5px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  z-index: 1000;
+}
+
+.icon-box p {
+  font-size: var(--text-size-h3);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.icon-img-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.skilltree-container {
+  position: relative;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skilltree-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin: 10px 0px;
+}
+
+.skilltree-Interval-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+  gap: 67px;
+}
+
+.skilltree-Interval-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  gap: 67px;
+}
+
+.skilltree-card {
+  width: 120px;
+  height: 38px;
+  padding: 6px 0px;
+  border: 1px solid var(--text-color);
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.skilltree-card:hover {
+  border: 1.5px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.skilltree-card p {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.skilltree-empty {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.skilltree-line-minus-45 {
+  width: 50px;
+  transform: rotate(-45deg);
+}
+
+.skilltree-line-45 {
+  width: 50px;
+  transform: rotate(45deg);
+}
+
+.skilltree-line-level {
+  width: 50px;
+}
+
+.skilltree-line-vertical {
+  width: 50px;
+  transform: rotate(90deg);
+}
+
+@media (max-width: 767px) {
+  .skilltree-div {
+    gap: 20px;
+  }
+  .skilltree-card {
+    width: 90px;
+    height: 30px;
+  }
+  .skilltree-card p {
+    margin-bottom: 14px;
+    margin-left: 4px;
+  }
+  .skilltree-empty {
+    width: 40px;
+    height: 40px;
+  }
+  .skilltree-line-minus-45 {
+    width: 40px;
+  }
+  .skilltree-line-45 {
+    width: 40px;
+  }
+  .skilltree-line-level {
+    width: 40px;
+  }
+  .skilltree-line-vertical {
+    width: 40px;
+  }
+  .skilltree-Interval-2,
+  .skilltree-Interval-3 {
+    gap: 47px;
+    margin: 5px 0px;
+  }
+}

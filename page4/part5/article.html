@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="Shortcut Icon"
+      type="image/x-icon"
+      href="../part2/img/favicon.ico"
+    />
+    <link <link rel="stylesheet" type="text/css" href="./styles/common.css" />
+    <link <link rel="stylesheet" type="text/css" href="./styles/article.css" />
+    <title>文章列表</title>
+  </head>
+  <body id="main-content">
+    <header>
+      <figure>
+        <a href="./index.html" id="member-home"
+          ><img
+            class="logo click-effect"
+            src="./img/FE_logo-4.png"
+            alt="FE_logo"
+        /></a>
+      </figure>
+      <nav>
+        <li>
+          <a class="click-effect" id="member-article" href="./article.html"
+            >探索</a
+          >
+        </li>
+        <li>
+          <a class="click-effect" id="member-skilltree" href="./skilltree.html"
+            >技能樹</a
+          >
+        </li>
+        <li><a class="click-effect" id="login-btn">登入</a></li>
+        <img
+          class="header-search-icon click-effect"
+          id="header-search-icon"
+          src="./img/FE_search_green.png"
+          alt="FE_search_green"
+        />
+      </nav>
+    </header>
+
+    <main>
+      <section class="article-keyvisual">
+        <div class="article-keyvisual-content">蒐羅前端學校</div>
+      </section>
+
+      <section class="article-tagbar">
+        <nav class="article-tagbar-list">
+          <li class="click-effect filter-btn">全部</li>
+          <li class="click-effect filter-btn">小班制</li>
+          <li class="click-effect filter-btn">放養制</li>
+          <li class="click-effect filter-btn">一對一</li>
+        </nav>
+      </section>
+
+      <section class="articlelist"></section>
+    </main>
+
+    <footer>
+      <section class="top-icon-section">
+        <img
+          class="top-icon click-effect"
+          id="top-icon"
+          src="./img/FE_TOP.png"
+          alt="pen"
+        />
+      </section>
+      <nav>
+        <div>聯絡方式</div>
+        <div><span>M</span> 0975-282-356</div>
+        <div>
+          <span>E </span
+          ><a href="mailto:mynameisvince24@gmail.com"
+            >mynameisvince24@gmail.com</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://www.facebook.com/profile.php?id=100079762316652"
+            target="_blank"
+          >
+            <img src="./img/new-facebook-blue.svg" alt="pen" />
+          </a>
+          <a href="https://line.me/ti/p/v9ETm_J1dk" target="_blank">
+            <img src="./img/FE_line.png" alt="pen" />
+          </a>
+        </div>
+      </nav>
+    </footer>
+
+    <!-- <div id="loading-container">
+      <div class="color-block color-block-primary"></div>
+      <div class="color-block color-block-secondary"></div>
+      <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
+    </div> -->
+
+    <aside id="aside-test-go">
+      <img class="aside-img click-effect" src="./img/FE_test_go.png" />
+    </aside>
+
+    <div id="search-container" style="display: none">
+      <div class="search-container-white">
+        <label>Search</label>
+        <form class="input-container">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="請填入搜尋文字"
+            required
+          />
+          <img
+            class="voice-icon click-effect"
+            id="voice-icon"
+            src="../img/Microphone.svg"
+            alt="FE_search_green"
+          />
+          <img
+            class="search-icon-inner click-effect"
+            id="search-icon-inner"
+            src="../img/FE_search_green.png"
+            alt="FE_search_green"
+          />
+        </form>
+      </div>
+      <div class="search-container-overlay"></div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
+
+      <div class="test-card-instruction">
+        <div class="start-title">測驗說明</div>
+        <div class="start-text">
+          點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+        </div>
+        <button class="test-start-btn btn-effect click-effect">開始測驗</button>
+      </div>
+
+      <div class="test-card-list"></div>
+      <div class="test-card-result">
+        <div class="result-title">你有多適合下列學校呢？</div>
+        <div class="resultScore-Chart"></div>
+        <div class="chartScore"></div>
+        <button class="resultBtn click-effect"></button>
+      </div>
+    </div>
+
+    <form class="login-container" id="login-form" style="display: none">
+      <div class="login-card" id="login-card">
+        <img class="login-logo" src="./img/FE_logo-4.png" alt="FE_logo" />
+        <input
+          type="email"
+          class="login-input"
+          id="form-input-mail"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          class="login-input"
+          id="form-input-password"
+          placeholder="Password"
+        />
+        <a class="login-forgetpassword">忘記密碼？</a>
+        <div class="register-login-btns">
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="register-btn"
+          >
+            註冊
+          </button>
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="login-btn-inner"
+          >
+            登入
+          </button>
+        </div>
+        <button class="login-google-btn click-effect" id="login-google-btn">
+          Log In With Gmail
+        </button>
+      </div>
+    </form>
+
+    <script type="module" src="./scripts/common.js"></script>
+    <script type="module" src="./scripts/article.js"></script>
+    <script type="module" src="scripts/login.js"></script>
+  </body>
+</html>

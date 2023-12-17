@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="Shortcut Icon"
+      type="image/x-icon"
+      href="../part2/img/favicon.ico"
+    />
+    <link <link rel="stylesheet" type="text/css" href="./styles/common.css" />
+    <link
+      <link
+      rel="stylesheet"
+      type="text/css"
+      href="./styles/skilltree.css"
+    />
+    <title>技能樹</title>
+  </head>
+  <body id="body-main-content">
+    <header>
+      <figure>
+        <a href="./index.html" id="member-home"
+          ><img
+            class="logo click-effect"
+            src="./img/FE_logo-4.png"
+            alt="FE_logo"
+        /></a>
+      </figure>
+      <nav>
+        <li>
+          <a class="click-effect" id="member-article" href="./article.html"
+            >探索</a
+          >
+        </li>
+        <li>
+          <a class="click-effect" id="member-skilltree" href="./skilltree.html"
+            >技能樹</a
+          >
+        </li>
+        <li><a class="click-effect" id="login-btn">登入</a></li>
+        <img
+          class="header-search-icon click-effect"
+          id="header-search-icon"
+          src="./img/FE_search_green.png"
+          alt="FE_search_green"
+        />
+      </nav>
+    </header>
+
+    <main>
+      <section class="keyvisual">
+        <div class="keyvisual-content">技能樹</div>
+      </section>
+
+      <section class="skilltree-explain">
+        <p class="explain-title">技能樹說明</p>
+        <hr class="explain-hr" />
+        <p class="explain-content">
+          要成為一名稱職的前端，需要學會哪些技能呢？您不仿親自測試看看，自己已掌握了哪些能力。遊戲中，只需點擊按鈕回答問題，答對了，即能接續挑戰。
+        </p>
+      </section>
+
+      <section class="skilltree" id="skilltree">
+        <div class="skilltree-container">
+          <div class="skilltree-div">
+            <div class="skilltree-icon-container">
+              <img
+                class="skilltree-icon"
+                id="skilltree-icon-display"
+                src="https://frankyeah.github.io/Front-Enter/images/cute.svg"
+                style="width: 40px"
+              />
+              <div id="icon-window" style="display: none">
+                <div class="icon-box" id="icon-box">
+                  <p>請選擇 Icon</p>
+                  <div class="icon-img-container">
+                    <img
+                      class="skilltree-icon icon-select"
+                      id="icon-1"
+                      src="https://frankyeah.github.io/Front-Enter/images/cute.svg"
+                    />
+                    <img
+                      class="skilltree-icon icon-select"
+                      id="icon-2"
+                      src="https://frankyeah.github.io/Front-Enter/images/cute2.svg"
+                    />
+                    <img
+                      class="skilltree-icon icon-select"
+                      id="icon-3"
+                      src="https://frankyeah.github.io/Front-Enter/images/cute3.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skilltree-card" id="skill-HTML">
+              <p>HTML</p>
+            </div>
+
+            <div
+              class="skilltree-content-card-center"
+              id="skill-HTML-card"
+              style="display: none"
+            >
+              <p class="card-title">HTML</p>
+              <p class="card-text">
+                超文件標示語言(英語:Hyper Text Markup
+                Language，簡稱:HTML)是一種用於建立網頁的標準標示語言。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-2" style="visibility: visible">
+            <img
+              class="skilltree-line-minus-45"
+              src="./img/Minus-symbol-gray.svg"
+            />
+            <div class="skilltree-empty"></div>
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-CSS"><p>CSS</p></div>
+            <div
+              class="skilltree-content-card-left"
+              id="skill-CSS-card"
+              style="display: none"
+            >
+              <p class="card-title">CSS</p>
+              <p class="card-text">
+                層疊樣式表（英語： Cascading Style Sheets
+                簡寫CSS)是一種用來為結構化文件（如
+                HTML文件或XML應用)添加樣式(字型、間距和顏色等)的電腦語言。
+              </p>
+            </div>
+            <img
+              class="skilltree-line-level"
+              src="./img/Minus-symbol-gray.svg"
+            />
+            <div class="skilltree-card" id="skill-JavaScript">
+              <p>JavaScript</p>
+            </div>
+            <div
+              class="skilltree-content-card-right"
+              id="skill-JavaScript-card"
+              style="display: none"
+            >
+              <p class="card-title">JavaScript</p>
+              <p class="card-text">
+                JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計・以及函數語言程式設計。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-3">
+            <div class="skilltree-empty"></div>
+            <img
+              class="skilltree-line-minus-45"
+              src="./img/Minus-symbol-gray.svg"
+            />
+            <img
+              class="skilltree-line-vertical"
+              src="./img/Minus-symbol-gray.svg"
+            />
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-jQuery"><p>jQuery</p></div>
+            <div
+              class="skilltree-content-card-left"
+              id="skill-jQuery-card"
+              style="display: none"
+            >
+              <p class="card-title">jQuery</p>
+              <p class="card-text">
+                jQuery 是一套跨瀏覽器的 JavaScript 函式庫，簡化 HTML 與
+                JavaScript 之間的操作。
+              </p>
+            </div>
+            <div class="skilltree-empty"></div>
+            <div class="skilltree-card" id="skill-RWD"><p>RWD</p></div>
+            <div
+              class="skilltree-content-card-right"
+              id="skill-RWD-card"
+              style="display: none"
+            >
+              <p class="card-title">RWD</p>
+              <p class="card-text">
+                響應式網頁設計(英語:Responsive web design 通常縮寫為
+                RWD)，是一種網頁設計的技術做法，該設計可使網站在不同的裝置上瀏覽時，對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-2">
+            <div class="skilltree-empty"></div>
+            <img
+              class="skilltree-line-minus-45"
+              src="./img/Minus-symbol-gray.svg"
+            />
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-GitHub"><p>GitHub</p></div>
+            <div
+              class="skilltree-content-card-center"
+              id="skill-GitHub-card"
+              style="display: none"
+            >
+              <p class="card-title">GitHub</p>
+              <p class="card-text">
+                GitHub 是透過 Git進行版本 控制的軟體原始碼代管服務，由 GitHub
+                公司(曾稱 Logical Awesome)開發者 使用 Ruby on Rails 編窮而 成。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-2">
+            <img
+              class="skilltree-line-minus-45"
+              src="./img/Minus-symbol-gray.svg"
+            />
+            <img class="skilltree-line-45" src="./img/Minus-symbol-gray.svg" />
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-SCSS"><p>SCSS</p></div>
+            <div
+              class="skilltree-content-card-left"
+              id="skill-SCSS-card"
+              style="display: none"
+            >
+              <p class="card-title">SCSS</p>
+              <p class="card-text">
+                Sass 是一個將指令碼解析成CSS 的手稿語言・即 SassScript・Sass
+                包括兩套語法。最開始的語法叫做「縮排語法」•使用縮排來區分程式碼塊，並且用換行將不同規則分隔開。而較新的語法叫做「SCSS」・
+              </p>
+            </div>
+            <div class="skilltree-empty"></div>
+            <div class="skilltree-card" id="skill-Webpack"><p>Webpack</p></div>
+            <div
+              class="skilltree-content-card-right"
+              id="skill-Webpack-card"
+              style="display: none"
+            >
+              <p class="card-title">Webpack</p>
+              <p class="card-text">
+                Webpack
+                是一個開源的前端打包工具・Webpack提供了前端開發缺乏的模組化開發方式，將各種靜態資源視為模組，並從它生成優化過的程式碼。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-3">
+            <img
+              class="skilltree-line-vertical"
+              src="./img/Minus-symbol-gray.svg"
+            />
+            <div class="skilltree-empty"></div>
+            <img
+              class="skilltree-line-vertical"
+              src="./img/Minus-symbol-gray.svg"
+            />
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-Bootstrap">
+              <p>Bootstrap</p>
+            </div>
+            <div
+              class="skilltree-content-card-left"
+              id="skill-Bootstrap-card"
+              style="display: none"
+            >
+              <p class="card-title">Bootstrap</p>
+              <p class="card-text">
+                Bootstrap
+                是一組用於網站和網路應用程式開發的開源前端框架，提供字體排印、表單、按鈕、導航及其他各種元件及
+                Javascript 擴充套件，旨在使動態網頁和 Web 應用的開發更加容易。
+              </p>
+            </div>
+            <div class="skilltree-empty"></div>
+            <div class="skilltree-card" id="skill-React"><p>React</p></div>
+            <div
+              class="skilltree-content-card-right"
+              id="skill-React-card"
+              style="display: none"
+            >
+              <p class="card-title">React</p>
+              <p class="card-text">
+                React 是一個為資料提供彩現為 HTML 視圖的開源 JavaScript
+                庫。React 視圖通常採用包含以自訂 HTML
+                標記規定的其他元件的元件彩現。
+              </p>
+            </div>
+          </div>
+
+          <div class="skilltree-Interval-2">
+            <div class="skilltree-empty"></div>
+            <img
+              class="skilltree-line-minus-45"
+              src="./img/Minus-symbol-gray.svg"
+            />
+          </div>
+
+          <div class="skilltree-div">
+            <div class="skilltree-card" id="skill-UnitTest">
+              <p>Unit Test</p>
+            </div>
+            <div
+              class="skilltree-content-card-center"
+              id="skill-UnitTest-card"
+              style="display: none"
+            >
+              <p class="card-title">Unit Test</p>
+              <p class="card-text">
+                在電腦編程中，單元測試（英語：Unit
+                Testing）又稱為模組測試，是針對程式模組（軟體設計的最小單位）來進行正確性檢驗的測試工作。程式單元是應用的最小可測試部件・
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="top-icon-section">
+        <img
+          class="top-icon click-effect"
+          id="top-icon"
+          src="./img/FE_TOP.png"
+          alt="pen"
+        />
+      </section>
+      <nav>
+        <div>聯絡方式</div>
+        <div><span>M</span> 0975-282-356</div>
+        <div>
+          <span>E </span
+          ><a href="mailto:mynameisvince24@gmail.com"
+            >mynameisvince24@gmail.com</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://www.facebook.com/profile.php?id=100079762316652"
+            target="_blank"
+          >
+            <img src="./img/new-facebook-blue.svg" alt="pen" />
+          </a>
+          <a href="https://line.me/ti/p/v9ETm_J1dk" target="_blank">
+            <img src="./img/FE_line.png" alt="pen" />
+          </a>
+        </div>
+      </nav>
+    </footer>
+
+    <!-- <div id="loading-container">
+      <div class="color-block color-block-primary"></div>
+      <div class="color-block color-block-secondary"></div>
+      <img class="loader" src="./img/FE_logo-4.png" alt="loader" />
+    </div> -->
+
+    <aside id="aside-test-go">
+      <img class="aside-img click-effect" src="./img/FE_test_go.png" />
+    </aside>
+
+    <div id="search-container" style="display: none">
+      <div class="search-container-white">
+        <label>Search</label>
+        <form class="input-container">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="請填入搜尋文字"
+            required
+          />
+          <img
+            class="voice-icon click-effect"
+            id="voice-icon"
+            src="../img/Microphone.svg"
+            alt="FE_search_green"
+          />
+          <img
+            class="search-icon-inner click-effect"
+            id="search-icon-inner"
+            src="../img/FE_search_green.png"
+            alt="FE_search_green"
+          />
+        </form>
+      </div>
+      <div class="search-container-overlay"></div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
+      <div class="test-card-instruction">
+        <div class="start-title">測驗說明</div>
+        <div class="start-text">
+          點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+        </div>
+        <button class="test-start-btn btn-effect click-effect">開始測驗</button>
+      </div>
+      <div class="test-card-list"></div>
+      <div class="test-card-result">
+        <div class="result-title">你有多適合下列學校呢？</div>
+        <div class="resultScore-Chart"></div>
+        <div class="chartScore"></div>
+        <button class="resultBtn click-effect"></button>
+      </div>
+    </div>
+
+    <form class="login-container" id="login-form" style="display: none">
+      <div class="login-card" id="login-card">
+        <img class="login-logo" src="./img/FE_logo-4.png" alt="FE_logo" />
+        <input
+          type="email"
+          class="login-input"
+          id="form-input-mail"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          class="login-input"
+          id="form-input-password"
+          placeholder="Password"
+        />
+        <a class="login-forgetpassword">忘記密碼？</a>
+        <div class="register-login-btns">
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="register-btn"
+          >
+            註冊
+          </button>
+          <button
+            type="submit"
+            class="register-login-btn click-effect"
+            id="login-btn-inner"
+          >
+            登入
+          </button>
+        </div>
+        <button class="login-google-btn click-effect" id="login-google-btn">
+          Log In With Gmail
+        </button>
+      </div>
+    </form>
+
+    <div class="alert" style="display: none">
+      <p class="alert-title"></p>
+      <p class="alert-content"></p>
+    </div>
+
+    <div class="skill-test-section" style="display: none">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
+      <div class="test-card-question">
+        <div class="question-title" id="question-title"></div>
+        <button
+          class="question-option click-effect"
+          id="question-option-1"
+        ></button>
+        <button
+          class="question-option click-effect"
+          id="question-option-2"
+        ></button>
+        <button
+          class="question-option click-effect"
+          id="question-option-3"
+        ></button>
+      </div>
+    </div>
+
+    <div
+      class="correct-answer-animation"
+      id="correct-answer-animation"
+      style="display: none"
+    >
+      <div class="correct-ans-text" id="correct-ans-text"></div>
+    </div>
+
+    <script type="module" src="scripts/common.js"></script>
+    <script type="module" src="scripts/skilltree.js" defer></script>
+    <script type="module" src="scripts/login.js" defer></script>
+  </body>
+</html>

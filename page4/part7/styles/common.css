@@ -543,7 +543,7 @@ footer nav img:hover {
 .start-title {
   color: white;
   font-size: var(--text-size-h2);
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 70px;
 }
 

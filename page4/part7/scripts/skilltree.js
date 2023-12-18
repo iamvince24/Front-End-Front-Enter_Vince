@@ -6,7 +6,6 @@ const testData = {
     2: "資料庫工具",
     3: "瀏覽器規範",
     ans: 1,
-    order: 1,
     text: "你通過第一關，HTML 是成為前端工程師的橋頭堡，也是網站給人的第一印象，一定要學好才行。",
   },
   CSS: {
@@ -15,7 +14,6 @@ const testData = {
     2: "SCSS 非縮排語法",
     3: "不同程式語言",
     ans: 1,
-    order: 2,
     text: "哇，你竟然連 CSS 也略懂略懂。如果階層樣式學得好，就具備基礎網頁設計師的能力了，這時候，對於細節的掌握就更加重要囉。",
   },
   JavaScript: {
@@ -24,7 +22,6 @@ const testData = {
     2: "var",
     3: "let",
     ans: 1,
-    order: 3,
     text: "恭喜你通過 JavaScript 關卡。JavaScript 也是小編最喜歡的語言，掌握它，就等於邁入前端工程師的行列，它不只能為你帶來一份工作，也擴展你的視野，擁有接軌科技的能力。",
   },
   RWD: {
@@ -33,7 +30,6 @@ const testData = {
     2: "使用事件物件",
     3: "變數控制",
     ans: 1,
-    order: 4,
     text: "RWD 很神奇吧，它讓你在手機、平板上，都能方便觀看網頁，而不用放大縮小視窗，是讓使用者體驗升級的良方。",
   },
   jQuery: {
@@ -42,7 +38,6 @@ const testData = {
     2: "JS 是一種框架",
     3: "jQuery 並未開源",
     ans: 1,
-    order: 5,
     text: "jQuery 是相當方便的 JavaScript 函式庫，它幫你把程式封裝好，只要加上經典的 $ 字號作為前綴，就能使用眾多功能。",
   },
   GitHub: {
@@ -51,7 +46,6 @@ const testData = {
     2: "程式碼倉庫",
     3: "共同軟體開發",
     ans: 1,
-    order: 6,
     text: "在學習程式語言之前，很難想像有 GitHub 的存在吧，竟然有個倉庫專門在管理程式語言，還能讓人複製、共同編輯，並記錄每一次的 commit ，是一款優秀的協作工具。",
   },
   SCSS: {
@@ -60,7 +54,6 @@ const testData = {
     2: "SCSS",
     3: "PostCSS",
     ans: 1,
-    order: 7,
     text: "css 屬於程式設計入門款，而預處理器能以更有效率的方式，撰寫階層樣式，如果你擁有 JavaScript 的基本概念，學起來會特別快唷。",
   },
   Bootstrap: {
@@ -69,7 +62,6 @@ const testData = {
     2: "打包工具",
     3: "套件管理工具",
     ans: 1,
-    order: 8,
     text: "看來你學蠻快的，Bootstrap 能做到的，css 也能做到，如果有時間，不仿試試手刻 Bootstrap 的特效，精進樣式調校的能力。",
   },
   Webpack: {
@@ -78,7 +70,6 @@ const testData = {
     2: "Babel",
     3: "Styled-components",
     ans: 1,
-    order: 9,
     text: "你已經越來越厲害，掌握了近期火紅的打包工具，Webpack 和 React 是絕配，是幫助瀏覽器進行「翻譯」的良方。",
   },
   React: {
@@ -87,7 +78,6 @@ const testData = {
     2: "不存在異步問題",
     3: "不需要 Babel 編譯",
     ans: 1,
-    order: 10,
     text: "你太強了，React 是不容易掌握的框架，能讓使用者的體驗更好，你所使用的 facebook 就是運用這套框架呢。",
   },
   UnitTest: {
@@ -96,7 +86,6 @@ const testData = {
     2: "讓 Scrum 運作順利",
     3: "資料安全性",
     ans: 1,
-    order: 11,
     text: "終於抵達最後一關了，單元測試是為了確保函式的正確性，而進行的作業。雖然單元測試是最後一關，但工程的世界無止盡，身為一位 geek 就是要不斷學習精進唷。",
   },
 };
@@ -150,13 +139,15 @@ class SkillHandler {
   }
 
   async showTestCard(skill) {
+    this.cancelWrongOptionStyles(this.option1);
+    this.cancelWrongOptionStyles(this.option2);
+    this.cancelWrongOptionStyles(this.option3);
+
     this.optionTitle.innerHTML = testData[skill].question;
     this.option1.innerHTML = testData[skill][1];
     this.option2.innerHTML = testData[skill][2];
     this.option3.innerHTML = testData[skill][3];
     this.testSection.style.display = "flex";
-    // await this.setAnswerClickEvent(skill);
-    // await this.setWrongClickEvent(skill);
   }
 
   async setAnswerClickEvent(skill) {
@@ -170,9 +161,6 @@ class SkillHandler {
         await this.animateTextWithSound(testData[skill]["text"]);
         this.animation.addEventListener("click", () => {
           this.setDisplayNone(this.animation);
-          this.skilltreeIconContainer.parentNode.removeChild(
-            this.skilltreeIconContainer
-          );
           resolve();
         });
       });
@@ -192,9 +180,13 @@ class SkillHandler {
     }
   }
 
-  applyCorrectOptionStyles(optionElement) {
+  async applyCorrectOptionStyles(optionElement) {
     optionElement.style.background = `url(../img/correct-icon.svg) 4% 50% / contain no-repeat rgba(255, 255, 255, 0.8)`;
     optionElement.style.backgroundSize = "20px 20px";
+  }
+
+  async cancelCorrectOptionStyles(optionElement) {
+    optionElement.style.background = "none";
   }
 
   async applyWrongOptionStyles(optionElement) {
@@ -203,14 +195,21 @@ class SkillHandler {
     optionElement.style.backgroundSize = "20px 20px";
   }
 
+  async cancelWrongOptionStyles(optionElement) {
+    optionElement.classList.remove("shakeAnimation");
+    optionElement.style.background = "white";
+  }
+
   async animateTextWithSound(text) {
+    // console.log(text);
     const typingSound = new Audio("../img/typing.mp3");
     let index = 0;
 
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    this.animationText.innerHTML = "";
 
     while (index < text.length) {
-      this.animationText.innerHTML += text.charAt(index);
+      this.animationText.innerHTML += text[index];
       typingSound.play();
       index++;
       await delay(100);
@@ -218,13 +217,6 @@ class SkillHandler {
 
     typingSound.pause();
   }
-
-  // insertIconContainerBeforeSkill(skill) {
-  //   this.skill.parentNode.insertBefore(
-  //     this.skill,
-  //     document.querySelector(`.skilltree-skill-${skill}`)
-  //   );
-  // }
 }
 
 // Skilltree icon display
@@ -267,9 +259,9 @@ const skills = [
   "UnitTest",
 ];
 
-// skills.forEach((skill) => {
-//   new SkillHandler(`${skill}`, `#skill-${skill}`, `#skill-${skill}-card`);
-// });
+skills.forEach((skill) => {
+  new SkillHandler(`${skill}`, `#skill-${skill}`, `#skill-${skill}-card`);
+});
 
 const newElement = document.createElement("div");
 newElement.className = "skilltree-icon-container";
@@ -278,7 +270,7 @@ newElement.innerHTML = `
     class="skilltree-icon"
     id="skilltree-icon-display"
     src="https://frankyeah.github.io/Front-Enter/images/cute.svg"
-    style="width: 40px"
+
   />
   <div id="icon-window" style="display: none">
     <div class="icon-box" id="icon-box">
@@ -303,9 +295,6 @@ newElement.innerHTML = `
     </div>
   </div>
 `;
-///
-
-document.querySelector("#skill-HTML").classList.add("skilltree-focus");
 
 document.querySelector(".skill-test-section").addEventListener("click", () => {
   document.querySelector(".skill-test-section").style.display = "none";
@@ -321,32 +310,140 @@ const skilltreeIconContainer = document.querySelector(
   ".skilltree-icon-container"
 );
 
-const con = document.querySelector("#con");
-
-async function testfuncition() {
-  const htmlSkillHandler = new SkillHandler(
-    "HTML",
-    "#skill-HTML",
-    "#skill-HTML-card"
-  );
-  htmlSkillHandler.setClickDisplayEvent("HTML");
-  htmlSkillHandler.setWrongClickEvent("HTML");
-  await htmlSkillHandler.setAnswerClickEvent("HTML");
-  let targetElement = document.querySelector("#skill-CSS");
-  targetElement.parentNode.insertBefore(newElement, targetElement);
-
-  const CSSSkillHandler = new SkillHandler(
-    "CSS",
-    "#skill-CSS",
-    "#skill-CSS-card"
-  );
-  CSSSkillHandler.setClickDisplayEvent("CSS");
-  CSSSkillHandler.setWrongClickEvent("CSS");
-  await CSSSkillHandler.setAnswerClickEvent("CSS");
-  targetElement = document.querySelector("#skill-JavaScript");
-  targetElement.parentNode.insertBefore(newElement, targetElement);
-
-  console.log("123");
+function removeAllClickEvents(element) {
+  const oldElement = element;
+  const newElement = oldElement.cloneNode(true);
+  oldElement.parentNode.replaceChild(newElement, oldElement);
+  element = newElement;
 }
 
-testfuncition();
+async function handleSkill(
+  skill,
+  skillId,
+  cardId,
+  nextSkillId,
+  desktopLeftValue,
+  mobileLeftValue
+) {
+  const skillHandler = new SkillHandler(skill, skillId, cardId);
+  skillHandler.setClickDisplayEvent(skill);
+  skillHandler.setWrongClickEvent(skill);
+  await skillHandler.setAnswerClickEvent(skill);
+
+  const skilltreeIconContainerSkill = document.querySelector(
+    ".skilltree-icon-container"
+  );
+  if (skilltreeIconContainerSkill && skilltreeIconContainerSkill.parentNode) {
+    skilltreeIconContainerSkill.parentNode.removeChild(
+      skilltreeIconContainerSkill
+    );
+    let targetElement = document.querySelector(skillId);
+    targetElement.parentNode.insertBefore(newElement, targetElement);
+
+    const leftValue =
+      window.innerWidth <= 767 ? mobileLeftValue : desktopLeftValue;
+    newElement.style.left = leftValue;
+  }
+
+  document.querySelector(skillId).classList.remove("skilltree-focus");
+  document.querySelector(skillId).classList.add("skilltree-completed");
+  document.querySelector(nextSkillId).classList.add("skilltree-focus");
+  removeAllClickEvents(document.querySelector(skillId));
+  removeAllClickEvents(document.querySelector("#question-option-1"));
+  removeAllClickEvents(document.querySelector("#question-option-2"));
+  removeAllClickEvents(document.querySelector("#question-option-3"));
+}
+
+async function skilltreeGame() {
+  document.querySelector("#skill-HTML").classList.add("skilltree-focus");
+  await handleSkill(
+    "HTML",
+    "#skill-HTML",
+    "#skill-HTML-card",
+    "#skill-CSS",
+    "25%",
+    "20%"
+  );
+  await handleSkill(
+    "CSS",
+    "#skill-CSS",
+    "#skill-CSS-card",
+    "#skill-JavaScript",
+    "8%",
+    "6%"
+  );
+  await handleSkill(
+    "JavaScript",
+    "#skill-JavaScript",
+    "#skill-JavaScript-card",
+    "#skill-RWD",
+    "75%",
+    "73%"
+  );
+  await handleSkill(
+    "RWD",
+    "#skill-RWD",
+    "#skill-RWD-card",
+    "#skill-jQuery",
+    "75%",
+    "73%"
+  );
+  await handleSkill(
+    "jQuery",
+    "#skill-jQuery",
+    "#skill-jQuery-card",
+    "#skill-GitHub",
+    "8%",
+    "6%"
+  );
+  await handleSkill(
+    "GitHub",
+    "#skill-GitHub",
+    "#skill-GitHub-card",
+    "#skill-SCSS",
+    "25%",
+    "20%"
+  );
+  await handleSkill(
+    "SCSS",
+    "#skill-SCSS",
+    "#skill-SCSS-card",
+    "#skill-Bootstrap",
+    "8%",
+    "6%"
+  );
+  await handleSkill(
+    "Bootstrap",
+    "#skill-Bootstrap",
+    "#skill-Bootstrap-card",
+    "#skill-Webpack",
+    "8%",
+    "6%"
+  );
+  await handleSkill(
+    "Webpack",
+    "#skill-Webpack",
+    "#skill-Webpack-card",
+    "#skill-React",
+    "75%",
+    "73%"
+  );
+  await handleSkill(
+    "React",
+    "#skill-React",
+    "#skill-React-card",
+    "#skill-UnitTest",
+    "75%",
+    "73%"
+  );
+  await handleSkill(
+    "UnitTest",
+    "#skill-UnitTest",
+    "#skill-UnitTest-card",
+    null,
+    "25%",
+    "20%"
+  );
+}
+
+skilltreeGame();

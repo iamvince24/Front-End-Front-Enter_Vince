@@ -376,12 +376,22 @@
     top: -60px;
     left: 100px;
   }
+  .skilltree-icon {
+    width: 35px;
+  }
 }
 
 .skilltree-focus {
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
   font-weight: 400;
+}
+
+.skilltree-completed {
+  border: none;
+  color: white;
+  font-weight: 400;
+  background: var(--primary-color);
 }
 
 .skill-test-section {
@@ -435,7 +445,7 @@
 
 .question-title {
   color: white;
-  font-size: var(--text-size-h2);
+  font-size: var(--text-size-h2-1);
   font-weight: 400;
   margin-top: 70px;
   margin-bottom: 40px;
@@ -448,7 +458,7 @@
   font-weight: 400;
   background-color: white;
   letter-spacing: 2px;
-  margin-top: 30px;
+  margin-top: 20px;
 
   border-radius: 5px;
   cursor: pointer;
@@ -507,4 +517,16 @@
 
   left: 25%;
   bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .skilltree-icon-container {
+    left: 20%;
+    bottom: 40px;
+  }
+  .correct-ans-text {
+    width: 70%;
+    line-height: 40px;
+    letter-spacing: 3px;
+  }
 }

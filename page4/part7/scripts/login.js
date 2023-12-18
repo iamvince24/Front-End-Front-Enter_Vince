@@ -16,6 +16,8 @@ if (userId) {
   const memberHome = document.querySelector("#member-home");
   const memberArticle = document.querySelector("#member-article");
   const memberSkilltree = document.querySelector("#member-skilltree");
+  const memberContact = document.querySelector("#member-contact");
+
   const loginBtn = document.querySelector("#login-btn");
   const memberBtn = document.querySelector("#member-btn");
 
@@ -32,6 +34,7 @@ if (userId) {
   memberHome.href = `${window.location.origin}/index.html${window.location.search}`;
   memberArticle.href = `${window.location.origin}/article.html${window.location.search}`;
   memberSkilltree.href = `${window.location.origin}/skilltree.html${window.location.search}`;
+  memberContact.href = `${window.location.origin}/contact.html${window.location.search}`;
 
   if (loginBtn) {
     loginBtn.href = `${window.location.origin}/profile.html${window.location.search}`;

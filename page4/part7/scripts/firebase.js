@@ -186,14 +186,12 @@ async function fetchData() {
   return snapshot.val();
 }
 
-emailjs.init("Emr4nsGWX_CVxzxuB");
 async function contactMessage(value) {
+  emailjs.init("Emr4nsGWX_CVxzxuB");
   const [name, email, topic, content] = value;
   const db = getDatabase();
 
   const sanitizedEmail = email.replace(/\./g, "_");
-
-  console.log(sanitizedEmail);
 
   var newContactRef = {
     name: name,

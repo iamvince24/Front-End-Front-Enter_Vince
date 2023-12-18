@@ -15,6 +15,15 @@
       type="text/css"
       href="./styles/skilltree.css"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Emr4nsGWX_CVxzxuB");
+      })();
+    </script>
     <title>技能樹</title>
   </head>
   <body id="body-main-content">
@@ -334,7 +343,7 @@
       </section>
       <nav>
         <li>
-          <a href="./contact.html">聯絡我們</a>
+          <a href="./contact.html" id="member-contact">聯絡我們</a>
         </li>
         <li><span>M</span> 0975-282-356</li>
         <li>

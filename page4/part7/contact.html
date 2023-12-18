@@ -9,10 +9,23 @@
       href="../part2/img/favicon.ico"
     />
     <link <link rel="stylesheet" type="text/css" href="./styles/common.css" />
-    <link <link rel="stylesheet" type="text/css" href="./styles/article.css" />
-    <title>文章列表</title>
+    <link <link rel="stylesheet" type="text/css" href="./styles/contact.css" />
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqCh0yDFvsb3u1_Wn418s_4icoZ61rAiU&callback=initMap"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Emr4nsGWX_CVxzxuB");
+      })();
+    </script>
+    <title>技能樹</title>
   </head>
-  <body id="main-content">
+  <body id="body-main-content">
     <header>
       <figure>
         <a href="./index.html" id="member-home"
@@ -44,20 +57,58 @@
     </header>
 
     <main>
-      <section class="article-keyvisual">
-        <div class="article-keyvisual-content">蒐羅前端學校</div>
+      <section class="keyvisual">
+        <div class="keyvisual-content">聯絡洽談</div>
       </section>
 
-      <section class="article-tagbar">
-        <nav class="article-tagbar-list">
-          <li class="click-effect filter-btn">全部</li>
-          <li class="click-effect filter-btn">小班制</li>
-          <li class="click-effect filter-btn">放養制</li>
-          <li class="click-effect filter-btn">一對一</li>
-        </nav>
+      <section class="contact">
+        <div class="contact-form">
+          <p class="form-title">聯絡我們</p>
+          <p class="form-text">想進一步了解我們？歡迎來信與我們聯絡。</p>
+          <form class="form-main">
+            <input
+              type="text"
+              placeholder="姓名"
+              class="form-input"
+              id="input-name"
+              required
+            />
+            <input
+              type="email"
+              placeholder="信箱"
+              class="form-input"
+              id="input-mail"
+              required
+            />
+            <input
+              type="text"
+              placeholder="信件主旨"
+              class="form-input"
+              id="input-topic"
+              required
+            />
+            <textarea
+              class="form-input"
+              id="input-content"
+              name="contacts"
+              placeholder="信件內容"
+              required
+            ></textarea>
+            <button class="form-button click-effect" type="submit">送出</button>
+          </form>
+        </div>
+        <div class="contact-map">
+          <div class="map-address">
+            <img
+              class="location-icon"
+              src="./img/location_icon_one.png"
+              alt="location"
+            />
+            <p>106台北市大安區和平東路一段162號</p>
+          </div>
+          <div class="map-google"></div>
+        </div>
       </section>
-
-      <section class="articlelist"></section>
     </main>
 
     <footer>
@@ -134,7 +185,6 @@
     <div class="test-section">
       <div class="test-card-green"></div>
       <div class="test-card-gray"></div>
-
       <div class="test-card-instruction">
         <div class="start-title">測驗說明</div>
         <div class="start-text">
@@ -142,7 +192,6 @@
         </div>
         <button class="test-start-btn btn-effect click-effect">開始測驗</button>
       </div>
-
       <div class="test-card-list"></div>
       <div class="test-card-result">
         <div class="result-title">你有多適合下列學校呢？</div>
@@ -195,8 +244,37 @@
       <p class="alert-content"></p>
     </div>
 
-    <script type="module" src="./scripts/common.js"></script>
-    <script type="module" src="./scripts/article.js" defer></script>
+    <div class="skill-test-section" style="display: none">
+      <div class="test-card-green"></div>
+      <div class="test-card-gray"></div>
+      <div class="test-card-question">
+        <div class="question-title" id="question-title"></div>
+        <button
+          class="question-option click-effect"
+          id="question-option-1"
+        ></button>
+        <button
+          class="question-option click-effect"
+          id="question-option-2"
+        ></button>
+        <button
+          class="question-option click-effect"
+          id="question-option-3"
+        ></button>
+      </div>
+    </div>
+
+    <div
+      class="correct-answer-animation"
+      id="correct-answer-animation"
+      style="display: none"
+    >
+      <div class="correct-ans-text" id="correct-ans-text"></div>
+    </div>
+
+    <script type="module" src="scripts/common.js"></script>
+    <script type="module" src="scripts/firebase.js" defer></script>
+    <script type="module" src="scripts/contact.js" defer></script>
     <script type="module" src="scripts/login.js" defer></script>
   </body>
 </html>

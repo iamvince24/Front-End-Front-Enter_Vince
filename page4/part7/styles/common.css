@@ -37,6 +37,7 @@ body {
   --dark-color: #44aaa7;
   --background-color: #f2f2f2;
   --section-background-color: #ececec;
+  --map-background-color: #f7f7f7;
   --alert-background-color: #e1fffe;
   --complementary-color: #d8191e;
   --text-size-h1: 2.3rem;
@@ -98,7 +99,7 @@ button {
 }
 
 .click-effect:active {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 header {

@@ -2,6 +2,8 @@ import { firebaseConfig } from "./firebaseConfig.js";
 import { setRedirectLink } from "./utils.js";
 import { alertMessage } from "./common.js";
 
+// import { emailjs } from "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
@@ -184,6 +186,50 @@ async function fetchData() {
   return snapshot.val();
 }
 
+emailjs.init("Emr4nsGWX_CVxzxuB");
+async function contactMessage(value) {
+  const [name, email, topic, content] = value;
+  const db = getDatabase();
+
+  const sanitizedEmail = email.replace(/\./g, "_");
+
+  console.log(sanitizedEmail);
+
+  var newContactRef = {
+    name: name,
+    email: email,
+    topic: topic,
+    content: content,
+  };
+
+  await set(ref(db, "contacts/" + `${name}`), newContactRef);
+
+  try {
+    await set(ref(db, "contacts/" + sanitizedEmail), newContactRef);
+
+    emailjs
+      .send("service_f85wcm2", "template_sa2hb0q", {
+        from_name: name,
+        from_email: email,
+        message_subject: topic,
+        message_body: content,
+      })
+      .then(
+        function (response) {
+          // console.log("Email sent successfully:", response);
+          alertMessage("Success!", "信件已寄出！請至信箱檢查您寄出的信件內容");
+        },
+        function (error) {
+          // console.error("Email sending failed:", error);
+          alertMessage("Error!", "郵件發送失敗！請稍後再試。");
+        }
+      );
+  } catch (error) {
+    console.error("Error setting data in Firebase:", error);
+    alertMessage("Error!", "郵件發送失敗！請稍後再試。");
+  }
+}
+
 export {
   auth,
   registerWithEmailAndPassword,
@@ -195,4 +241,5 @@ export {
   readUserData,
   sendPasswordReset,
   fetchData,
+  contactMessage,
 };
